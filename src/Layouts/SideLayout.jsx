@@ -174,14 +174,14 @@ export default function SideLayout(Props) {
             icon={<FaRegChartBar size={20} className="list_icon" />}
             title="Sales"
           />
-        </ul>
         <div
-          className="w-full hidden md:flex items-center  gap-2 p-5  ps-7 cursor-pointer"
+          className="w-full flex items-center  gap-2 p-5  cursor-pointer"
           onClick={() => navigate("/admin")}
         >
           <BiLogOutCircle size={20} className="text-red-500" />
           {isOpen && <a className="font-medium text-red-500">Logout</a>}
         </div>
+        </ul>
       </div>
     </div>
   );

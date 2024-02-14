@@ -5,7 +5,7 @@ import SideLayout from "./SideLayout";
 import { Outlet } from "react-router-dom";
 
 export default function AdminLayout() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="max-w-[100vw]  h-[100vh] ">
       <div className="w-full bg-transparent h-14 md:h-20 ">

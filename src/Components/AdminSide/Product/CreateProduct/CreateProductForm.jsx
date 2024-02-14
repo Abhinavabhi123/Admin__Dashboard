@@ -74,11 +74,11 @@ export default function CreateProductForm() {
       <div className="w-full md:w-1/2 h-1/2 md:h-full bg-transparent flex flex-col items-center  pt-20">
         <div
           {...getRootProps({ className: "dropzone" })}
-          className="w-[70%] h-56 bg-slate-200 outline-dotted outline-blue-600 rounded-lg flex flex-col justify-center items-center"
+          className="w-[70%] h-56 bg-slate-200 outline-dotted outline-blue-500 rounded-lg flex flex-col justify-center items-center"
         >
           <input {...getInputProps()} />
-          <img src={Upload} alt="upload image" />
-          <p className="w-full text-center">
+          <img src={Upload} alt="upload image" className="w-14 md:w-20" />
+          <p className="w-full text-center text-sm">
             Drag & drop some files here, or click here
           </p>
         </div>

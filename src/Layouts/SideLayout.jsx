@@ -3,13 +3,14 @@ import "./adminLayout.css";
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
 import { LuLayoutDashboard } from "react-icons/lu";
 import { FaRegUser } from "react-icons/fa";
-import { BiCategoryAlt } from "react-icons/bi";
+import { BiCategoryAlt, BiLogOutCircle } from "react-icons/bi";
 import { BsBoxSeam } from "react-icons/bs";
 import { TiShoppingCart } from "react-icons/ti";
-import { FaRegChartBar } from "react-icons/fa";
+import { FaRegChartBar, FaChevronDown } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
-import { IoClose } from "react-icons/io5";
+import { IoClose, IoList } from "react-icons/io5";
+import { IoMdAdd } from "react-icons/io";
 
 export default function SideLayout(Props) {
   const location =
@@ -19,23 +20,77 @@ export default function SideLayout(Props) {
 
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [dropDown, setDropDown] = useState({
+    product: false,
+  });
   const { isOpen, setIsOpen } = Props;
   function changeOpen() {
     setIsOpen((prev) => !prev);
+  }
+  function changeMenuOpen() {
     setMenuOpen((prev) => !prev);
   }
   useEffect(() => {
-      if (window.innerWidth <= 916) {
-        console.log("ooo");
-      setIsOpen(false);
+    if (window.innerWidth <= 768) {
+      console.log("ooo");
+      setIsOpen(true);
     }
   }, [setIsOpen]);
-  console.log(location);
+
+  function handleDropDown(name) {
+    setDropDown((prevState) => ({
+      ...prevState,
+      [name]: !prevState[name],
+    }));
+  }
+
+  const List = (Props) => {
+    const { url, icon, title, down } = Props;
+    // console.log( url,"url");
+    // console.log(location,"location");
+    // console.log(location === url);
+    return (
+      <li
+        className={`navList flex flex-col  items-center justify-between pe-3 ${location === `${url}` ?"active":""}`}
+        onClick={() => {
+          handleDropDown(down);
+          if (url !== undefined) {
+            navigate(`/admin/${url}`);
+            setMenuOpen(false);
+          }
+        }}
+      >
+        <div className={`w-full h-full  flex justify-between items-center `}>
+          <div className="flex gap-3 ">
+            {icon}
+            {isOpen && (
+              <a className="text-sm md:text-base  truncate">{title}</a>
+            )}
+          </div>
+          {down && (
+            <div className={`${isOpen ? "block" : "hidden"}`}>
+              {dropDown?.[down] ? (
+                <FaChevronDown
+                  size={12}
+                  className="rotate-180 transition-all"
+                />
+              ) : (
+                <FaChevronDown size={12} className="transition-all" />
+              )}
+            </div>
+          )}
+        </div>
+      </li>
+    );
+  };
+
   return (
     <div
-      className={` ${!isOpen ? "md:w-20" : "md:w-1/6"} w-full rounded-r-lg ${
+      className={` ${
+        !isOpen ? "md:w-20" : "md:w-1/6"
+      } w-full md:rounded-r-lg rounded-b-lg ${
         menuOpen ? "h-fit" : "h-14"
-      }  md:h-full transition-all  duration-300 fixed top-20 left-0 bg-[#7E30E1]`}
+      }  md:h-[40.6rem] transition-all  duration-300 fixed md:top-20 left-0 bg-[#75CFC0]`}
     >
       {/* Toggle setup laptop*/}
       <div
@@ -50,7 +105,7 @@ export default function SideLayout(Props) {
       </div>
       <div className="flex justify-between px-4  items-center p-2">
         <div className=" flex justify-center items-center gap-4">
-          <h4 className="text-white font-semibold">Home</h4>
+          <h4 className="text-black font-semibold">Home</h4>
           <div
             className={`w-full h-[1px] ${
               isOpen ? "block" : "hidden"
@@ -59,66 +114,75 @@ export default function SideLayout(Props) {
         </div>
         <div
           className="md:hidden w-10 h-10 flex justify-center items-center"
-          onClick={changeOpen}
+          onClick={changeMenuOpen}
         >
           {!menuOpen ? <HiOutlineMenuAlt1 size={20} /> : <IoClose size={20} />}
         </div>
       </div>
-      <ul
-        className={`w-full h-full ${
-          menuOpen ? "flex" : "hidden"
-        } md:flex  flex-col space-y-2 p-2 `}
-      >
-        <li
-          className={`navList ${location === "dashboard" && "active"}`}
-          onClick={() => navigate("/admin/dashboard")}
+      <div className="flex w-full h-[38.1rem] flex-col justify-between">
+        <ul
+          className={`w-full h-fit ${
+            menuOpen ? "flex" : "hidden"
+          } md:flex  flex-col space-y-2 p-2 `}
         >
-          <LuLayoutDashboard size={20} className="list_icon" />
-          {isOpen && (
-          <a
-            className="transition-all text-sm md:text-base duration-300 truncate"
-          >
-            {" "}
-            Dashboard
-          </a>
-         )} 
-        </li>
-        <li
-          className={`navList ${location === "users" && "active"}`}
-          onClick={() => navigate("/admin/users")}
-        >
-          <FaRegUser size={20} className="list_icon" />
-          {isOpen && (
-            <a className="transition-all text-sm md:text-base duration-300 truncate">Users</a>
-          )}
-        </li>
-        <li className="navList">
-          <BiCategoryAlt size={20} />
-          {isOpen && (
-            <a className="transition-all text-sm md:text-base duration-300 truncate">Category</a>
-          )}
-        </li>
-        <li className="navList">
-          <BsBoxSeam size={20} />
-          {isOpen && (
-            <a className="transition-all text-sm md:text-base duration-300 truncate">Products</a>
-          )}
-        </li>
-        <li className="navList">
-          <TiShoppingCart size={20} />
-          {isOpen && (
-            <a className="transition-all text-sm md:text-base duration-300 truncate">Orders</a>
-          )}
-        </li>
-        <li className="navList">
-          <FaRegChartBar size={20} />
-          {isOpen && (
-            <a className="transition-all text-sm md:text-base duration-300 truncate">Sales</a>
-          )}
-        </li>
-      </ul>
+          <List
+            url={"dashboard"}
+            icon={<LuLayoutDashboard size={20} className="list_icon" />}
+            title="Dashboard"
+          />
+          <List
+            url={"users"}
+            icon={<FaRegUser size={20} className="list_icon" />}
+            title="Users"
+          />
+          <List
+            url={"categories"}
+            icon={<BiCategoryAlt size={20} className="list_icon" />}
+            title="Category"
+          />
+          {/* Products section start */}
+          <List
+            // url={"products"}
+            icon={<BsBoxSeam size={20} className="list_icon" />}
+            title="Products"
+            down={"product"}
+          />
 
-      {/* <div className="w-full h-20 bg-red-500">LogOut</div> */}
+          <ul
+            className={`${
+              dropDown?.product && isOpen ? "flex  transition-all" : "hidden"
+            } duration-700 flex-col  ms-3 py-1 rounded-md`}
+          >
+            <List
+              icon={<IoList size={20} className="list_icon" />}
+              title="Product List"
+              />
+            <List
+              icon={<IoMdAdd size={20} className="list_icon" />}
+              title="Create Product"
+              url={"product/create"}
+            />
+          </ul>
+          {/* Product section end*/}
+          <List
+            url={"orders"}
+            icon={<TiShoppingCart size={20} className="list_icon" />}
+            title="Orders"
+          />
+          <List
+            url={"sales"}
+            icon={<FaRegChartBar size={20} className="list_icon" />}
+            title="Sales"
+          />
+        </ul>
+        <div
+          className="w-full hidden md:flex items-center gap-2 p-5 cursor-pointer"
+          onClick={() => navigate("/admin")}
+        >
+          <BiLogOutCircle size={20} className="text-red-500" />
+          {isOpen && <a className="font-medium text-red-500">Logout</a>}
+        </div>
+      </div>
     </div>
   );
 }

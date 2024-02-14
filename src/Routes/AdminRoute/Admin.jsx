@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { AdminDashboard, AdminLogin, UserManagement } from "../../Pages";
 import AdminLayout from "../../Layouts/AdminLayout";
+import ProductRoute from "./ProductRoute";
 
 export default function Admin() {
   return (
@@ -10,22 +11,10 @@ export default function Admin() {
         <Route element={<AdminLayout />}>
           <Route path="/dashboard" element={<AdminDashboard />} />
           <Route path="/users" element={<UserManagement />} />
+          <Route path="/product/*" element={<ProductRoute/>} />
         </Route>
       </Routes>
     </div>
   );
 }
 
-{
-  /* <Route
-  path="/dashboard/*"
-  element={
-    <AdminLayout>
-      <Routes>
-        <Route path="/" element={<AdminDashboard />} />
-        <Route path="/users" element={<UserManagement />} />
-      </Routes>
-    </AdminLayout>
-  }
-/> */
-}

@@ -8,7 +8,7 @@ export default function AdminLayout() {
   const [isOpen, setIsOpen] = useState(true);
   return (
     <div className="w-screen h-[100vh] ">
-      <div className="w-full h-10 md:h-20 ">
+      <div className="w-full bg-red-500 h-14 md:h-20 ">
         <HeaderLayout />
       </div>
       <div className="w-full h-[40.5rem] bg-transparent flex  flex-col md:flex-row">

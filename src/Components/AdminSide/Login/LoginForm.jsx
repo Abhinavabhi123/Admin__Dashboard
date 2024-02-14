@@ -65,7 +65,7 @@ export default function LoginForm() {
             name="email"
             id="email"
             placeholder="Email Address"
-            className="w-full h-10 ps-2 outline-none"
+            className="w-full h-10 ps-2 outline-none placeholder:text-sm"
             onChange={handleChange}
           />
         </div>
@@ -79,7 +79,7 @@ export default function LoginForm() {
             name="password"
             id="password"
             placeholder="Email password"
-            className="w-full h-10 ps-2 outline-none"
+            className="w-full h-10 ps-2 outline-none placeholder:text-sm"
             onChange={handleChange}
           />
           {showPass ? (

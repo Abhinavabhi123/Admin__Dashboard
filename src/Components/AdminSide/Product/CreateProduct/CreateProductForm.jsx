@@ -10,7 +10,7 @@ export default function CreateProductForm() {
     accept: "image/*",
     onDrop: (acceptedFiles) => {
       const validatedFiles = acceptedFiles.filter((file) => {
-       console.log(file,"file");
+      //  console.log(file,"file");
         const isValidFileType = file.type.startsWith("image/");
         const isValidFileSize = file.size <= 10 * 1024 * 1024;
         if (!isValidFileType) {
@@ -40,7 +40,7 @@ export default function CreateProductForm() {
     setFiles((prev) => prev.filter((item, i) => i !== index));
   }
 
-  console.log(files, "files");
+  // console.log(files, "files");
   const thumbs = files.map((file, i) => (
     <div
       key={i}

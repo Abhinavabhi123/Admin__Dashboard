@@ -19,12 +19,11 @@
 .navList:hover {
   background-color: #083344;
 }
-.navList.active:hover a,
 .navList.active:hover .list_icon {
   color: white;
 }
 
-.navList.active > .list_icon,
-.navList.active > a {
+.list_active> .list_icon,
+.list_active > a {
   color: #083344;
 }

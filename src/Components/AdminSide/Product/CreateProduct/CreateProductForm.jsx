@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import Upload from "../../../../assets/images/upload.png";
 import { IoMdClose } from "react-icons/io";
-import "./create.css"
+import "./create.css";
 
 export default function CreateProductForm() {
   const [files, setFiles] = useState([]);
@@ -12,33 +12,37 @@ export default function CreateProductForm() {
     onDrop: (acceptedFiles) => {
       const validatedFiles = acceptedFiles.filter((file) => {
         const isValidFileType = file.type.startsWith("image/");
-        const isValidFileSize = file.size <= 10 * 1024 * 1024;
+        const isValidImageType =
+          file.name.toLowerCase().endsWith("jpeg") ||
+          file.name.toLowerCase().endsWith("jpg") ||
+          file.name.toLowerCase().endsWith("png");
+        const isValidFileSize = file.size <= 5 * 1024 * 1024;
         if (!isValidFileType) {
           setError("Invalid file type. Please select an image file.");
         } else if (!isValidFileSize) {
           setError(
             "File size exceeds the limit. Please select a smaller file."
           );
+        } else if (!isValidImageType) {
+          setError("Invalid file type. Please select a JPEG or JPG image.");
+          return; // Or use another method to reject the file
         } else {
           return true;
         }
         return false;
       });
 
-      setFiles((prev) => [
-        ...prev,
-        ...validatedFiles.map((file) => ({
-          ...file,
-          preview: URL.createObjectURL(file),
-        })),
-      ]);
+      setFiles((prev) => [...prev, ...validatedFiles]);
     },
   });
+  console.log(files, "file");
 
-  async function removeImage(index) {
-    URL.revokeObjectURL(files[index].preview);
+  // function to remove image
+  function removeImage(index) {
+    URL.revokeObjectURL(files[index]);
     setFiles((prev) => prev.filter((item, i) => i !== index));
   }
+  // display image preview
   const thumbs = files.map((file, i) => (
     <div
       key={i}
@@ -46,12 +50,12 @@ export default function CreateProductForm() {
     >
       <div className="overflow-hidden flex">
         <img
-          src={file.preview}
+          src={URL.createObjectURL(file)}
           className="block w-auto h-full object-cover rounded-md"
           onLoad={() => {
-            URL.revokeObjectURL(file.preview);
+            URL.revokeObjectURL(file);
           }}
-          alt={file.preview}
+          alt={i}
         />
         <div
           className="absolute w-5 h-5 rounded-full right-1 bg-white flex justify-center items-center cursor-pointer"
@@ -67,7 +71,7 @@ export default function CreateProductForm() {
   return (
     <div className="w-full h-fit bg-transparent flex flex-col md:flex-row">
       {/* Form section */}
-      <div className="w-full md:w-1/2 h-1/2 md:h-full bg-transparent"></div>
+      <div className="w-full md:w-1/2 h-[30rem] md:h-full bg-yellow-500 mb-5 md:mb-0"></div>
       {/* Image section */}
       <div className="w-full md:w-1/2 h-1/2 md:h-full bg-transparent flex flex-col items-center ">
         <div
@@ -80,8 +84,8 @@ export default function CreateProductForm() {
             Drag & drop some files here, or click here
           </p>
         </div>
-        {error && <p className="text-sm text-red-500">{error}</p>}
-        <aside className="flex flex-row flex-wrap  mt-4 w-[80%] h-[21.5rem] overflow-y-scroll  scrollbar-hide justify-center gap-2">
+        {error && <p className="text-xs md:text-sm text-red-500 mt-2">{error}</p>}
+        <aside className=" flex justify-center flex-wrap md:grid md:grid-cols-3 lg:grid-cols-4  mt-4 w-[80%]min-h-fit max-h-[21.5rem] overflow-y-scroll  scrollbar-hide gap-2">
           {thumbs}
         </aside>
       </div>

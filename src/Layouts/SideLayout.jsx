@@ -51,7 +51,7 @@ export default function SideLayout(Props) {
     // console.log(location === url);
     return (
       <li
-        className={`navList flex flex-col  items-center justify-between pe-3 ${location === `${url}` ?"active":""}`}
+        className={`navList pt-2 flex flex-col  items-center justify-between pe-3 ${location === `${url}` ?"list_active":""}`}
         onClick={() => {
           handleDropDown(down);
           if (url !== undefined) {
@@ -90,7 +90,7 @@ export default function SideLayout(Props) {
         !isOpen ? "md:w-20" : "md:w-1/6"
       } w-full md:rounded-r-lg rounded-b-lg ${
         menuOpen ? "h-fit" : "h-14"
-      }  md:h-[40.6rem] transition-all  duration-300 fixed md:top-20 left-0 bg-[#75CFC0]`}
+      }  md:h-[40.6rem] transition-all  duration-1000 md:duration-300 fixed md:top-20 left-0 bg-[#75CFC0]`}
     >
       {/* Toggle setup laptop*/}
       <div
@@ -119,7 +119,7 @@ export default function SideLayout(Props) {
           {!menuOpen ? <HiOutlineMenuAlt1 size={20} /> : <IoClose size={20} />}
         </div>
       </div>
-      <div className="flex w-full h-[38.1rem] flex-col justify-between">
+      <div className="flex w-full h-fit flex-col justify-between">
         <ul
           className={`w-full h-fit ${
             menuOpen ? "flex" : "hidden"

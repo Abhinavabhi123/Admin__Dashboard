@@ -46,7 +46,7 @@ export default function CreateProductForm() {
   const thumbs = files.map((file, i) => (
     <div
       key={i}
-      className="inline-flex relative rounded-md border transition-all duration-700 border-gray-300 w-24 h-24 p-1"
+      className="inline-flex relative rounded-md border transition-all duration-700 z-0 border-gray-300 w-24 h-24 p-1"
     >
       <div className="overflow-hidden flex">
         <img
@@ -73,19 +73,19 @@ export default function CreateProductForm() {
       {/* Form section */}
       <div className="w-full md:w-1/2 h-[30rem] md:h-full bg-yellow-500 mb-5 md:mb-0"></div>
       {/* Image section */}
-      <div className="w-full md:w-1/2 h-1/2 md:h-full bg-transparent flex flex-col items-center ">
+      <div className="w-full md:w-1/2 h-1/2 md:h-fit bg-transparent py-8 flex flex-col items-center ">
         <div
           {...getRootProps({ className: "dropzone" })}
-          className="w-[70%] h-56 bg-slate-200 outline-dotted outline-blue-500 rounded-lg flex flex-col justify-center items-center"
+          className="w-[60%] h-56 bg-slate-200 outline-dotted outline-blue-500 rounded-lg flex flex-col justify-center items-center md:mt-4"
         >
           <input {...getInputProps()} />
           <img src={Upload} alt="upload image" className="w-14 md:w-20" />
-          <p className="w-full text-center text-sm">
+          <p className="w-full text-center text-xs px-2 md:text-sm">
             Drag & drop some files here, or click here
           </p>
         </div>
-        {error && <p className="text-xs md:text-sm text-red-500 mt-2">{error}</p>}
-        <aside className=" flex justify-center flex-wrap md:grid md:grid-cols-3 lg:grid-cols-4  mt-4 w-[80%]min-h-fit max-h-[21.5rem] overflow-y-scroll  scrollbar-hide gap-2">
+        {error && <p className="text-xs px-3 md:text-sm text-center text-red-500 mt-2">{error}</p>}
+        <aside className="  grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5  mt-4 md:w-[80%] min-h-fit  bg-transparent overflow-y-scroll  scrollbar-hide gap-2">
           {thumbs}
         </aside>
       </div>

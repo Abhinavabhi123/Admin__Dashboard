@@ -87,10 +87,10 @@ export default function SideLayout(Props) {
   return (
     <div
       className={` ${
-        !isOpen ? "md:w-20" : "md:w-1/6"
+        !isOpen ? "md:w-20" : "md:w-[250px]"
       } w-full md:rounded-r-lg rounded-b-lg ${
         menuOpen ? "h-fit" : "h-14"
-      }  md:h-[40.6rem] transition-all  duration-1000 md:duration-300 fixed md:top-20 left-0 bg-[#75CFC0]`}
+      }  md:h-[40.6rem] transition-all  z-10 duration-1000 md:duration-300 fixed md:top-20 left-0 bg-[#75CFC0]`}
     >
       {/* Toggle setup laptop*/}
       <div
@@ -176,7 +176,7 @@ export default function SideLayout(Props) {
           />
         </ul>
         <div
-          className="w-full hidden md:flex items-center gap-2 p-5 cursor-pointer"
+          className="w-full hidden md:flex items-center  gap-2 p-5  ps-7 cursor-pointer"
           onClick={() => navigate("/admin")}
         >
           <BiLogOutCircle size={20} className="text-red-500" />

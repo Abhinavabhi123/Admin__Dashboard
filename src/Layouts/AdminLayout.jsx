@@ -21,7 +21,7 @@ export default function AdminLayout() {
         </div>
         <div
           className={`w-full ${
-            !isOpen ? "md:w-[98%]" : " md:w-[86%]"
+            !isOpen ? "md:w-[95.7%]" : "md:w-[86%]"
           } transition-all duration-300 mt-2 md:mt-0 h-full`}
         >
           <Outlet />

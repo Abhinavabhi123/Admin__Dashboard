@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import Upload from "../../../../assets/images/upload.png";
 import { IoMdClose } from "react-icons/io";
@@ -7,6 +7,13 @@ import "./create.css";
 export default function CreateProductForm() {
   const [files, setFiles] = useState([]);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    setTimeout(() => {
+      setError("");
+    }, 5000);
+  }, [error]);
+
   const { getRootProps, getInputProps } = useDropzone({
     accept: "image/*",
     onDrop: (acceptedFiles) => {
@@ -24,7 +31,7 @@ export default function CreateProductForm() {
             "File size exceeds the limit. Please select a smaller file."
           );
         } else if (!isValidImageType) {
-          setError("Invalid file type. Please select a JPEG or JPG image.");
+          setError("Invalid file type. Please select a JPEG, png or JPG image.");
           return; // Or use another method to reject the file
         } else {
           return true;
@@ -81,10 +88,14 @@ export default function CreateProductForm() {
           <input {...getInputProps()} />
           <img src={Upload} alt="upload image" className="w-14 md:w-20" />
           <p className="w-full text-center text-xs px-2 md:text-sm">
-            Drag & drop some files here, or click here
+            Drag & Drop some files here, or click here
           </p>
         </div>
-        {error && <p className="text-xs px-3 md:text-sm text-center text-red-500 mt-2">{error}</p>}
+        {error && (
+          <p className="text-xs px-3 md:text-sm text-center text-red-500 mt-2">
+            {error}
+          </p>
+        )}
         <aside className="  grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5  mt-4 md:w-[80%] min-h-fit  bg-transparent overflow-y-scroll  scrollbar-hide gap-2">
           {thumbs}
         </aside>

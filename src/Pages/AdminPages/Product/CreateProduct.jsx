@@ -9,7 +9,7 @@ export default function CreateProduct() {
   const validationSchema = Yup.object().shape({
     name: Yup.string().min(2, 'Name must be at least 2 characters').required('Name is required'),
     price: Yup.number().moreThan(-1, 'Price must be a non-negative number').required('Price is required'),
-    offer: Yup.number().moreThan(-1, 'Offer must be a non-negative number').required('Offer is required'),
+    offer: Yup.number().moreThan(-1, 'Offer must be a non-negative number').required('Offer Price is required'),
     stock: Yup.number().moreThan(-1, 'Stock must be a non-negative number').required('Stock is required'),
     category: Yup.string().required('Category is required'),
     status: Yup.string().required('Status is required'),
@@ -29,7 +29,8 @@ export default function CreateProduct() {
   const {  handleChange, handleSubmit, errors } = useFormik({
     initialValues,
     validationSchema,
-    onSubmit: () => {
+    onSubmit: (values ) => {
+      console.log(values );
       alert("Form submitted Successfully")
       console.log("Success");
     },

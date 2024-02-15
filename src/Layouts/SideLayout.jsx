@@ -46,9 +46,6 @@ export default function SideLayout(Props) {
 
   const List = (Props) => {
     const { url, icon, title, down , path } = Props;
-    console.log( path,"url");
-    console.log(location,"location");
-    console.log(location === url);
     return (
       <li
       className={`navList pt-2 flex flex-col  items-center justify-between pe-3 ${location === path ? "active":""}`}

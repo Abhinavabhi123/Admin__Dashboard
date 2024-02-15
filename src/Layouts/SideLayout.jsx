@@ -183,7 +183,7 @@ export default function SideLayout(Props) {
           onClick={() => navigate("/admin")}
         >
           <BiLogOutCircle size={20} className="text-red-500" />
-          {isOpen && <a className="font-medium text-red-500">Logout</a>}
+          {isOpen && <a className="font-medium text-red-500 text-sm md:text-base">Logout</a>}
         </div>
         </ul>
       </div>

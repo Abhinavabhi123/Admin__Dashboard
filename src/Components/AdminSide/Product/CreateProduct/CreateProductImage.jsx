@@ -24,7 +24,7 @@ export default function CreateProductForm() {
           file.name.toLowerCase().endsWith("jpeg") ||
           file.name.toLowerCase().endsWith("jpg") ||
           file.name.toLowerCase().endsWith("png");
-        const isValidFileSize = file.size <= 5 * 1024 * 1024;
+        const isValidFileSize = file.size <= 2 * 1024 * 1024;
         if (!isValidFileType) {
           setError("Invalid file type. Please select an image file.");
         } else if (!isValidFileSize) {

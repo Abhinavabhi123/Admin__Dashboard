@@ -61,7 +61,7 @@ export default function SideLayout(Props) {
           <div className="flex gap-3 ">
             <div>{icon}</div>
             {isOpen && (
-              <a className="text-sm md:text-base  truncate">{title}</a>
+              <a className="text-sm md:text-base transition-all duration-700 delay-200 truncate">{title}</a>
             )}
           </div>
           {down && (
@@ -84,10 +84,10 @@ export default function SideLayout(Props) {
   return (
     <div
       className={` ${
-        !isOpen ? "md:w-20" : "md:w-[250px]"
+        !isOpen ? "md:w-20" : "md:w-[250px] md:max-[895px]:w-[230px]"
       } w-full md:rounded-r-lg rounded-b-lg ${
-        menuOpen ? "h-fit" : "h-14"
-      }  md:h-[40.6rem] transition-all  z-10 duration-1000 md:duration-300 fixed md:top-20 left-0 bg-[#75CFC0]`}
+        menuOpen ? "h-fit transition-color duration-300" : "h-14"
+      }  md:h-[40.6rem] transition-all  z-10  md:duration-200 fixed md:top-20 left-0 bg-[#75CFC0]`}
     >
       {/* Toggle setup laptop*/}
       <div

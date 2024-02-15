@@ -67,7 +67,7 @@ export default function CreateProductForm() {
     <div className="w-full md:w-1/2 h-1/2 md:h-fit bg-transparent py-8 flex flex-col items-center">
       <div
         {...getRootProps({ className: "dropzone" })}
-        className="w-[60%] h-56 bg-slate-200 outline-dotted outline-blue-500 rounded-lg flex flex-col justify-center items-center md:mt-4"
+        className="w-[60%] h-56 bg-slate-200 bg-opacity-50 outline-dotted outline-blue-500 rounded-lg flex flex-col justify-center items-center md:mt-4"
       >
         <input {...getInputProps()} />
         <img src={Upload} alt="upload image" className="w-14 md:w-20" />
@@ -86,7 +86,8 @@ export default function CreateProductForm() {
             <div
               {...provided.droppableProps}
               ref={provided.innerRef}
-              className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5  mt-4 md:w-[80%] min-h-fit bg-transparent overflow-y-scroll scrollbar-hide gap-2"
+              className="flex flex-wrap justify-center mt-4 md:w-[80%] min-h-fit bg-transparent overflow-y-scroll scrollbar-hide gap-2"
+              // className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4  mt-4 md:w-[80%] min-h-fit bg-transparent overflow-y-scroll scrollbar-hide gap-2"
             >
               {files.map((file, index) => (
                 <Draggable key={file.name} draggableId={file.name} index={index}>
@@ -95,7 +96,7 @@ export default function CreateProductForm() {
                       ref={provided.innerRef}
                       {...provided.draggableProps}
                       {...provided.dragHandleProps}
-                      className="flex relative rounded-md border z-0 cursor-pointer border-gray-300 w-24 h-24 p-1"
+                      className={`flex relative rounded-md  z-0 cursor-pointer ${index===0?"border-2 border-blue-500":" border border-gray-300"}  w-24 h-24 p-1`}
                     >
                       <div className="overflow-hidden flex">
                         <img

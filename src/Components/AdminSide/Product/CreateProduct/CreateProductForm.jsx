@@ -133,14 +133,14 @@ export default function CreateProductForm(Props) {
           <div className="flex flex-col gap-1  items-center">
             <label
               htmlFor="description"
-              className="text-sm w-full text-start md:ps-12"
+              className="text-sm w-full text-start md:ps-3"
             >
               Product Description <span className="text-red-500 ">*</span>
             </label>
             <textarea
               name="description"
               id="description"
-              className="w-full md:w-[85%]  ps-2 rounded-md outline-none text-sm border border-primary py-2"
+              className="w-full min-w-[16rem] md:w-[96%]  ps-2 rounded-md outline-none text-sm border border-primary py-2"
               rows="8"
               placeholder="Product Description"
               onChange={handleChange}

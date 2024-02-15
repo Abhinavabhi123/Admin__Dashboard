@@ -1,14 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import Upload from "../../../../assets/images/upload.png";
 import { IoMdClose } from "react-icons/io";
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import "./create.css";
 
 export default function CreateProductForm() {
   const [files, setFiles] = useState([]);
   const [error, setError] = useState("");
-  const dragImage = useRef(0)
-  const draggedOver = useRef(0)
 
   useEffect(() => {
     setTimeout(() => {
@@ -47,53 +46,25 @@ export default function CreateProductForm() {
     },
   });
 
-
-  // function to remove image
-  function removeImage(index) {
-    URL.revokeObjectURL(files[index]);
-    setFiles((prev) => prev.filter((item, i) => i !== index));
-  }
-  const handleSort = () => {
-    const images=[...files]
-    const temp = images[dragImage.current]
-    images[dragImage.current] = images[draggedOver.current]
-    images[draggedOver.current] = temp;
-    setFiles(images)
+  // Function to remove image
+  const removeImage = (index) => {
+    const updatedFiles = [...files];
+    updatedFiles.splice(index, 1);
+    setFiles(updatedFiles);
   };
-  // display image preview
-  const thumbs = files.map((file, i) => (
-    <div
-    key={i}
-    className={`flex relative rounded-md border transition-all duration-700 z-0 cursor-pointer border-gray-300 w-24 h-24 p-1 ${dragImage.current === i ? 'dragging' : ''}`}
-    draggable
-    onDragStart={() => dragImage.current = i}
-    onDragEnter={() => draggedOver.current = i}
-    onDragEnd={handleSort}
-    onDragOver={(e) => e.preventDefault()}
-  >
-    <div className="overflow-hidden  flex">
-      <img
-        src={URL.createObjectURL(file)}
-        className="block w-auto h-full relative object-cover rounded-md"
-        onLoad={() => {
-          URL.revokeObjectURL(file);
-        }}
-        alt={i}
-        draggable
-      />
-      <div
-        className="absolute w-5 h-5 rounded-full right-1 bg-white flex justify-center items-center cursor-pointer"
-        onClick={() => {
-          removeImage(i);
-        }}
-      >
-        <IoMdClose />
-      </div>
-    </div>
-  </div>
-  ));
+
+  const handleDragEnd = (result) => {
+    if (!result.destination) return;
+
+    const newFiles = Array.from(files);
+    const [reorderedItem] = newFiles.splice(result.source.index, 1);
+    newFiles.splice(result.destination.index, 0, reorderedItem);
+
+    setFiles(newFiles);
+  };
+
   return (
-    <div className="w-full md:w-1/2 h-1/2 md:h-fit bg-transparent py-8 flex flex-col items-center ">
+    <div className="w-full md:w-1/2 h-1/2 md:h-fit bg-transparent py-8 flex flex-col items-center">
       <div
         {...getRootProps({ className: "dropzone" })}
         className="w-[60%] h-56 bg-slate-200 outline-dotted outline-blue-500 rounded-lg flex flex-col justify-center items-center md:mt-4"
@@ -109,9 +80,51 @@ export default function CreateProductForm() {
           {error}
         </p>
       )}
-      <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5  mt-4 md:w-[80%] min-h-fit  bg-transparent overflow-y-scroll  scrollbar-hide gap-2" >
-        {thumbs}
-      </div>
+      <DragDropContext onDragEnd={handleDragEnd}>
+        <Droppable droppableId="images">
+          {(provided) => (
+            <div
+              {...provided.droppableProps}
+              ref={provided.innerRef}
+              className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5  mt-4 md:w-[80%] min-h-fit bg-transparent overflow-y-scroll scrollbar-hide gap-2"
+            >
+              {files.map((file, index) => (
+                <Draggable key={file.name} draggableId={file.name} index={index}>
+                  {(provided) => (
+                    <div
+                      ref={provided.innerRef}
+                      {...provided.draggableProps}
+                      {...provided.dragHandleProps}
+                      className="flex relative rounded-md border z-0 cursor-pointer border-gray-300 w-24 h-24 p-1"
+                    >
+                      <div className="overflow-hidden flex">
+                        <img
+                          src={URL.createObjectURL(file)}
+                          className="block w-auto h-full relative object-cover rounded-md"
+                          onLoad={() => {
+                            URL.revokeObjectURL(file);
+                          }}
+                          alt={file.name}
+                          draggable
+                        />
+                        <div
+                          className="absolute w-5 h-5 rounded-full right-1 bg-white flex justify-center items-center cursor-pointer"
+                          onClick={() => {
+                            removeImage(index);
+                          }}
+                        >
+                          <IoMdClose />
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </Draggable>
+              ))}
+              {provided.placeholder}
+            </div>
+          )}
+        </Droppable>
+      </DragDropContext>
     </div>
   );
 }

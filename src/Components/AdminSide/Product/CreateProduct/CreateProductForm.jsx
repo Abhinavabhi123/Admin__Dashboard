@@ -7,7 +7,7 @@ export default function CreateProductForm(Props) {
         <div className="md:p-5 py-2">
           <h2 className="w-full text-center">Product Details</h2>
           <p className="text-sm text-red-500 mt-3 mb-3 md:mb-0">
-            Required Field<spa>*</spa>
+            Required Field<span>*</span>
           </p>
         </div>
         <div className="w-full h-full flex flex-col gap-5 bg-transparent">

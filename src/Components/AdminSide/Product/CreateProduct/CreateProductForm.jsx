@@ -1,104 +1,171 @@
-import { useEffect, useState } from "react";
-import { useDropzone } from "react-dropzone";
-import Upload from "../../../../assets/images/upload.png";
-import { IoMdClose } from "react-icons/io";
-import "./create.css";
-
-export default function CreateProductForm() {
-  const [files, setFiles] = useState([]);
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-    setTimeout(() => {
-      setError("");
-    }, 5000);
-  }, [error]);
-
-  const { getRootProps, getInputProps } = useDropzone({
-    accept: "image/*",
-    onDrop: (acceptedFiles) => {
-      const validatedFiles = acceptedFiles.filter((file) => {
-        const isValidFileType = file.type.startsWith("image/");
-        const isValidImageType =
-          file.name.toLowerCase().endsWith("jpeg") ||
-          file.name.toLowerCase().endsWith("jpg") ||
-          file.name.toLowerCase().endsWith("png");
-        const isValidFileSize = file.size <= 5 * 1024 * 1024;
-        if (!isValidFileType) {
-          setError("Invalid file type. Please select an image file.");
-        } else if (!isValidFileSize) {
-          setError(
-            "File size exceeds the limit. Please select a smaller file."
-          );
-        } else if (!isValidImageType) {
-          setError("Invalid file type. Please select a JPEG, png or JPG image.");
-          return; // Or use another method to reject the file
-        } else {
-          return true;
-        }
-        return false;
-      });
-
-      setFiles((prev) => [...prev, ...validatedFiles]);
-    },
-  });
-  console.log(files, "file");
-
-  // function to remove image
-  function removeImage(index) {
-    URL.revokeObjectURL(files[index]);
-    setFiles((prev) => prev.filter((item, i) => i !== index));
-  }
-  // display image preview
-  const thumbs = files.map((file, i) => (
-    <div
-      key={i}
-      className="inline-flex relative rounded-md border transition-all duration-700 z-0 border-gray-300 w-24 h-24 p-1"
-    >
-      <div className="overflow-hidden flex">
-        <img
-          src={URL.createObjectURL(file)}
-          className="block w-auto h-full object-cover rounded-md"
-          onLoad={() => {
-            URL.revokeObjectURL(file);
-          }}
-          alt={i}
-        />
-        <div
-          className="absolute w-5 h-5 rounded-full right-1 bg-white flex justify-center items-center cursor-pointer"
-          onClick={() => {
-            removeImage(i);
-          }}
-        >
-          <IoMdClose />
-        </div>
-      </div>
-    </div>
-  ));
+export default function CreateProductForm(Props) {
+  const { handleChange, errors } = Props;
+  console.log(errors, "errors");
   return (
-    <div className="w-full h-fit bg-transparent flex flex-col md:flex-row">
-      {/* Form section */}
-      <div className="w-full md:w-1/2 h-[30rem] md:h-full bg-yellow-500 mb-5 md:mb-0"></div>
-      {/* Image section */}
-      <div className="w-full md:w-1/2 h-1/2 md:h-fit bg-transparent py-8 flex flex-col items-center ">
-        <div
-          {...getRootProps({ className: "dropzone" })}
-          className="w-[60%] h-56 bg-slate-200 outline-dotted outline-blue-500 rounded-lg flex flex-col justify-center items-center md:mt-4"
-        >
-          <input {...getInputProps()} />
-          <img src={Upload} alt="upload image" className="w-14 md:w-20" />
-          <p className="w-full text-center text-xs px-2 md:text-sm">
-            Drag & Drop some files here, or click here
+    <div className="w-full md:w-1/2 h-fit md:h-full border-b md:border-r bg-transparent mb-5 md:mb-0 p-5 md:p-10">
+      <div className="w-full h-full bg-transparent">
+        <div className="md:p-5 py-2">
+          <h2 className="w-full text-center">Product Details</h2>
+          <p className="text-sm text-red-500 mt-3 mb-3 md:mb-0">
+            Required Field<spa>*</spa>
           </p>
         </div>
-        {error && (
-          <p className="text-xs px-3 md:text-sm text-center text-red-500 mt-2">
-            {error}
-          </p>
-        )}
-        <aside className="  grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5  mt-4 md:w-[80%] min-h-fit  bg-transparent overflow-y-scroll  scrollbar-hide gap-2">
-          {thumbs}
-        </aside>
+        <div className="w-full h-full flex flex-col gap-5 bg-transparent">
+          {/* section 1 */}
+          <div className="flex flex-col md:flex-row md:justify-center space-y-4 md:space-y-0 md:gap-3 flex-wrap">
+            <div className="flex flex-col gap-1">
+              <label htmlFor="name" className="text-sm">
+                Product Name <span className="text-red-500 ">*</span>
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                className="py-2 md:w-64 ps-2 rounded-md outline-none border border-primary text-sm"
+                placeholder="Product Name"
+                onChange={handleChange}
+                required
+              />
+
+              <div className="w-full h-3">{
+                errors.name&& <p className="text-xs text-red-500">{errors.name}</p>
+              }</div>
+            </div>
+            <div className="flex flex-col gap-1">
+              <label htmlFor="price" className="text-sm">
+                Product Price <span className="text-red-500 ">*</span>
+              </label>
+              <input
+                type="number"
+                id="price"
+                name="price"
+                className="py-2 md:w-64 ps-2 rounded-md outline-none border border-primary text-sm"
+                placeholder="Product Price"
+                onChange={handleChange}
+                required
+              />
+              <div className="w-full h-3 ">{
+                errors.price&& <p className="text-xs text-red-500">{errors.price}</p>
+              }</div>
+            </div>
+          </div>
+
+          {/* section 2 */}
+          <div className="flex flex-col md:flex-row md:justify-center space-y-4 md:space-y-0 md:gap-3 flex-wrap">
+            <div className="flex flex-col gap-1">
+              <label htmlFor="offer" className="text-sm">
+                Offer Price <span className="text-red-500 ">*</span>
+              </label>
+              <input
+                type="number"
+                id="offer"
+                name="offer"
+                className="py-2 md:w-64 ps-2 rounded-md outline-none border border-primary text-sm"
+                placeholder="Offer Price"
+                onChange={handleChange}
+                required
+              />
+              <div className="w-full h-3 ">{
+                errors.offer&& <p className="text-xs text-red-500">{errors.offer}</p>
+              }</div>
+            </div>
+            <div className="flex flex-col gap-1">
+              <label htmlFor="stock" className="text-sm">
+                Product Stock <span className="text-red-500 ">*</span>
+              </label>
+              <input
+                type="number"
+                id="stock"
+                name="stock"
+                className="py-2 md:w-64 ps-2 rounded-md outline-none border border-primary text-sm"
+                placeholder="Product Stock"
+                onChange={handleChange}
+                required
+              />
+                <div className="w-full h-3 ">{
+                errors.stock&& <p className="text-xs text-red-500">{errors.stock}</p>
+              }</div>
+            </div>
+          </div>
+          {/* section 3 */}
+          <div className="flex flex-col md:flex-row md:justify-center space-y-4 md:space-y-0 md:gap-3 flex-wrap">
+            <div className="flex flex-col gap-1">
+              <label htmlFor="category" className="text-sm">
+                Category <span className="text-red-500 ">*</span>
+              </label>
+              <select
+                id="category"
+                name="category"
+                className="py-2 md:w-64 ps-2 rounded-md outline-none border border-primary text-sm"
+                onChange={handleChange}
+                required
+              >
+                <option value>Select Category</option>
+                <option value="Active">Home Appliances</option>
+                <option value="Inactive">Electronics</option>
+                <option value="Inactive">Dress</option>
+                <option value="Inactive">Foot Wear</option>
+                <option value="Inactive">Food</option>
+              </select>
+              <div className="w-full h-3">{
+                errors.category&& <p  className="text-xs text-red-500">{errors.category}</p>
+              }</div>
+            </div>
+            <div className="flex flex-col gap-1">
+              <label htmlFor="status" className="text-sm">
+                Product Status <span className="text-red-500 ">*</span>
+              </label>
+              <select
+                id="status"
+                name="status"
+                className="py-2 md:w-64 ps-2 rounded-md outline-none border border-primary text-sm"
+                onChange={handleChange}
+                required
+              >
+                <option value>Select Product status</option>
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+              </select>
+              <div className="w-full h-3 ">{
+                errors.status&& <p className="text-xs text-red-500">{errors.status}</p>
+              }</div>
+            </div>
+          </div>
+          <div className="flex flex-col gap-1  items-center">
+            <label
+              htmlFor="description"
+              className="text-sm w-full text-start md:ps-12"
+            >
+              Product Description <span className="text-red-500 ">*</span>
+            </label>
+            <textarea
+              name="description"
+              id="description"
+              className="w-full md:w-[85%]  ps-2 rounded-md outline-none text-sm border border-primary py-2"
+              rows="8"
+              placeholder="Product Description"
+              onChange={handleChange}
+              required
+            ></textarea>
+             <div className="w-full h-3 ">{
+                errors.description&& <p className="text-xs w-full text-start md:ps-12 text-red-500">{errors.description}</p>
+              }</div>
+          </div>
+          <div className="flex justify-center gap-3">
+            <button
+              type="button"
+              className="py-2 px-3 text-sm font-medium bg-red-400 rounded-lg"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              className="py-2 px-3 text-sm font-medium bg-primary rounded-lg"
+            >
+              Save
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

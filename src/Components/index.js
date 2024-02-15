@@ -3,4 +3,5 @@
 
 // todo :Admin side components
 export {default as AdminLoginForm} from "./AdminSide/Login/LoginForm";
-export {default as CreateProductForm} from "./AdminSide/Product/CreateProduct/CreateProductForm"
+export {default as CreateProductImage} from "./AdminSide/Product/CreateProduct/CreateProductImage";
+export {default as CreateProductFrom} from "./AdminSide/Product/CreateProduct/CreateProductForm";

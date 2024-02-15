@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import "./adminLayout.css";
+import { useEffect, useState } from "react";
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
 import { LuLayoutDashboard } from "react-icons/lu";
 import { FaRegUser } from "react-icons/fa";
@@ -45,13 +45,13 @@ export default function SideLayout(Props) {
   }
 
   const List = (Props) => {
-    const { url, icon, title, down } = Props;
-    // console.log( url,"url");
-    // console.log(location,"location");
-    // console.log(location === url);
+    const { url, icon, title, down , path } = Props;
+    console.log( path,"url");
+    console.log(location,"location");
+    console.log(location === url);
     return (
       <li
-        className={`navList pt-2 flex flex-col  items-center justify-between pe-3 ${location === `${url}` ?"list_active":""}`}
+      className={`navList pt-2 flex flex-col  items-center justify-between pe-3 ${location === path ? "active":""}`}
         onClick={() => {
           handleDropDown(down);
           if (url !== undefined) {
@@ -62,7 +62,7 @@ export default function SideLayout(Props) {
       >
         <div className={`w-full h-full  flex justify-between items-center `}>
           <div className="flex gap-3 ">
-            {icon}
+            <div>{icon}</div>
             {isOpen && (
               <a className="text-sm md:text-base  truncate">{title}</a>
             )}
@@ -129,16 +129,19 @@ export default function SideLayout(Props) {
             url={"dashboard"}
             icon={<LuLayoutDashboard size={20} className="list_icon" />}
             title="Dashboard"
+            path="dashboard"
           />
           <List
             url={"users"}
             icon={<FaRegUser size={20} className="list_icon" />}
             title="Users"
+            path="user"
           />
           <List
             url={"categories"}
             icon={<BiCategoryAlt size={20} className="list_icon" />}
             title="Category"
+            path="categories"
           />
           {/* Products section start */}
           <List
@@ -146,6 +149,7 @@ export default function SideLayout(Props) {
             icon={<BsBoxSeam size={20} className="list_icon" />}
             title="Products"
             down={"product"}
+            // path="product"
           />
 
           <ul
@@ -161,6 +165,7 @@ export default function SideLayout(Props) {
               icon={<IoMdAdd size={20} className="list_icon" />}
               title="Create Product"
               url={"product/create"}
+              path="create"
             />
           </ul>
           {/* Product section end*/}
@@ -168,11 +173,13 @@ export default function SideLayout(Props) {
             url={"orders"}
             icon={<TiShoppingCart size={20} className="list_icon" />}
             title="Orders"
+            path="orders"
           />
           <List
             url={"sales"}
             icon={<FaRegChartBar size={20} className="list_icon" />}
             title="Sales"
+            path="sales"
           />
         <div
           className="w-full flex items-center  gap-2 p-5  cursor-pointer"

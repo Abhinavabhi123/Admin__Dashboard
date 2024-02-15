@@ -1,6 +1,5 @@
 export default function CreateProductForm(Props) {
   const { handleChange, errors } = Props;
-  console.log(errors, "errors");
   return (
     <div className="w-full md:w-1/2 h-fit md:h-full border-b md:border-r bg-transparent mb-5 md:mb-0 p-5 md:p-10">
       <div className="w-full h-full bg-transparent">
@@ -45,7 +44,7 @@ export default function CreateProductForm(Props) {
                 required
               />
               <div className="w-full h-3 ">{
-                errors.price&& <p className="text-xs text-red-500">{errors.price}</p>
+                errors.price && <p className="text-xs text-red-500">{errors.price}</p>
               }</div>
             </div>
           </div>

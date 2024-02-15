@@ -23,7 +23,7 @@ export default function CreateProduct() {
     stock: 0,
     category: "",
     status: "",
-    description: "",
+    // description: "",
   };
   
   const {  handleChange, handleSubmit, errors } = useFormik({

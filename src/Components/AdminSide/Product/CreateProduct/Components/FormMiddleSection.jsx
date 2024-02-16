@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import CreateProductImage from "./CreateProductImage";
 import { RiErrorWarningLine } from "react-icons/ri";
 
+
 export default function FormMiddleSection(Props) {
   const { handleChange, errors } = Props;
   const [price, setPrice] = useState({

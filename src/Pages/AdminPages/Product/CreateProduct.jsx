@@ -6,6 +6,7 @@ import * as Yup from "yup";
 export const imageDataContext = createContext();
 export default function CreateProduct() {
   const [images, setImages] = useState([]);
+  // const [desc,setTextData] =  useState({});
   const [submitting, setSubmitting] = useState(false);
 
   const validationSchema = Yup.object().shape({
@@ -81,6 +82,7 @@ export default function CreateProduct() {
       )
       .required("Warranty is required"),
     warrantyPolicy: Yup.string().required("Warranty is required"),
+    description: Yup.string().required("Description is required"),
   });
 
   const initialValues = {
@@ -101,6 +103,7 @@ export default function CreateProduct() {
     released: "",
     warranty: "",
     warrantyPolicy: "",
+    description:""
   };
 
   const { handleChange, handleSubmit, errors, resetForm } = useFormik({
@@ -109,11 +112,14 @@ export default function CreateProduct() {
     onSubmit: (values, { resetForm }) => {
       console.log(values);
       console.log(images,"images");
+      // console.log(textData,"textData");
       resetForm();
       alert("Form submitted Successfully");
       setSubmitting(true)
     },
   });
+
+  console.log(errors,"errors");
 
   const handleImageDataChange = (data) => {
     setImages(data);

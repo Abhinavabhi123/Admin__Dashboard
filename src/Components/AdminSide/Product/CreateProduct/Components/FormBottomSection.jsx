@@ -1,12 +1,77 @@
 import { RiErrorWarningLine } from "react-icons/ri";
+import { useState } from "react";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 export default function FormBottomSection(Props) {
   const { handleChange, errors } = Props;
+  const [value, setValue] = useState("");
+
+  const modules = {
+    toolbar: [
+      [{ header: [1, 2, 3, 4, 5, 6, false] }],
+      ["bold", "italic", "underline", "strike", "blockquote"],
+      [
+        { list: "ordered" },
+        { list: "bullet" },
+        { indent: "-1" },
+        { indent: "+1" },
+      ],
+      [{ script: "sub" }, { script: "super" }],
+      ["link", "image"],
+      ["clean"],
+    ],
+    clipboard: {
+      matchVisual: false,
+    },
+  };
+  const formats = [
+    "header",
+    "font",
+    "size",
+    "bold",
+    "italic",
+    "underline",
+    "strike",
+    "blockquote",
+    "list",
+    "bullet",
+    "indent",
+    "link",
+    "image",
+    "video",
+    "code-block",
+    "undo",
+  ];
+
   return (
-    <div className="w-fill md:min-h-[30rem]  bg-transparent flex flex-col md:flex-row gap-4">
+    <div className="w-fill  md:min-h-[30rem]  bg-transparent flex flex-col md:flex-row gap-4">
       {/* Left section */}
-      <div className="w-full h-[32.5rem] md:w-[60%] bg-white rounded-md shadow-lg drop-shadow-lg border space-y-3 flex flex-col p-4">
-        <h1>Text Editor</h1>
+      <div className="w-full h-[28rem] md:h-[40rem] md:w-[60%] bg-white rounded-md shadow-lg drop-shadow-lg border space-y-3 flex flex-col p-4">
+        {/* Text editor */}
+        <div>
+          <h2>Product description</h2>
+        </div>
+        <div className="w-full h-full">
+          <div className="w-full max-h-[19rem] h-[83%] md:max-h-[30rem]">
+            <ReactQuill
+              theme="snow"
+              value={value}
+              modules={modules}
+              formats={formats}
+              onChange={(value) => {
+                setValue(value), handleChange("description")(value);
+              }}
+              id="description"
+              className="w-full h-full"
+            />
+          </div>
+        </div>
+        <div className="px-2 h-4 ">
+          {errors.description && (
+            <p className="text-xs text-red-500">{errors.description}</p>
+          )}
+        </div>
       </div>
       {/* Right section */}
       <div className="w-full h-full md:w-[40%] bg-white rounded-md shadow-lg drop-shadow-lg border space-y-3 flex flex-col p-4">
@@ -112,7 +177,7 @@ export default function FormBottomSection(Props) {
             )}
           </div>
         </div>
-       {/* Warranty Policy */}
+        {/* Warranty Policy */}
         <div className="flex flex-col space-y-2">
           <label className="text-sm" htmlFor="warrantyPolicy">
             Warranty Policy<span className="text-red-500 text-sm">*</span> :
@@ -126,7 +191,9 @@ export default function FormBottomSection(Props) {
               className=" text-sm bg-transparent py-3 w-full outline-none"
               onChange={handleChange}
             />
-            {errors.warrantyPolicy && <RiErrorWarningLine size={20}  color="red"/>}
+            {errors.warrantyPolicy && (
+              <RiErrorWarningLine size={20} color="red" />
+            )}
           </div>
           <div className="px-2 h-4 ">
             {errors.warrantyPolicy && (

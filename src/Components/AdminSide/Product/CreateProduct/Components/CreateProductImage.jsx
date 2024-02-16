@@ -17,7 +17,7 @@ export default function CreateProductImage() {
   useEffect(() => {
     handleImageDataChange(files);
   }, [files, handleImageDataChange]);
-
+  
   useEffect(() => {
     if (submitting === true) {
       setFiles([]);
@@ -69,7 +69,6 @@ export default function CreateProductImage() {
     const [reorderedItem] = newFiles.splice(result.source.index, 1);
     newFiles.splice(result.destination.index, 0, reorderedItem);
 
-    setFiles(newFiles);
   };
 
   return (
@@ -101,7 +100,7 @@ export default function CreateProductImage() {
               {files.map((file, index) => (
                 <Draggable
                   ggable
-                  key={file.name}
+                  key={index}
                   draggableId={file.name}
                   index={index}
                 >

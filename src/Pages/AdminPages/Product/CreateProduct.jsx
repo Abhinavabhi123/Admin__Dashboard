@@ -103,23 +103,21 @@ export default function CreateProduct() {
     released: "",
     warranty: "",
     warrantyPolicy: "",
-    description:""
+    description:"",
   };
 
   const { handleChange, handleSubmit, errors, resetForm } = useFormik({
     initialValues,
     validationSchema,
     onSubmit: (values, { resetForm }) => {
+      resetForm();
       console.log(values);
       console.log(images,"images");
-      // console.log(textData,"textData");
-      resetForm();
       alert("Form submitted Successfully");
       setSubmitting(true)
     },
   });
 
-  console.log(errors,"errors");
 
   const handleImageDataChange = (data) => {
     setImages(data);
@@ -154,7 +152,7 @@ export default function CreateProduct() {
             </div>
           </div>
           <imageDataContext.Provider value={{ handleImageDataChange,submitting }}>
-            <CreateProductFrom handleChange={handleChange} errors={errors} />
+            <CreateProductFrom handleChange={handleChange} errors={errors}  />
           </imageDataContext.Provider>
         </form>
       </div>

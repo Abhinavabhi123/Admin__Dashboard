@@ -49,7 +49,7 @@ export default function FormMiddleSection(Props) {
           <h2 className="font-medium"> Product Image</h2>
         </div>
         <div className="mt-3 md:mt-0">
-          <CreateProductImage />
+          <CreateProductImage  />
         </div>
       </div>
       {/* Price section */}

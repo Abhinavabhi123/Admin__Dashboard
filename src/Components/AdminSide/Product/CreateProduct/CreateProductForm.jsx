@@ -8,7 +8,7 @@ export default function CreateProductForm(Props) {
   return (
     <div className="w-full min-h-[50rem] space-y-5 py-4 ">
      <FormTopSection handleChange={handleChange} errors={errors} />
-     <FormMiddleSection handleChange={handleChange} errors={errors} />
+     <FormMiddleSection handleChange={handleChange} errors={errors}  />
      <FormBottomSection handleChange={handleChange} errors={errors} />
     </div>
   )

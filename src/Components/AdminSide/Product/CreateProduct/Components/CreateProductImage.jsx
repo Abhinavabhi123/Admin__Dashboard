@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
-import Upload from "../../../../assets/images/upload.png";
+import Upload from "../../../../../assets/images/upload.png";
 import { IoMdClose } from "react-icons/io";
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-import "./create.css";
+import "../create.css";
 
 export default function CreateProductForm() {
   const [files, setFiles] = useState([]);
@@ -29,7 +29,7 @@ export default function CreateProductForm() {
           setError("Invalid file type. Please select an image file.");
         } else if (!isValidFileSize) {
           setError(
-            "File size exceeds the limit. Please select a smaller file."
+            "File size exceeds the limit of 2MB. Please select a smaller file."
           );
         } else if (!isValidImageType) {
           setError(
@@ -64,10 +64,11 @@ export default function CreateProductForm() {
   };
 
   return (
-    <div className="w-full md:w-1/2 h-1/2 md:h-fit bg-transparent py-8 flex flex-col items-center">
+    <div  className="w-full md:h-fit bg-transparent flex flex-col items-center">
+     
       <div
         {...getRootProps({ className: "dropzone" })}
-        className="w-[60%] h-56 bg-slate-200 bg-opacity-50 outline-dotted outline-blue-500 rounded-lg flex flex-col justify-center items-center md:mt-4"
+        className="w-[80%] md:w-[70%] h-36 bg-slate-200 bg-opacity-50 outline-dotted outline-blue-500 rounded-lg flex flex-col justify-center items-center md:mt-4"
       >
         <input {...getInputProps()} />
         <img src={Upload} alt="upload image" className="w-14 md:w-20" />
@@ -76,7 +77,7 @@ export default function CreateProductForm() {
         </p>
       </div>
       {error && (
-        <p className="text-xs px-3 md:text-sm text-center text-red-500 mt-2">
+        <p className="px-3 text-xs text-center text-red-500 mt-2">
           {error}
         </p>
       )}
@@ -86,11 +87,11 @@ export default function CreateProductForm() {
             <div
               {...provided.droppableProps}
               ref={provided.innerRef}
-              className="flex flex-wrap justify-center mt-4 md:w-[80%] min-h-fit bg-transparent overflow-y-scroll scrollbar-hide gap-2"
+              className="flex flex-wrap justify-center mt-4 md:w-[100%] h-[15rem] bg-transparent overflow-y-scroll scrollbar-hide gap-2"
               // className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4  mt-4 md:w-[80%] min-h-fit bg-transparent overflow-y-scroll scrollbar-hide gap-2"
             >
               {files.map((file, index) => (
-                <Draggable key={file.name} draggableId={file.name} index={index}>
+                <Draggable ggable key={file.name} draggableId={file.name} index={index}>
                   {(provided) => (
                     <div
                       ref={provided.innerRef}

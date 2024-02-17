@@ -138,7 +138,7 @@ export default function FormBottomSection() {
               </div>
             )}
             <select
-              className=" bg-transparent w-full text-sm rounded-md outline-none py-3 px-2 form_select"
+              className=" bg-transparent w-full text-sm rounded-md outline-none  py-3 px-2 form_select"
               id="country"
               name="country"
               onChange={handleChange}

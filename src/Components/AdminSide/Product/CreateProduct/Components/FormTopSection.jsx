@@ -238,7 +238,7 @@ export default function FormTopSection() {
                 name="keyword"
                 id="keyword"
                 value={values.keyword}
-                className="w-full outline-none text-sm py-3 rounded-md px-2 form_select"
+                className="w-full  text-sm py-3 rounded-md px-2 form_select"
                 onChange={handleChange}
                 onBlur={handleBlur}
              >

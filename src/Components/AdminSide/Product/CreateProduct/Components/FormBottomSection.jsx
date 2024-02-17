@@ -4,15 +4,17 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import countryList from "react-select-country-list";
 import { MdDone } from "react-icons/md";
-import "../create.css"
+import "../create.css";
 import { imageDataContext } from "../../../../../Pages/AdminPages/Product/CreateProduct";
+import { Select } from "antd";
 
 export default function FormBottomSection() {
-  // const { handleChange, errors,touched,handleBlur } = Props;
   const [value, setValue] = useState("");
   const options = useMemo(() => countryList().getData(), []);
-  const {  handleChange, errors,handleBlur,touched,values } = useContext(imageDataContext);
-  
+  const { handleChange, errors, handleBlur, touched, values, setFieldValue } =
+    useContext(imageDataContext);
+  console.log(errors, "error");
+  console.log(touched, "touched");
 
   const modules = {
     toolbar: [
@@ -70,14 +72,13 @@ export default function FormBottomSection() {
                 setValue(value), handleChange("description")(value);
               }}
               onBlur={() => handleBlur("description")}
-              
               id="description"
               className="w-full h-full"
             />
           </div>
         </div>
         <div className="px-2 h-4 ">
-          {errors.description&&touched.description && (
+          {errors.description && touched.description && (
             <p className="text-xs text-red-500">{errors.description}</p>
           )}
         </div>
@@ -92,31 +93,41 @@ export default function FormBottomSection() {
             Import Status :
           </label>
           <div className="flex bg-white items-center justify-between relative rounded-md border border-primary ">
-            {errors.import_status &&touched.import_status&& (
+            <Select
+              defaultValue="lucy"
+              id="import_status"
+              name="import_status"
+              className="border-none h-10 relative hover:outline-none placeholder:text-black"
+              onChange={(value) => setFieldValue("import_status", value)}
+              onBlur={handleBlur}
+              value={values.import_status}
+              style={{
+                width: "100%",
+              }}
+              options={[
+                {
+                  value: "active",
+                  label: "Active",
+                },
+                {
+                  value: "Inactive",
+                  label: "Inactive",
+                },
+              ]}
+            />
+            {errors.import_status && touched.import_status && (
               <div className="absolute right-10 ">
                 <RiErrorWarningLine size={20} color="red" />
               </div>
             )}
-            {!errors.import_status &&touched.import_status&& (
+            {!errors.import_status && touched.import_status && (
               <div className="absolute right-10 ">
-               <MdDone size={20} color="green" />
+                <MdDone size={20} color="green" />
               </div>
             )}
-            <select
-              className="w-full outline-none text-sm py-3 rounded-md px-2 form_select"
-              id="import_status"
-              name="import_status"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.import_status}
-            >
-              <option value="" disabled hidden>Select</option>
-              <option className="form_select_option" value="active">Active</option>
-              <option className="form_select_option" value="inactive">Inactive</option>
-            </select>
           </div>
           <div className="px-2 h-4 ">
-            {errors.import_status&&touched.import_status && (
+            {errors.import_status && touched.import_status && (
               <p className="text-xs text-red-500">{errors.import_status}</p>
             )}
           </div>
@@ -127,37 +138,43 @@ export default function FormBottomSection() {
             Country of Origin :
           </label>
           <div className="flex bg-white items-center justify-between relative rounded-md border border-primary ">
-            {errors.country&&touched.country && (
+            <Select
+              showSearch
+              name="country"
+              id="country"
+              className="border-none h-10 hover:outline-none"
+              style={{ width: "100%", border: "none" }}
+              defaultValue={"Select"}
+              placeholder="Search to Select"
+              optionFilterProp="children"
+              filterOption={(input, option) =>
+                (option?.label ?? "")
+                  .toLowerCase()
+                  .includes(input.toLowerCase())
+              }
+              filterSort={(optionA, optionB) =>
+                (optionA?.label ?? "")
+                  .toLowerCase()
+                  .localeCompare((optionB?.label ?? "").toLowerCase())
+              }
+              onChange={(value) => setFieldValue("country", value)}
+              onBlur={handleBlur}
+              value={values.country}
+              options={options}
+            />
+            {errors.country && touched.country && (
               <div className="absolute right-10">
                 <RiErrorWarningLine size={20} color="red" />
               </div>
             )}
-            {!errors.country&&touched.country && (
+            {!errors.country && touched.country && (
               <div className="absolute right-10">
                 <MdDone size={20} color="green" />
               </div>
             )}
-            <select
-              className=" bg-transparent w-full text-sm rounded-md outline-none  py-3 px-2 form_select"
-              id="country"
-              name="country"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.country}
-            >
-              <option value="" hidden disabled>Select</option>
-              {options.map((item, i) => {
-                
-                return (
-                  <option key={i}  className="form_select_option" value={item.value}>
-                    {item.label}
-                  </option>
-                );
-              })}
-            </select>
           </div>
           <div className="px-2 h-4 ">
-            {errors.country&&touched.country && (
+            {errors.country && touched.country && (
               <p className="text-xs text-red-500">{errors.country}</p>
             )}
           </div>
@@ -178,11 +195,15 @@ export default function FormBottomSection() {
               onChange={handleChange}
               onBlur={handleBlur}
             />
-            {errors.released&&touched.released && <RiErrorWarningLine size={20} color="red" />}
-            {!errors.released&&touched.released && <MdDone size={20} color="green" />}
+            {errors.released && touched.released && (
+              <RiErrorWarningLine size={20} color="red" />
+            )}
+            {!errors.released && touched.released && (
+              <MdDone size={20} color="green" />
+            )}
           </div>
           <div className="px-2 h-4 ">
-            {errors.released&&touched.released && (
+            {errors.released && touched.released && (
               <p className="text-xs text-red-500">{errors.released}</p>
             )}
           </div>
@@ -203,11 +224,15 @@ export default function FormBottomSection() {
               onChange={handleChange}
               onBlur={handleBlur}
             />
-            {errors.warranty&&touched.warranty && <RiErrorWarningLine size={20} color="red" />}
-            {!errors.warranty&&touched.warranty && <MdDone size={20} color="green" />}
+            {errors.warranty && touched.warranty && (
+              <RiErrorWarningLine size={20} color="red" />
+            )}
+            {!errors.warranty && touched.warranty && (
+              <MdDone size={20} color="green" />
+            )}
           </div>
           <div className="px-2 h-4 ">
-            {errors.warranty&&touched.warranty && (
+            {errors.warranty && touched.warranty && (
               <p className="text-xs text-red-500">{errors.warranty}</p>
             )}
           </div>
@@ -228,15 +253,15 @@ export default function FormBottomSection() {
               onChange={handleChange}
               onBlur={handleBlur}
             />
-            {errors.warrantyPolicy&&touched.warrantyPolicy && (
+            {errors.warrantyPolicy && touched.warrantyPolicy && (
               <RiErrorWarningLine size={20} color="red" />
             )}
-            {!errors.warrantyPolicy&&touched.warrantyPolicy && (
+            {!errors.warrantyPolicy && touched.warrantyPolicy && (
               <MdDone size={20} color="green" />
             )}
           </div>
           <div className="px-2 h-4 ">
-            {errors.warrantyPolicy&&touched.warrantyPolicy && (
+            {errors.warrantyPolicy && touched.warrantyPolicy && (
               <p className="text-xs text-red-500">{errors.warrantyPolicy}</p>
             )}
           </div>

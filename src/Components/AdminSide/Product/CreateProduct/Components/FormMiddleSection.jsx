@@ -2,10 +2,12 @@ import { useContext, useEffect, useState } from "react";
 import CreateProductImage from "./CreateProductImage";
 import { RiErrorWarningLine } from "react-icons/ri";
 import { MdDone } from "react-icons/md";
+import "../create.css"
 import { imageDataContext } from "../../../../../Pages/AdminPages/Product/CreateProduct";
+import { Select } from "antd";
 
 export default function FormMiddleSection() {
-  const { handleChange, errors, handleBlur, touched,values } =
+  const { handleChange, errors, handleBlur, touched,values,setFieldValue } =
     useContext(imageDataContext);
   const [price, setPrice] = useState({
     basePrice: 0,
@@ -83,9 +85,9 @@ export default function FormMiddleSection() {
               {errors.basePrice && touched.basePrice && (
                 <RiErrorWarningLine size={20} color="red" />
               )}
-              {!errors.basePrice && touched.basePrice && (
+              {!errors.basePrice && touched.basePrice && values.basePrice ? (
                 <MdDone size={20} color="green" />
-              )}
+              ):""}
             </div>
 
             <div className="px-2 h-4 ">
@@ -98,21 +100,36 @@ export default function FormMiddleSection() {
             <label htmlFor="currency" className="text-sm">
               Currency
             </label>
-            <div className="border min-w-[60px] border-primary bg-white rounded-md ">
-              <select
-                name="currency"
-                id="currency"
-                value={values.currency}
-                className="bg-transparent w-full outline-none rounded-md text-sm py-3 px-2 form_select"
-                onChange={handleChange}
-                onBlur={handleBlur}
-              >
-               <option value="" disabled  hidden>Select </option>
-                <option value="inr">INR</option>
-                <option value="usd">USD</option>
-                <option value="eur">EUR</option>
-                <option value="gbp">GBP</option>
-              </select>
+            <div className="border max-w-28 border-primary bg-white rounded-md ">
+              <Select
+              name="currency"
+              id="currency"
+              value={values.currency}
+              className="border-none h-10 relative hover:outline-none placeholder:text-black"
+              onChange={(value) => setFieldValue("currency", value)}
+              onBlur={handleBlur}
+              style={{
+                width: "100%",
+              }}
+              options={[
+                {
+                  value: "inr",
+                  label: "INR",
+                },
+                {
+                  value: "usd",
+                  label: "USD",
+                },
+                {
+                  value: "eur",
+                  label: "EUR",
+                },
+                {
+                  value: "gbp",
+                  label: "GBP",
+                },
+              ]}
+            />
             </div>
             <div className="h-4 px-2">
               {errors.currency && touched.currency && (
@@ -182,9 +199,9 @@ export default function FormMiddleSection() {
             {errors.stock && touched.stock && (
               <RiErrorWarningLine size={20} color="red" />
             )}
-            {!errors.stock && touched.stock && (
+            {!errors.stock && touched.stock&& values.stock ? (
               <MdDone size={20} color="green" />
-            )}
+            ):""}
           </div>
           <div className="px-2 h-4 ">
             {errors.stock && touched.stock && (

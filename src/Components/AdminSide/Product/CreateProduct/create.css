@@ -7,11 +7,15 @@
   background-color: #ffffff; 
   color: #000;
   font-size: 14px;
+  border: none;
 }
 
 .form_select{
-  
-  padding: 0px 50px 0px 0px;
+  /* border: 1px solid black; */
+  border-radius: 5px; /* Add border radius */
+  padding: 8px; /* Add padding */
+  background-color: #fff; /* Set background color */
+  color: #333; /* Set text color */
 }
 
 .form_select::-webkit-scrollbar {

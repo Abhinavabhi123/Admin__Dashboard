@@ -120,7 +120,7 @@ export default function FormTopSection(Props) {
             <label className="text-sm" htmlFor="category">
               Select Category<span className="text-red-500 text-sm">*</span> :
             </label>
-            <div className="flex bg-white items-center justify-between p-[0.6rem] relative rounded-md border border-primary ">
+            <div className="flex bg-white items-center justify-between px-2 relative rounded-md border border-primary ">
               {errors.category && (
                 <div className="absolute right-10">
                   <RiErrorWarningLine size={20} color="red" />
@@ -129,11 +129,15 @@ export default function FormTopSection(Props) {
               <select
                 name="category"
                 id="category"
-                className="w-full outline-none text-sm py-1"
+                className="w-full outline-none text-sm py-3"
                 onChange={handleChange}
               >
                 <option value="">Please select </option>
-                <option value="ele">electronics</option>
+                <option value="ele">Electronics</option>
+                <option value="ele">Dress</option>
+                <option value="ele">Footwear</option>
+                <option value="ele">Food</option>
+                <option value="ele">Home appliances</option>
               </select>
             </div>
             <div className="px-2 h-4 ">
@@ -148,7 +152,7 @@ export default function FormTopSection(Props) {
               Select sub-Category<span className="text-red-500 text-sm">*</span>{" "}
               :
             </label>
-            <div className="flex bg-white items-center justify-between p-[0.6rem] relative rounded-md border border-primary ">
+            <div className="flex bg-white items-center justify-between px-2 relative rounded-md border border-primary ">
               {errors.subcategory && (
                 <div className="absolute right-10">
                   <RiErrorWarningLine size={20} color="red" />
@@ -157,7 +161,7 @@ export default function FormTopSection(Props) {
               <select
                 name="subcategory"
                 id="subcategory"
-                className="w-full outline-none text-sm py-1"
+                className="w-full outline-none text-sm py-3"
                 onChange={handleChange}
               >
                 <option value="">Please select</option>
@@ -183,7 +187,7 @@ export default function FormTopSection(Props) {
               Select keyword<span className="text-red-500 text-sm">*</span>{" "}
               :
             </label>
-            <div className="flex bg-white items-center justify-between p-[0.6rem] relative rounded-md border border-primary ">
+            <div className="flex bg-white items-center justify-between px-2 relative rounded-md border border-primary ">
               {errors.keyword && (
                 <div className="absolute right-10">
                   <RiErrorWarningLine size={20} color="red" />
@@ -192,7 +196,7 @@ export default function FormTopSection(Props) {
               <select
                 name="keyword"
                 id="keyword"
-                className="w-full outline-none text-sm py-1"
+                className="w-full outline-none text-sm py-3"
                 onChange={handleChange}
              >
                 <option value="">Please Tag</option>

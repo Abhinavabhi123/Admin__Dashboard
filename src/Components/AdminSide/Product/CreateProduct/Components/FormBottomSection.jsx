@@ -1,11 +1,14 @@
 import { RiErrorWarningLine } from "react-icons/ri";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import countryList from "react-select-country-list";
 
 export default function FormBottomSection(Props) {
   const { handleChange, errors } = Props;
   const [value, setValue] = useState("");
+  const options = useMemo(() => countryList().getData(), []);
+  console.log(options, "snfksan");
 
   const modules = {
     toolbar: [
@@ -82,14 +85,14 @@ export default function FormBottomSection(Props) {
           <label className="text-sm" htmlFor="import_status">
             Import Status :
           </label>
-          <div className="flex bg-white items-center justify-between p-[0.6rem] relative rounded-md border border-primary ">
+          <div className="flex bg-white items-center justify-between px-2 relative rounded-md border border-primary ">
             {errors.import_status && (
               <div className="absolute right-10 ">
                 <RiErrorWarningLine size={20} color="red" />
               </div>
             )}
             <select
-              className="w-full outline-none text-sm py-1"
+              className="w-full outline-none text-sm py-3"
               id="import_status"
               name="import_status"
               onChange={handleChange}
@@ -110,21 +113,26 @@ export default function FormBottomSection(Props) {
           <label className="text-sm" htmlFor="country">
             Country of Origin :
           </label>
-          <div className="flex bg-white items-center justify-between p-[0.6rem] relative rounded-md border border-primary ">
+          <div className="flex bg-white items-center justify-between px-2 relative rounded-md border border-primary ">
             {errors.country && (
               <div className="absolute right-10">
                 <RiErrorWarningLine size={20} color="red" />
               </div>
             )}
             <select
-              className=" bg-transparent w-full text-sm rounded-md outline-none"
+              className=" bg-transparent w-full text-sm rounded-md outline-none py-3"
               id="country"
               name="country"
               onChange={handleChange}
             >
               <option value="">Select</option>
-              <option value="ind">India</option>
-              <option value="usa">USA</option>
+              {options.map((item, i) => {
+                return (
+                  <option key={i} value={item.value}>
+                    {item.label}
+                  </option>
+                );
+              })}
             </select>
           </div>
           <div className="px-2 h-4 ">

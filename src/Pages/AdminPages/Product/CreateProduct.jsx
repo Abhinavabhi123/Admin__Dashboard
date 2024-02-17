@@ -5,7 +5,7 @@ import * as Yup from "yup";
 
 export const imageDataContext = createContext();
 export default function CreateProduct() {
-  const [images, setImages] = useState([]);
+  // const [images, setImages] = useState([]);
   // const [desc,setTextData] =  useState({});
   const [submitting, setSubmitting] = useState(false);
 
@@ -83,6 +83,9 @@ export default function CreateProduct() {
       .required("Warranty is required"),
     warrantyPolicy: Yup.string().required("Warranty is required"),
     description: Yup.string().required("Description is required"),
+    files: Yup.array()
+    .min(1, 'Please select at least one image')
+    .required('Please select at least one image'),
   });
 
   const initialValues = {
@@ -104,24 +107,20 @@ export default function CreateProduct() {
     warranty: "",
     warrantyPolicy: "",
     description:"",
+    files:[]
   };
 
-  const { handleChange, handleSubmit, errors, resetForm } = useFormik({
+  const { handleChange, handleSubmit, errors, resetForm,setFieldValue } = useFormik({
     initialValues,
     validationSchema,
     onSubmit: (values, { resetForm }) => {
       resetForm();
       console.log(values);
-      console.log(images,"images");
       alert("Form submitted Successfully");
       setSubmitting(true)
     },
   });
 
-
-  const handleImageDataChange = (data) => {
-    setImages(data);
-  };
 
   return (
     <div className="w-full h-full bg-transparent mt-14 md:mt-0 pt-2 flex flex-col justify-center">
@@ -151,7 +150,7 @@ export default function CreateProduct() {
               </button>
             </div>
           </div>
-          <imageDataContext.Provider value={{ handleImageDataChange,submitting }}>
+          <imageDataContext.Provider value={{handleChange,errors,submitting,setFieldValue }}>
             <CreateProductFrom handleChange={handleChange} errors={errors}  />
           </imageDataContext.Provider>
         </form>

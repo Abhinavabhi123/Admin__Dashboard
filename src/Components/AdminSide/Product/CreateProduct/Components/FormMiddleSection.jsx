@@ -49,7 +49,7 @@ export default function FormMiddleSection(Props) {
           <h2 className="font-medium"> Product Image</h2>
         </div>
         <div className="mt-3 md:mt-0">
-          <CreateProductImage  />
+          <CreateProductImage  errors={errors}/>
         </div>
       </div>
       {/* Price section */}
@@ -87,11 +87,11 @@ export default function FormMiddleSection(Props) {
             <label htmlFor="currency" className="text-sm">
               Currency
             </label>
-            <div className="border min-w-[60px] border-primary bg-white rounded-md py-[0.6rem] px-2 ">
+            <div className="border min-w-[60px] border-primary bg-white rounded-md  px-2 ">
               <select
                 name="currency"
                 id="currency"
-                className="bg-transparent w-full rounded-md outline-none text-sm "
+                className="bg-transparent w-full rounded-md outline-none text-sm py-3"
                 onChange={handleChange}
               >
                 <option value="">Select</option>

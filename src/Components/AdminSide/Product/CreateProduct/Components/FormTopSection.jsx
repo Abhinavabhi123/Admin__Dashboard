@@ -1,7 +1,12 @@
+
 import { RiErrorWarningLine } from "react-icons/ri";
+
 
 export default function FormTopSection(Props) {
   const { handleChange, errors } = Props;
+
+
+
   return (
     <div className="w-full h-fit md:min-h-[32rem] flex flex-col md:flex-row bg-transparent gap-3">
       {/* left section */}

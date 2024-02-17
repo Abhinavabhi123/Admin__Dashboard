@@ -13,8 +13,6 @@ export default function FormBottomSection() {
   const options = useMemo(() => countryList().getData(), []);
   const { handleChange, errors, handleBlur, touched, values, setFieldValue } =
     useContext(imageDataContext);
-  console.log(errors, "error");
-  console.log(touched, "touched");
 
   const modules = {
     toolbar: [
@@ -50,6 +48,17 @@ export default function FormBottomSection() {
     "video",
     "code-block",
     "undo",
+  ];
+  
+  const status=[
+    {
+      value: "active",
+      label: "Active",
+    },
+    {
+      value: "Inactive",
+      label: "Inactive",
+    },
   ];
 
   return (
@@ -97,24 +106,24 @@ export default function FormBottomSection() {
               defaultValue="lucy"
               id="import_status"
               name="import_status"
-              className="border-none h-10 relative hover:outline-none placeholder:text-black"
+              className="border-none h-11 relative hover:outline-none placeholder:text-black"
               onChange={(value) => setFieldValue("import_status", value)}
               onBlur={handleBlur}
               value={values.import_status}
               style={{
                 width: "100%",
               }}
-              options={[
-                {
-                  value: "active",
-                  label: "Active",
-                },
-                {
-                  value: "Inactive",
-                  label: "Inactive",
-                },
-              ]}
-            />
+              
+            >
+               <Select.Option value="" disabled hidden >Select</Select.Option>
+               {
+                status.map((item,index)=>{
+                  return(
+                    <Select.Option key={index} value={item.value}>{item.label}</Select.Option>
+                  )
+                })
+               }
+            </Select>
             {errors.import_status && touched.import_status && (
               <div className="absolute right-10 ">
                 <RiErrorWarningLine size={20} color="red" />
@@ -142,26 +151,25 @@ export default function FormBottomSection() {
               showSearch
               name="country"
               id="country"
-              className="border-none h-10 hover:outline-none"
+              className="border-none h-11 hover:outline-none"
               style={{ width: "100%", border: "none" }}
               defaultValue={"Select"}
               placeholder="Search to Select"
               optionFilterProp="children"
-              filterOption={(input, option) =>
-                (option?.label ?? "")
-                  .toLowerCase()
-                  .includes(input.toLowerCase())
-              }
-              filterSort={(optionA, optionB) =>
-                (optionA?.label ?? "")
-                  .toLowerCase()
-                  .localeCompare((optionB?.label ?? "").toLowerCase())
-              }
               onChange={(value) => setFieldValue("country", value)}
               onBlur={handleBlur}
               value={values.country}
-              options={options}
-            />
+              
+            >
+              <Select.Option hidden value="" disabled> Select</Select.Option>
+              {
+                options.map((item,i)=>{
+                  return(
+                    <Select.Option key={i} value={item.value}>{item.label}</Select.Option>
+                  )
+                })
+              }
+            </Select>
             {errors.country && touched.country && (
               <div className="absolute right-10">
                 <RiErrorWarningLine size={20} color="red" />

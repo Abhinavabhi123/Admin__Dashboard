@@ -205,46 +205,30 @@ export default function FormTopSection() {
               Select Category<span className="text-red-500 text-sm">*</span> :
             </label>
             <div className="flex bg-white items-center justify-between relative rounded-md border border-primary ">
-              {/* <select
-                name="category"
-                value={values.category}
-                id="category"
-                className="w-full outline-none text-sm rounded-md py-3 form_select px-2"
-                onChange={handleChange}
-                onBlur={handleBlur}
-              >
-                <option value="" disabled  hidden>Please select </option>
-                <option className="form_select_option" value="ele">Electronics</option>
-                <option className="form_select_option" value="ele">Dress</option>
-                <option className="form_select_option" value="ele">Footwear</option>
-                <option className="form_select_option" value="ele">Food</option>
-                <option className="form_select_option" value="ele">Home appliances</option>
-              </select> */}
-
               <Select
                 showSearch
                 name="category"
                 value={values.category}
                 id="category"
-                className="border-none h-10 hover:outline-none"
+                className="border-none h-11 hover:outline-none"
                 style={{ width: "100%", border: "none" }}
                 defaultValue={"Select"}
                 placeholder="Search to Select"
                 optionFilterProp="children"
-                filterOption={(input, option) =>
-                  (option?.label ?? "")
-                    .toLowerCase()
-                    .includes(input.toLowerCase())
-                }
-                filterSort={(optionA, optionB) =>
-                  (optionA?.label ?? "")
-                    .toLowerCase()
-                    .localeCompare((optionB?.label ?? "").toLowerCase())
-                }
                 onChange={(value) => setFieldValue("category", value)}
                 onBlur={handleBlur}
-                options={category}
-              />
+              >
+                <Select.Option hidden disabled value="">
+                  Select
+                </Select.Option>
+                {category.map((item, i) => {
+                  return (
+                    <Select.Option key={i} value={item.value}>
+                      {item.label}
+                    </Select.Option>
+                  );
+                })}
+              </Select>
               {errors.category && touched.category && (
                 <div className="absolute right-10">
                   <RiErrorWarningLine size={20} color="red" />
@@ -269,54 +253,31 @@ export default function FormTopSection() {
               :
             </label>
             <div className="flex bg-white items-center justify-between  relative rounded-md border border-primary ">
-              {/* <select
-                name="subcategory"
-                id="subcategory"
-                value={values.subcategory}
-                className="w-full outline-none text-sm rounded-md py-3 px-2 form_select"
-                onChange={handleChange}
-                onBlur={handleBlur}
-              >
-                <option value="" disabled hidden>
-                  Please select
-                </option>
-                <option className="form_select_option" value="lap">
-                  lap Top
-                </option>
-                <option className="form_select_option" value="mob">
-                  Mobile
-                </option>
-                <option className="form_select_option" value="tv">
-                  TV
-                </option>
-                <option className="form_select_option" value="pc">
-                  PC
-                </option>
-              </select> */}
               <Select
                 showSearch
                 name="subcategory"
                 id="subcategory"
                 value={values.subcategory}
-                className="border-none h-10 hover:outline-none"
+                className="border-none h-11 hover:outline-none"
                 style={{ width: "100%", border: "none" }}
                 defaultValue={"Select"}
                 placeholder="Search to Select"
                 optionFilterProp="children"
-                filterOption={(input, option) =>
-                  (option?.label ?? "")
-                    .toLowerCase()
-                    .includes(input.toLowerCase())
-                }
-                filterSort={(optionA, optionB) =>
-                  (optionA?.label ?? "")
-                    .toLowerCase()
-                    .localeCompare((optionB?.label ?? "").toLowerCase())
-                }
                 onChange={(value) => setFieldValue("subcategory", value)}
                 onBlur={handleBlur}
-                options={subCategory}
-              />
+              >
+                <Select.Option value="" hidden disabled>
+                  Select
+                </Select.Option>
+                {subCategory.map((item, i) => {
+                  return (
+                    <Select.Option key={i} value={item.value}>
+                      {item.label}
+                    </Select.Option>
+                  );
+                })}
+              </Select>
+
               {errors.subcategory && touched.subcategory && (
                 <div className="absolute right-10">
                   <RiErrorWarningLine size={20} color="red" />
@@ -347,54 +308,28 @@ export default function FormTopSection() {
                 Select keyword<span className="text-red-500 text-sm">*</span> :
               </label>
               <div className="flex bg-white items-center justify-between  relative rounded-md border border-primary ">
-                {/* <select
-                  name="keyword"
-                  id="keyword"
-                  value={values.keyword}
-                  className="w-full  text-sm py-3 rounded-md px-2 form_select"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                >
-                  <option value="" disabled hidden>
-                    Please Tag
-                  </option>
-                  <option className="form_select_option" value="tag 1">
-                    Tag 1
-                  </option>
-                  <option className="form_select_option" value="tag 2">
-                    Tag 2
-                  </option>
-                  <option className="form_select_option" value="tag 3">
-                    Tag 3
-                  </option>
-                  <option className="form_select_option" value="tag 4">
-                    Tag 4
-                  </option>
-                </select> */}
                 <Select
                   showSearch
                   name="keyword"
                   id="keyword"
                   value={values.keyword}
-                  className="border-none h-10 hover:outline-none"
+                  className="border-none h-11 hover:outline-none"
                   style={{ width: "100%", border: "none" }}
                   defaultValue={"Select"}
                   placeholder="Search to Select"
                   optionFilterProp="children"
-                  filterOption={(input, option) =>
-                    (option?.label ?? "")
-                      .toLowerCase()
-                      .includes(input.toLowerCase())
-                  }
-                  filterSort={(optionA, optionB) =>
-                    (optionA?.label ?? "")
-                      .toLowerCase()
-                      .localeCompare((optionB?.label ?? "").toLowerCase())
-                  }
                   onChange={(value) => setFieldValue("keyword", value)}
                   onBlur={handleBlur}
-                  options={keyword}
-                />
+                >
+                  <Select.Option value="" hidden disabled>Select</Select.Option>
+                  {
+                    keyword.map((item,i)=>{
+                      return(
+                        <Select.Option key={i} value={item.value}>{item.label}</Select.Option>
+                      )
+                    })
+                  }
+                </Select>
                 {errors.keyword && touched.keyword && (
                   <div className="absolute right-10">
                     <RiErrorWarningLine size={20} color="red" />

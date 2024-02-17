@@ -1,3 +1,18 @@
 .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
+  display: none;
+}
+
+
+
+.form_select_option {
+  background-color: #ffffff; 
+  color: #75CFC0;
+  font-size: 14px;
+  padding: 5px 10px;
+}
+
+.form_select::-webkit-scrollbar {
+  display: none;
+}
+
+

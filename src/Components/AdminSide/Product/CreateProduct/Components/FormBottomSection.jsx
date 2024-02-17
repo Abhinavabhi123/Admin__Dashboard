@@ -1,13 +1,18 @@
 import { RiErrorWarningLine } from "react-icons/ri";
-import { useMemo, useState } from "react";
+import { useContext, useMemo, useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import countryList from "react-select-country-list";
+import { MdDone } from "react-icons/md";
+import "../create.css"
+import { imageDataContext } from "../../../../../Pages/AdminPages/Product/CreateProduct";
 
-export default function FormBottomSection(Props) {
-  const { handleChange, errors } = Props;
+export default function FormBottomSection() {
+  // const { handleChange, errors,touched,handleBlur } = Props;
   const [value, setValue] = useState("");
   const options = useMemo(() => countryList().getData(), []);
+  const {  handleChange, errors,handleBlur,touched,values } = useContext(imageDataContext);
+  
 
   const modules = {
     toolbar: [
@@ -58,18 +63,21 @@ export default function FormBottomSection(Props) {
             <ReactQuill
               theme="snow"
               value={value}
+              name="description"
               modules={modules}
               formats={formats}
               onChange={(value) => {
                 setValue(value), handleChange("description")(value);
               }}
+              onBlur={() => handleBlur("description")}
+              
               id="description"
               className="w-full h-full"
             />
           </div>
         </div>
         <div className="px-2 h-4 ">
-          {errors.description && (
+          {errors.description&&touched.description && (
             <p className="text-xs text-red-500">{errors.description}</p>
           )}
         </div>
@@ -84,24 +92,31 @@ export default function FormBottomSection(Props) {
             Import Status :
           </label>
           <div className="flex bg-white items-center justify-between px-2 relative rounded-md border border-primary ">
-            {errors.import_status && (
+            {errors.import_status &&touched.import_status&& (
               <div className="absolute right-10 ">
                 <RiErrorWarningLine size={20} color="red" />
               </div>
             )}
+            {!errors.import_status &&touched.import_status&& (
+              <div className="absolute right-10 ">
+               <MdDone size={20} color="green" />
+              </div>
+            )}
             <select
-              className="w-full outline-none text-sm py-3"
+              className="w-full outline-none text-sm py-3 form_select"
               id="import_status"
               name="import_status"
               onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.import_status}
             >
               <option value="">Select</option>
-              <option value="active">Active</option>
-              <option value="inactive">Inactive</option>
+              <option className="form_select_option" value="active">Active</option>
+              <option className="form_select_option" value="inactive">Inactive</option>
             </select>
           </div>
           <div className="px-2 h-4 ">
-            {errors.import_status && (
+            {errors.import_status&&touched.import_status && (
               <p className="text-xs text-red-500">{errors.import_status}</p>
             )}
           </div>
@@ -112,21 +127,29 @@ export default function FormBottomSection(Props) {
             Country of Origin :
           </label>
           <div className="flex bg-white items-center justify-between px-2 relative rounded-md border border-primary ">
-            {errors.country && (
+            {errors.country&&touched.country && (
               <div className="absolute right-10">
                 <RiErrorWarningLine size={20} color="red" />
               </div>
             )}
+            {!errors.country&&touched.country && (
+              <div className="absolute right-10">
+                <MdDone size={20} color="green" />
+              </div>
+            )}
             <select
-              className=" bg-transparent w-full text-sm rounded-md outline-none py-3"
+              className=" bg-transparent w-full text-sm rounded-md outline-none py-3 form_select"
               id="country"
               name="country"
               onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.country}
             >
               <option value="">Select</option>
               {options.map((item, i) => {
+                
                 return (
-                  <option key={i} value={item.value}>
+                  <option key={i}  className="form_select_option" value={item.value}>
                     {item.label}
                   </option>
                 );
@@ -134,7 +157,7 @@ export default function FormBottomSection(Props) {
             </select>
           </div>
           <div className="px-2 h-4 ">
-            {errors.country && (
+            {errors.country&&touched.country && (
               <p className="text-xs text-red-500">{errors.country}</p>
             )}
           </div>
@@ -149,14 +172,17 @@ export default function FormBottomSection(Props) {
               type="text"
               name="released"
               id="released"
+              value={values.released}
               placeholder="Enter Released Date Eg.(dd/mm/yyyy)"
               className=" text-sm bg-transparent py-3 w-full outline-none"
               onChange={handleChange}
+              onBlur={handleBlur}
             />
-            {errors.released && <RiErrorWarningLine size={20} color="red" />}
+            {errors.released&&touched.released && <RiErrorWarningLine size={20} color="red" />}
+            {!errors.released&&touched.released && <MdDone size={20} color="green" />}
           </div>
           <div className="px-2 h-4 ">
-            {errors.released && (
+            {errors.released&&touched.released && (
               <p className="text-xs text-red-500">{errors.released}</p>
             )}
           </div>
@@ -171,14 +197,17 @@ export default function FormBottomSection(Props) {
               type="text"
               name="warranty"
               id="warranty"
+              value={values.warranty}
               placeholder="Enter  Warranty Length"
               className=" text-sm bg-transparent py-3 w-full outline-none"
               onChange={handleChange}
+              onBlur={handleBlur}
             />
-            {errors.warranty && <RiErrorWarningLine size={20} color="red" />}
+            {errors.warranty&&touched.warranty && <RiErrorWarningLine size={20} color="red" />}
+            {!errors.warranty&&touched.warranty && <MdDone size={20} color="green" />}
           </div>
           <div className="px-2 h-4 ">
-            {errors.warranty && (
+            {errors.warranty&&touched.warranty && (
               <p className="text-xs text-red-500">{errors.warranty}</p>
             )}
           </div>
@@ -193,16 +222,21 @@ export default function FormBottomSection(Props) {
               type="text"
               name="warrantyPolicy"
               id="warrantyPolicy"
+              value={values.warrantyPolicy}
               placeholder="Enter  Warranty Policy"
               className=" text-sm bg-transparent py-3 w-full outline-none"
               onChange={handleChange}
+              onBlur={handleBlur}
             />
-            {errors.warrantyPolicy && (
+            {errors.warrantyPolicy&&touched.warrantyPolicy && (
               <RiErrorWarningLine size={20} color="red" />
+            )}
+            {!errors.warrantyPolicy&&touched.warrantyPolicy && (
+              <MdDone size={20} color="green" />
             )}
           </div>
           <div className="px-2 h-4 ">
-            {errors.warrantyPolicy && (
+            {errors.warrantyPolicy&&touched.warrantyPolicy && (
               <p className="text-xs text-red-500">{errors.warrantyPolicy}</p>
             )}
           </div>

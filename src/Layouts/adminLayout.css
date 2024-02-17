@@ -23,7 +23,7 @@
   color: white;
 }
 
-.active  .list_icon,
-.active  a {
-  color: #083344;
+.active  {
+  color: white;
+  background-color: #083344;
 }

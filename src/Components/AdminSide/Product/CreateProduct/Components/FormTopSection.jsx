@@ -1,10 +1,13 @@
 
 import { RiErrorWarningLine } from "react-icons/ri";
+import { MdDone } from "react-icons/md";
+import "../create.css"
+import { imageDataContext } from "../../../../../Pages/AdminPages/Product/CreateProduct";
+import { useContext } from "react";
 
+export default function FormTopSection() {
 
-export default function FormTopSection(Props) {
-  const { handleChange, errors } = Props;
-
+  const { handleChange, errors,handleBlur,touched,values } = useContext(imageDataContext);
 
 
   return (
@@ -24,14 +27,17 @@ export default function FormTopSection(Props) {
               type="text"
               name="name"
               id="name"
+              value={values.name}
               placeholder="Enter Product Name"
               className=" text-sm bg-transparent py-3 w-full outline-none"
               onChange={handleChange}
+              onBlur={handleBlur}
             />
-            {errors.name && <RiErrorWarningLine size={20} color="red" />}
+            {errors.name && touched.name && <RiErrorWarningLine size={20} color="red" />}
+            {!errors.name && touched.name && <MdDone size={20} color="green" />}
           </div>
           <div className="px-2 h-4 ">
-            {errors.name && (
+            {errors.name&&touched.name && (
               <p className="text-xs text-red-500">{errors.name}</p>
             )}
           </div>
@@ -46,16 +52,21 @@ export default function FormTopSection(Props) {
               type="text"
               name="manufacturer"
               id="manufacturer"
+              value={values.manufacturer}
               placeholder="Enter Manufacturer Name"
               className=" text-sm bg-transparent py-3 w-full outline-none"
               onChange={handleChange}
+              onBlur={handleBlur}
             />
-            {errors.manufacturer && (
+            {errors.manufacturer&&touched.manufacturer && (
               <RiErrorWarningLine size={20} color="red" />
+            )}
+            {!errors.manufacturer&&touched.manufacturer && (
+              <MdDone size={20} color="green" />
             )}
           </div>
           <div className="px-2 h-4 ">
-            {errors.manufacturer && (
+            {errors.manufacturer&&touched.manufacturer && (
               <p className="text-xs text-red-500">{errors.manufacturer}</p>
             )}
           </div>
@@ -71,16 +82,21 @@ export default function FormTopSection(Props) {
               type="text"
               name="identification"
               id="identification"
+              value={values.identification}
               placeholder="Enter Identification No"
               className=" text-sm bg-transparent py-3 w-full outline-none"
               onChange={handleChange}
+              onBlur={handleBlur}
             />
-            {errors.identification && (
+            {errors.identification&&touched.identification && (
               <RiErrorWarningLine size={20} color="red" />
+            )}
+            {!errors.identification&&touched.identification && (
+              <MdDone size={20} color="green" />
             )}
           </div>
           <div className="px-2 h-4 ">
-            {errors.identification && (
+            {errors.identification&&touched.identification && (
               <p className="text-xs text-red-500">{errors.identification}</p>
             )}
           </div>
@@ -95,14 +111,17 @@ export default function FormTopSection(Props) {
               type="text"
               name="summery"
               id="summery"
+              value={values.summery}
               placeholder="Enter Product Summery"
               className=" text-sm bg-transparent py-3 w-full outline-none"
               onChange={handleChange}
+              onBlur={handleBlur}
             />
-            {errors.summery && <RiErrorWarningLine size={20} color="red" />}
+            {errors.summery&&touched.summery && <RiErrorWarningLine size={20} color="red" />}
+            {!errors.summery&&touched.summery && <MdDone size={20} color="green" />}
           </div>
           <div className="px-2 h-4 ">
-            {errors.summery && (
+            {errors.summery&&touched.summery && (
               <p className="text-xs text-red-500">{errors.summery}</p>
             )}
           </div>
@@ -121,27 +140,34 @@ export default function FormTopSection(Props) {
               Select Category<span className="text-red-500 text-sm">*</span> :
             </label>
             <div className="flex bg-white items-center justify-between px-2 relative rounded-md border border-primary ">
-              {errors.category && (
+              {errors.category&&touched.category && (
                 <div className="absolute right-10">
                   <RiErrorWarningLine size={20} color="red" />
                 </div>
               )}
+              {!errors.category&&touched.category && (
+                <div className="absolute right-10">
+                  <MdDone size={20} color="green" />
+                </div>
+              )}
               <select
                 name="category"
+                value={values.category}
                 id="category"
-                className="w-full outline-none text-sm py-3"
+                className="w-full outline-none text-sm py-3 form_select"
                 onChange={handleChange}
+                onBlur={handleBlur}
               >
                 <option value="">Please select </option>
-                <option value="ele">Electronics</option>
-                <option value="ele">Dress</option>
-                <option value="ele">Footwear</option>
-                <option value="ele">Food</option>
-                <option value="ele">Home appliances</option>
+                <option className="form_select_option" value="ele">Electronics</option>
+                <option className="form_select_option" value="ele">Dress</option>
+                <option className="form_select_option" value="ele">Footwear</option>
+                <option className="form_select_option" value="ele">Food</option>
+                <option className="form_select_option" value="ele">Home appliances</option>
               </select>
             </div>
             <div className="px-2 h-4 ">
-              {errors.category && (
+              {errors.category&&touched.category && (
                 <p className="text-xs text-red-500">{errors.category}</p>
               )}
             </div>
@@ -153,23 +179,33 @@ export default function FormTopSection(Props) {
               :
             </label>
             <div className="flex bg-white items-center justify-between px-2 relative rounded-md border border-primary ">
-              {errors.subcategory && (
+              {errors.subcategory&&touched.subcategory && (
                 <div className="absolute right-10">
                   <RiErrorWarningLine size={20} color="red" />
+                </div>
+              )}
+              {!errors.subcategory&&touched.subcategory && (
+                <div className="absolute right-10">
+                  <MdDone size={20} color="green" />
                 </div>
               )}
               <select
                 name="subcategory"
                 id="subcategory"
-                className="w-full outline-none text-sm py-3"
+                value={values.subcategory}
+                className="w-full outline-none text-sm py-3 form_select"
                 onChange={handleChange}
+                onBlur={handleBlur}
               >
                 <option value="">Please select</option>
-                <option value="lap">lapTop</option>
+                <option className="form_select_option" value="lap">lap Top</option>
+                <option className="form_select_option" value="mob">Mobile</option>
+                <option className="form_select_option" value="tv">TV</option>
+                <option className="form_select_option" value="pc">PC</option>
               </select>
             </div>
             <div className="px-2 h-4 ">
-              {errors.subcategory && (
+              {errors.subcategory&&touched.subcategory && (
                 <p className="text-xs text-red-500">{errors.subcategory}</p>
               )}
             </div>
@@ -181,30 +217,40 @@ export default function FormTopSection(Props) {
             <div className="mb-8">
               <h2 className="font-medium">Tags</h2>
             </div>
-            {/* sectoin 1 */}
+            {/* section 1 */}
             <div className="flex flex-col space-y-2">
             <label className="text-sm" htmlFor="keyword">
               Select keyword<span className="text-red-500 text-sm">*</span>{" "}
               :
             </label>
             <div className="flex bg-white items-center justify-between px-2 relative rounded-md border border-primary ">
-              {errors.keyword && (
+              {errors.keyword&&touched.keyword && (
                 <div className="absolute right-10">
                   <RiErrorWarningLine size={20} color="red" />
+                </div>
+              )}
+              {!errors.keyword&&touched.keyword && (
+                <div className="absolute right-10">
+                  <MdDone size={20} color="green" />
                 </div>
               )}
               <select
                 name="keyword"
                 id="keyword"
-                className="w-full outline-none text-sm py-3"
+                value={values.keyword}
+                className="w-full outline-none text-sm py-3 form_select"
                 onChange={handleChange}
+                onBlur={handleBlur}
              >
                 <option value="">Please Tag</option>
-                <option value="tag 1">Please 1</option>
+                <option className="form_select_option" value="tag 1">Tag 1</option>
+                <option className="form_select_option" value="tag 2">Tag 2</option>
+                <option className="form_select_option" value="tag 3">Tag 3</option>
+                <option className="form_select_option" value="tag 4">Tag 4</option>
               </select>
             </div>
             <div className="px-2 h-4 ">
-              {errors.keyword && (
+              {errors.keyword&&touched.keyword && (
                 <p className="text-xs text-red-500">{errors.keyword}</p>
               )}
             </div>

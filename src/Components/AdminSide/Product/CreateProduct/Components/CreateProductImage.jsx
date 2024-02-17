@@ -6,9 +6,9 @@ import { IoMdClose } from "react-icons/io";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { imageDataContext } from "../../../../../Pages/AdminPages/Product/CreateProduct";
 
-export default function CreateProductImage(Props) {
-  const { errors } = Props;
-  const { submitting, setFieldValue } = useContext(imageDataContext);
+export default function CreateProductImage() {
+  // const { errors,handleBlur,touched } = Props;
+  const { errors, submitting,handleBlur, setFieldValue,touched } = useContext(imageDataContext);
   const [files, setFiles] = useState([]);
   const [error, setError] = useState("");
 
@@ -77,7 +77,7 @@ export default function CreateProductImage(Props) {
         {...getRootProps({ className: "dropzone" })}
         className="w-[80%] md:w-[70%] h-36 bg-slate-200 bg-opacity-50 outline-dotted outline-blue-500 rounded-lg flex flex-col justify-center items-center md:mt-4"
       >
-        <input {...getInputProps()} />
+        <input {...getInputProps()} name="files" id="files" onBlur={handleBlur}/>
         <img src={Upload} alt="upload image" className="w-14 md:w-20" />
         <p className="w-full text-center text-xs px-2 md:text-sm">
           Drag & Drop some images here, or click here
@@ -86,7 +86,7 @@ export default function CreateProductImage(Props) {
       {error && (
         <p className="px-3 text-xs text-center text-red-500 mt-2">{error}</p>
       )}
-      {errors.files && (
+      {errors.files&&touched.files && (
         <p className="px-3 text-xs text-center text-red-500 mt-2">
           {errors.files}
         </p>

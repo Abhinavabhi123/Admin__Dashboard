@@ -132,7 +132,7 @@ export default function SideLayout(Props) {
             url={"users"}
             icon={<FaRegUser size={20} className="list_icon" />}
             title="Users"
-            path="user"
+            path="users"
           />
           <List
             url={"categories"}
@@ -152,7 +152,7 @@ export default function SideLayout(Props) {
           <ul
             className={`${
               dropDown?.product && isOpen ? "flex  transition-all" : "hidden"
-            } duration-700 flex-col  ms-3 py-1 rounded-md`}
+            } duration-700 flex-col  ms-3 gap-2 py-1 rounded-md`}
           >
             <List
               icon={<IoList size={20} className="list_icon" />}

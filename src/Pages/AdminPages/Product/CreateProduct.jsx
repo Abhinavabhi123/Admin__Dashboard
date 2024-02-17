@@ -84,8 +84,8 @@ export default function CreateProduct() {
     warrantyPolicy: Yup.string().required("Warranty is required"),
     description: Yup.string().required("Description is required"),
     files: Yup.array()
-    .min(1, 'Please select at least one image')
-    .required('Please select at least one image'),
+      .min(1, "Please select at least one image")
+      .required("Please select at least one image"),
   });
 
   const initialValues = {
@@ -106,21 +106,31 @@ export default function CreateProduct() {
     released: "",
     warranty: "",
     warrantyPolicy: "",
-    description:"",
-    files:[]
+    description: "",
+    files: [],
   };
 
-  const { handleChange, handleSubmit, errors, resetForm,setFieldValue } = useFormik({
+  const {
+    handleChange,
+    handleSubmit,
+    errors,
+    resetForm,
+    setFieldValue,
+    handleBlur,
+    touched,
+    values
+  } = useFormik({
     initialValues,
     validationSchema,
+    validateOnChange: true,
+    validateOnBlur: true,
     onSubmit: (values, { resetForm }) => {
       console.log(values);
       alert("Form submitted Successfully");
       resetForm();
-      setSubmitting(true)
+      setSubmitting(true);
     },
   });
-
 
   return (
     <div className="w-full h-full bg-transparent mt-14 md:mt-0 pt-2 flex flex-col justify-center">
@@ -128,7 +138,6 @@ export default function CreateProduct() {
         <form
           className="w-full h-fit bg-transparent flex flex-col pe-4 ps-4 md:ps-0"
           onSubmit={handleSubmit}
-          
         >
           <div className="w-full h-20 bg-primary flex items-center justify-between px-3 md:px-10 rounded-md shadow-xl">
             <h1 className="md:text-xl text-base font-medium">
@@ -142,6 +151,7 @@ export default function CreateProduct() {
               >
                 Discard
               </button>
+
               <button
                 type="submit"
                 className="bg-slate-100 px-4 py-2 rounded-md font-medium"
@@ -150,8 +160,15 @@ export default function CreateProduct() {
               </button>
             </div>
           </div>
-          <imageDataContext.Provider value={{handleChange,errors,submitting,setFieldValue }}>
-            <CreateProductFrom handleChange={handleChange} errors={errors}  />
+          <imageDataContext.Provider
+            value={{ handleChange, errors, submitting,handleBlur, setFieldValue,touched, values }}
+          >
+            <CreateProductFrom
+              // handleChange={handleChange}
+              // errors={errors}
+              // handleBlur={handleBlur}
+              // touched={touched}
+            />
           </imageDataContext.Provider>
         </form>
       </div>

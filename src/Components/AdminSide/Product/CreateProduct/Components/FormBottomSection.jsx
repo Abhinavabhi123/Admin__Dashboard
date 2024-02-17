@@ -8,7 +8,6 @@ export default function FormBottomSection(Props) {
   const { handleChange, errors } = Props;
   const [value, setValue] = useState("");
   const options = useMemo(() => countryList().getData(), []);
-  console.log(options, "snfksan");
 
   const modules = {
     toolbar: [
@@ -20,7 +19,6 @@ export default function FormBottomSection(Props) {
         { indent: "-1" },
         { indent: "+1" },
       ],
-      [{ script: "sub" }, { script: "super" }],
       ["link", "image"],
       ["clean"],
     ],

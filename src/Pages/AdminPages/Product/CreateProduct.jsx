@@ -114,9 +114,9 @@ export default function CreateProduct() {
     initialValues,
     validationSchema,
     onSubmit: (values, { resetForm }) => {
-      resetForm();
       console.log(values);
       alert("Form submitted Successfully");
+      resetForm();
       setSubmitting(true)
     },
   });

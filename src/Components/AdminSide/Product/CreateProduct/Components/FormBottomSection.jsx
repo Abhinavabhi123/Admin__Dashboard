@@ -91,7 +91,7 @@ export default function FormBottomSection() {
           <label className="text-sm" htmlFor="import_status">
             Import Status :
           </label>
-          <div className="flex bg-white items-center justify-between px-2 relative rounded-md border border-primary ">
+          <div className="flex bg-white items-center justify-between relative rounded-md border border-primary ">
             {errors.import_status &&touched.import_status&& (
               <div className="absolute right-10 ">
                 <RiErrorWarningLine size={20} color="red" />
@@ -103,14 +103,14 @@ export default function FormBottomSection() {
               </div>
             )}
             <select
-              className="w-full outline-none text-sm py-3 form_select"
+              className="w-full outline-none text-sm py-3 rounded-md px-2 form_select"
               id="import_status"
               name="import_status"
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.import_status}
             >
-              <option value="">Select</option>
+              <option value="" disabled hidden>Select</option>
               <option className="form_select_option" value="active">Active</option>
               <option className="form_select_option" value="inactive">Inactive</option>
             </select>
@@ -126,7 +126,7 @@ export default function FormBottomSection() {
           <label className="text-sm" htmlFor="country">
             Country of Origin :
           </label>
-          <div className="flex bg-white items-center justify-between px-2 relative rounded-md border border-primary ">
+          <div className="flex bg-white items-center justify-between relative rounded-md border border-primary ">
             {errors.country&&touched.country && (
               <div className="absolute right-10">
                 <RiErrorWarningLine size={20} color="red" />
@@ -138,14 +138,14 @@ export default function FormBottomSection() {
               </div>
             )}
             <select
-              className=" bg-transparent w-full text-sm rounded-md outline-none py-3 form_select"
+              className=" bg-transparent w-full text-sm rounded-md outline-none py-3 px-2 form_select"
               id="country"
               name="country"
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.country}
             >
-              <option value="">Select</option>
+              <option value="" hidden disabled>Select</option>
               {options.map((item, i) => {
                 
                 return (

@@ -139,7 +139,7 @@ export default function FormTopSection() {
             <label className="text-sm" htmlFor="category">
               Select Category<span className="text-red-500 text-sm">*</span> :
             </label>
-            <div className="flex bg-white items-center justify-between px-2 relative rounded-md border border-primary ">
+            <div className="flex bg-white items-center justify-between relative rounded-md border border-primary ">
               {errors.category&&touched.category && (
                 <div className="absolute right-10">
                   <RiErrorWarningLine size={20} color="red" />
@@ -154,11 +154,11 @@ export default function FormTopSection() {
                 name="category"
                 value={values.category}
                 id="category"
-                className="w-full outline-none text-sm py-3 form_select"
+                className="w-full outline-none text-sm rounded-md py-3 form_select px-2"
                 onChange={handleChange}
                 onBlur={handleBlur}
               >
-                <option value="">Please select </option>
+                <option value="" disabled  hidden>Please select </option>
                 <option className="form_select_option" value="ele">Electronics</option>
                 <option className="form_select_option" value="ele">Dress</option>
                 <option className="form_select_option" value="ele">Footwear</option>
@@ -178,7 +178,7 @@ export default function FormTopSection() {
               Select sub-Category<span className="text-red-500 text-sm">*</span>{" "}
               :
             </label>
-            <div className="flex bg-white items-center justify-between px-2 relative rounded-md border border-primary ">
+            <div className="flex bg-white items-center justify-between  relative rounded-md border border-primary ">
               {errors.subcategory&&touched.subcategory && (
                 <div className="absolute right-10">
                   <RiErrorWarningLine size={20} color="red" />
@@ -193,11 +193,11 @@ export default function FormTopSection() {
                 name="subcategory"
                 id="subcategory"
                 value={values.subcategory}
-                className="w-full outline-none text-sm py-3 form_select"
+                className="w-full outline-none text-sm rounded-md py-3 px-2 form_select"
                 onChange={handleChange}
                 onBlur={handleBlur}
               >
-                <option value="">Please select</option>
+                <option  value="" disabled  hidden>Please select</option>
                 <option className="form_select_option" value="lap">lap Top</option>
                 <option className="form_select_option" value="mob">Mobile</option>
                 <option className="form_select_option" value="tv">TV</option>
@@ -223,7 +223,7 @@ export default function FormTopSection() {
               Select keyword<span className="text-red-500 text-sm">*</span>{" "}
               :
             </label>
-            <div className="flex bg-white items-center justify-between px-2 relative rounded-md border border-primary ">
+            <div className="flex bg-white items-center justify-between  relative rounded-md border border-primary ">
               {errors.keyword&&touched.keyword && (
                 <div className="absolute right-10">
                   <RiErrorWarningLine size={20} color="red" />
@@ -238,11 +238,11 @@ export default function FormTopSection() {
                 name="keyword"
                 id="keyword"
                 value={values.keyword}
-                className="w-full outline-none text-sm py-3 form_select"
+                className="w-full outline-none text-sm py-3 rounded-md px-2 form_select"
                 onChange={handleChange}
                 onBlur={handleBlur}
              >
-                <option value="">Please Tag</option>
+                <option value="" disabled hidden >Please Tag</option>
                 <option className="form_select_option" value="tag 1">Tag 1</option>
                 <option className="form_select_option" value="tag 2">Tag 2</option>
                 <option className="form_select_option" value="tag 3">Tag 3</option>

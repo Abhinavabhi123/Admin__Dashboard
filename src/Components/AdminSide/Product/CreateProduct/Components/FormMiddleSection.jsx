@@ -4,17 +4,16 @@ import { RiErrorWarningLine } from "react-icons/ri";
 import { MdDone } from "react-icons/md";
 import { imageDataContext } from "../../../../../Pages/AdminPages/Product/CreateProduct";
 
-
 export default function FormMiddleSection() {
-
-  const {  handleChange, errors,handleBlur,touched} = useContext(imageDataContext);
+  const { handleChange, errors, handleBlur, touched,values } =
+    useContext(imageDataContext);
   const [price, setPrice] = useState({
     basePrice: 0,
     discount: 0,
     finalPrice: 0,
   });
 
-//   setting values in the state
+  //   setting values in the state
   function handleValue(e) {
     setPrice({
       ...price,
@@ -22,8 +21,7 @@ export default function FormMiddleSection() {
     });
   }
 
-
-// Calculating the discount price
+  // Calculating the discount price
   function calculateFinalPrice() {
     const basePrice = price.basePrice;
     const discount = price.discount;
@@ -52,7 +50,11 @@ export default function FormMiddleSection() {
           <h2 className="font-medium"> Product Image</h2>
         </div>
         <div className="mt-3 md:mt-0">
-          <CreateProductImage  errors={errors} handleBlur={handleBlur} touched={touched}/>
+          <CreateProductImage
+            errors={errors}
+            handleBlur={handleBlur}
+            touched={touched}
+          />
         </div>
       </div>
       {/* Price section */}
@@ -78,12 +80,16 @@ export default function FormMiddleSection() {
                 }}
                 onBlur={handleBlur}
               />
-              {errors.basePrice&&touched.basePrice && <RiErrorWarningLine size={20} color="red" />}
-              {!errors.basePrice&&touched.basePrice && <MdDone size={20} color="green" />}
+              {errors.basePrice && touched.basePrice && (
+                <RiErrorWarningLine size={20} color="red" />
+              )}
+              {!errors.basePrice && touched.basePrice && (
+                <MdDone size={20} color="green" />
+              )}
             </div>
 
             <div className="px-2 h-4 ">
-              {errors.basePrice&&touched.basePrice && (
+              {errors.basePrice && touched.basePrice && (
                 <p className="text-xs text-red-500">{errors.basePrice}</p>
               )}
             </div>
@@ -92,15 +98,16 @@ export default function FormMiddleSection() {
             <label htmlFor="currency" className="text-sm">
               Currency
             </label>
-            <div className="border min-w-[60px] border-primary bg-white rounded-md  px-2 ">
+            <div className="border min-w-[60px] border-primary bg-white rounded-md ">
               <select
                 name="currency"
                 id="currency"
-                className="bg-transparent w-full rounded-md outline-none text-sm py-3 form_select"
+                value={values.currency}
+                className="bg-transparent w-full outline-none rounded-md text-sm py-3 px-2 form_select"
                 onChange={handleChange}
                 onBlur={handleBlur}
               >
-                <option value="">Select</option>
+               <option value="" disabled  hidden>Select </option>
                 <option value="inr">INR</option>
                 <option value="usd">USD</option>
                 <option value="eur">EUR</option>
@@ -108,7 +115,7 @@ export default function FormMiddleSection() {
               </select>
             </div>
             <div className="h-4 px-2">
-              {errors.currency&&touched.currency && (
+              {errors.currency && touched.currency && (
                 <p className="text-xs text-red-500">{errors.currency}</p>
               )}
             </div>
@@ -131,7 +138,7 @@ export default function FormMiddleSection() {
             onBlur={handleBlur}
           />
           <div className="h-4 px-2">
-            {errors.discount&&touched.discount && (
+            {errors.discount && touched.discount && (
               <p className="text-xs text-red-500">{errors.discount}</p>
             )}
           </div>
@@ -172,11 +179,15 @@ export default function FormMiddleSection() {
               onChange={handleChange}
               onBlur={handleBlur}
             />
-            {errors.stock && touched.stock && <RiErrorWarningLine size={20} color="red" />}
-            {!errors.stock && touched.stock &&  <MdDone size={20} color="green" />}
+            {errors.stock && touched.stock && (
+              <RiErrorWarningLine size={20} color="red" />
+            )}
+            {!errors.stock && touched.stock && (
+              <MdDone size={20} color="green" />
+            )}
           </div>
           <div className="px-2 h-4 ">
-            {errors.stock&&touched.stock && (
+            {errors.stock && touched.stock && (
               <p className="text-xs text-red-500">{errors.stock}</p>
             )}
           </div>

@@ -107,7 +107,7 @@ export default function FormMiddleSection() {
                 name="currency"
                 id="currency"
                 value={values.currency}
-                className="border-none h-11 relative hover:outline-none placeholder:text-black"
+                className="border-none focus:border-none h-11 relative hover:border-none placeholder:text-black"
                 onChange={(value) => setFieldValue("currency", value)}
                 onBlur={handleBlur}
                 style={{

@@ -103,15 +103,15 @@ export default function FormBottomSection() {
           </label>
           <div className="flex bg-white items-center justify-between relative rounded-md border border-primary ">
             <Select
-              defaultValue="lucy"
               id="import_status"
               name="import_status"
-              className="border-none h-11 relative hover:outline-none placeholder:text-black"
+              className="border-none h-11 relative  placeholder:text-black "
               onChange={(value) => setFieldValue("import_status", value)}
               onBlur={handleBlur}
               value={values.import_status}
               style={{
                 width: "100%",
+                outline:"none"
               }}
               
             >
@@ -151,8 +151,8 @@ export default function FormBottomSection() {
               showSearch
               name="country"
               id="country"
-              className="border-none h-11 hover:outline-none"
-              style={{ width: "100%", border: "none" }}
+              className="border-none h-11 "
+              style={{ width: "100%"}}
               defaultValue={"Select"}
               placeholder="Search to Select"
               optionFilterProp="children"

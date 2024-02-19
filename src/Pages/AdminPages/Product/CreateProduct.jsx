@@ -2,6 +2,7 @@ import { CreateProductFrom } from "../../../Components";
 import { useFormik } from "formik";
 import { createContext, useState } from "react";
 import * as Yup from "yup";
+import { ConfigProvider } from "antd";
 
 export const imageDataContext = createContext();
 export default function CreateProduct() {
@@ -118,7 +119,7 @@ export default function CreateProduct() {
     setFieldValue,
     handleBlur,
     touched,
-    values
+    values,
   } = useFormik({
     initialValues,
     validationSchema,
@@ -161,14 +162,26 @@ export default function CreateProduct() {
             </div>
           </div>
           <imageDataContext.Provider
-            value={{ handleChange, errors, submitting,handleBlur, setFieldValue,touched, values }}
+            value={{
+              handleChange,
+              errors,
+              submitting,
+              handleBlur,
+              setFieldValue,
+              touched,
+              values,
+            }}
           >
-            <CreateProductFrom
-              // handleChange={handleChange}
-              // errors={errors}
-              // handleBlur={handleBlur}
-              // touched={touched}
-            />
+            <ConfigProvider theme={{
+              components:{
+                Select:{
+                  colorBorder:"none",
+                  controlOutline:"none"
+                }
+              }
+            }}>
+              <CreateProductFrom />
+            </ConfigProvider>
           </imageDataContext.Provider>
         </form>
       </div>

@@ -81,14 +81,14 @@ export default function FormTopSection() {
           <label className="text-sm" htmlFor="name">
             Product Name<span className="text-red-500 text-sm">*</span> :
           </label>
-          <div className="flex items-center bg-white px-4 rounded-md  border border-primary">
+          <div className="flex items-center bg-white px-4 rounded-md border focus:border hover:border-[#1677ff] border-primary">
             <input
               type="text"
               name="name"
               id="name"
               value={values.name}
               placeholder="Enter Product Name"
-              className=" text-sm bg-transparent py-3 w-full outline-none"
+              className=" text-sm bg-transparent py-3 w-full outline-none "
               onChange={handleChange}
               onBlur={handleBlur}
             />

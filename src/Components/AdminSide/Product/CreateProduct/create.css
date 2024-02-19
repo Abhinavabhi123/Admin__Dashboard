@@ -22,4 +22,7 @@
   display: none;
 }
 
-
+.ant-select-selector{
+  border: none;
+  outline: none;
+}

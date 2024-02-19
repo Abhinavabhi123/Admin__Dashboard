@@ -21,8 +21,3 @@
 .form_select::-webkit-scrollbar {
   display: none;
 }
-
-.ant-select-selector{
-  border: none;
-  outline: none;
-}

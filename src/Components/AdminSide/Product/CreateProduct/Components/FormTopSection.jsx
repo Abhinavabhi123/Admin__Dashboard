@@ -81,7 +81,7 @@ export default function FormTopSection() {
           <label className="text-sm" htmlFor="name">
             Product Name<span className="text-red-500 text-sm">*</span> :
           </label>
-          <div className="flex items-center bg-white px-4 rounded-md border focus:border hover:border-[#1677ff] border-primary">
+          <div className="flex items-center bg-white px-4 rounded-md border border-primary">
             <input
               type="text"
               name="name"

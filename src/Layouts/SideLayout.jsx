@@ -157,6 +157,8 @@ export default function SideLayout(Props) {
             <List
               icon={<IoList size={20} className="list_icon" />}
               title="Product List"
+              path="product-list"
+              url={"product/product-list"}
               />
             <List
               icon={<IoMdAdd size={20} className="list_icon" />}

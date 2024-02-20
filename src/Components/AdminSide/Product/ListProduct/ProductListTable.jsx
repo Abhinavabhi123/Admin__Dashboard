@@ -121,7 +121,7 @@ export default function ProductListTable() {
               <TableCell align="center">
                 <TableSortLabel
                   active
-                  direction={orderBy === "si_no" ? order : "asc"}
+                  direction={orderBy === "si_no" ? order : "desc"}
                   onClick={() => handleSort("si_no")}
                 >
                   SI
@@ -130,7 +130,7 @@ export default function ProductListTable() {
               <TableCell align="center">
                 <TableSortLabel
                   active
-                  direction={orderBy === "name" ? order : "asc"}
+                  direction={orderBy === "name" ? order : "desc"}
                   onClick={() => handleSort("name")}
                 >
                   Name
@@ -139,7 +139,7 @@ export default function ProductListTable() {
               <TableCell align="center">
                 <TableSortLabel
                   active
-                  direction={orderBy === "Image" ? order : "asc"}
+                  direction={orderBy === "Image" ? order : "desc"}
                   onClick={() => handleSort("Image")}
                 >
                   Image
@@ -148,7 +148,7 @@ export default function ProductListTable() {
               <TableCell align="center">
                 <TableSortLabel
                   active
-                  direction={orderBy === "manufacturer" ? order : "asc"}
+                  direction={orderBy === "manufacturer" ? order : "desc"}
                   onClick={() => handleSort("manufacturer")}
                 >
                   Manufacturer
@@ -157,7 +157,7 @@ export default function ProductListTable() {
               <TableCell>
                 <TableSortLabel
                   active
-                  direction={orderBy === "productId" ? order : "asc"}
+                  direction={orderBy === "productId" ? order : "desc"}
                   onClick={() => handleSort("productId")}
                 >
                   Product Id
@@ -166,7 +166,7 @@ export default function ProductListTable() {
               <TableCell align="center">
                 <TableSortLabel
                   active
-                  direction={orderBy === "price" ? order : "asc"}
+                  direction={orderBy === "price" ? order : "desc"}
                   onClick={() => handleSort("price")}
                 >
                   Price
@@ -175,7 +175,7 @@ export default function ProductListTable() {
               <TableCell align="center">
                 <TableSortLabel
                   active
-                  direction={orderBy === "category" ? order : "asc"}
+                  direction={orderBy === "category" ? order : "desc"}
                   onClick={() => handleSort("category")}
                 >
                   Category
@@ -184,7 +184,7 @@ export default function ProductListTable() {
               <TableCell align="center">
                 <TableSortLabel
                   active
-                  direction={orderBy === "stock" ? order : "asc"}
+                  direction={orderBy === "stock" ? order : "desc"}
                   onClick={() => handleSort("stock")}
                 >
                   Stock
@@ -193,7 +193,7 @@ export default function ProductListTable() {
               <TableCell align="center">
                 <TableSortLabel
                   active
-                  direction={orderBy === "released" ? order : "asc"}
+                  direction={orderBy === "released" ? order : "desc"}
                   onClick={() => handleSort("released")}
                 >
                   Released
@@ -202,7 +202,7 @@ export default function ProductListTable() {
               <TableCell align="center">
                 <TableSortLabel
                   active
-                  direction={orderBy === "date" ? order : "asc"}
+                  direction={orderBy === "date" ? order : "desc"}
                   onClick={() => handleSort("date")}
                 >
                   Date
@@ -211,16 +211,15 @@ export default function ProductListTable() {
               <TableCell align="center">
                 <TableSortLabel
                   active
-                  direction={orderBy === "status" ? order : "asc"}
+                  direction={orderBy === "status" ? order : "desc"}
                   onClick={() => handleSort("status")}
-                  hideSortIcon={false} // Set hideSortIcon to false to always show the sort arrow
                 >
                   Status
                 </TableSortLabel>
               </TableCell>
 
               <TableCell align="center" className="font-bold">
-                <TableSortLabel >Actions</TableSortLabel>
+                <TableSortLabel hideSortIcon >Actions</TableSortLabel>
               </TableCell>
             </TableRow>
           </TableHead>

@@ -203,7 +203,7 @@ export default function ProductListTable() {
                   <TableRow
                     key={i}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                    className={`${i % 2 === 0 && "bg-slate-200"}`}
+                    className={`${i % 2 === 0 && "bg-slate-100"}`}
                   >
                     <TableCell>{row.si_no}</TableCell>
                     <TableCell>{row.name}</TableCell>

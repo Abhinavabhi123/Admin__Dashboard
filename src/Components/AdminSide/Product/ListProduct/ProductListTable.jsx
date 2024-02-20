@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { productData } from "../../../../Services/Constants";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -15,18 +15,33 @@ import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import Nodata from "../../../../assets/No data-pana.png";
+import { IoMdClose } from "react-icons/io";
+import { fetchProductData } from "../../../../Services/Api/ProductApi";
 
 export default function ProductListTable() {
-  const [data, setData] = useState(productData);
+  const [data, setData] = useState([]);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [totalProduct,setTotalProduct] = useState(0)
   const [orderBy, setOrderBy] = useState("");
   const [order, setOrder] = useState("asc");
   const [search, setSearch] = useState("");
 
   const [anchorEl, setAnchorEl] = useState(null);
+  const inputRef = useRef(null);
   const open = Boolean(anchorEl);
+
+  useEffect(() => {
+
+    const fetchData = async () => {
+      const { data, total } = await fetchProductData(page, rowsPerPage);
+      setData(data);
+      setTotalProduct(total );
+    };
+
+    fetchData();
+  }, [page, rowsPerPage]);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -72,16 +87,29 @@ export default function ProductListTable() {
     setData(filteredData);
   };
 
+  function resetSearch() {
+    setSearch("");
+    inputRef.current.value = "";
+    handleSearch({ target: { value: "" } });
+  }
+
   return (
     <>
       <div className="w-full h-20  flex justify-end items-center pe-4">
-        <input
-          type="text"
-          placeholder="Search..."
-          value={search}
-          className="h-10 px-5 text-sm drop-shadow-xl rounded-md outline-none border-2 border-primary"
-          onChange={handleSearch}
-        />
+        <div className="flex justify-between items-center h-10 text-sm drop-shadow-xl px-4 rounded-md bg-white outline-none border-2 border-primary">
+          <input
+            type="text"
+            ref={inputRef}
+            placeholder="Search..."
+            className="h-full w-full outline-none rounded-md"
+            onChange={handleSearch}
+          />
+          <IoMdClose
+            size={18}
+            className={`cursor-pointer ${search ? "block" : "hidden"}`}
+            onClick={resetSearch}
+          />
+        </div>
       </div>
       <TableContainer
         component={Paper}
@@ -92,7 +120,7 @@ export default function ProductListTable() {
             <TableRow>
               <TableCell align="center">
                 <TableSortLabel
-                  active={orderBy === "si_no"}
+                  active
                   direction={orderBy === "si_no" ? order : "asc"}
                   onClick={() => handleSort("si_no")}
                 >
@@ -101,7 +129,7 @@ export default function ProductListTable() {
               </TableCell>
               <TableCell align="center">
                 <TableSortLabel
-                  active={orderBy === "name"}
+                  active
                   direction={orderBy === "name" ? order : "asc"}
                   onClick={() => handleSort("name")}
                 >
@@ -110,7 +138,7 @@ export default function ProductListTable() {
               </TableCell>
               <TableCell align="center">
                 <TableSortLabel
-                  active={orderBy === "Image"}
+                  active
                   direction={orderBy === "Image" ? order : "asc"}
                   onClick={() => handleSort("Image")}
                 >
@@ -119,7 +147,7 @@ export default function ProductListTable() {
               </TableCell>
               <TableCell align="center">
                 <TableSortLabel
-                  active={orderBy === "manufacturer"}
+                  active
                   direction={orderBy === "manufacturer" ? order : "asc"}
                   onClick={() => handleSort("manufacturer")}
                 >
@@ -128,7 +156,7 @@ export default function ProductListTable() {
               </TableCell>
               <TableCell>
                 <TableSortLabel
-                  active={orderBy === "productId"}
+                  active
                   direction={orderBy === "productId" ? order : "asc"}
                   onClick={() => handleSort("productId")}
                 >
@@ -137,7 +165,7 @@ export default function ProductListTable() {
               </TableCell>
               <TableCell align="center">
                 <TableSortLabel
-                  active={orderBy === "price"}
+                  active
                   direction={orderBy === "price" ? order : "asc"}
                   onClick={() => handleSort("price")}
                 >
@@ -146,7 +174,7 @@ export default function ProductListTable() {
               </TableCell>
               <TableCell align="center">
                 <TableSortLabel
-                  active={orderBy === "category"}
+                  active
                   direction={orderBy === "category" ? order : "asc"}
                   onClick={() => handleSort("category")}
                 >
@@ -155,7 +183,7 @@ export default function ProductListTable() {
               </TableCell>
               <TableCell align="center">
                 <TableSortLabel
-                  active={orderBy === "stock"}
+                  active
                   direction={orderBy === "stock" ? order : "asc"}
                   onClick={() => handleSort("stock")}
                 >
@@ -164,7 +192,7 @@ export default function ProductListTable() {
               </TableCell>
               <TableCell align="center">
                 <TableSortLabel
-                  active={orderBy === "released"}
+                  active
                   direction={orderBy === "released" ? order : "asc"}
                   onClick={() => handleSort("released")}
                 >
@@ -173,7 +201,7 @@ export default function ProductListTable() {
               </TableCell>
               <TableCell align="center">
                 <TableSortLabel
-                  active={orderBy === "date"}
+                  active
                   direction={orderBy === "date" ? order : "asc"}
                   onClick={() => handleSort("date")}
                 >
@@ -182,94 +210,98 @@ export default function ProductListTable() {
               </TableCell>
               <TableCell align="center">
                 <TableSortLabel
-                  active={orderBy === "status"}
+                  active
                   direction={orderBy === "status" ? order : "asc"}
                   onClick={() => handleSort("status")}
+                  hideSortIcon={false} // Set hideSortIcon to false to always show the sort arrow
                 >
                   Status
                 </TableSortLabel>
               </TableCell>
 
               <TableCell align="center" className="font-bold">
-                <TableSortLabel>Actions</TableSortLabel>
+                <TableSortLabel >Actions</TableSortLabel>
               </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {data ? (
-              data
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row, i) => (
-                  <TableRow
-                    key={i}
-                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                    className={`${i % 2 === 0 && "bg-slate-100"}`}
-                  >
-                    <TableCell>{row.si_no}</TableCell>
-                    <TableCell>{row.name}</TableCell>
-                    <TableCell>
-                      <img
-                        src={row.Image}
-                        className="h-10 rounded-full w-10"
-                        alt="product image"
-                      />
-                    </TableCell>
-                    <TableCell>{row.manufacturer}</TableCell>
-                    <TableCell>{row.productId}</TableCell>
-                    <TableCell>{row.price}</TableCell>
-                    <TableCell>{row.category}</TableCell>
-                    <TableCell>{row.stock}</TableCell>
-                    <TableCell>{row.released}</TableCell>
-                    <TableCell>{row.date}</TableCell>
-                    <TableCell>{`${row.status ? "True" : "False"}`}</TableCell>
-                    <TableCell className="px-0">
-                      <div className="flex flex-row items-center justify-center gap-2">
-                        <Tooltip title="Edit" arrow>
-                          <IconButton>
-                            <MdOutlineEdit size={20} />
-                          </IconButton>
-                        </Tooltip>
-                        <Menu
-                          id="basic-menu"
-                          anchorEl={anchorEl}
-                          open={open}
-                          onClose={handleClose}
-                          PaperProps={{ elevation: 1 }}
-                          MenuListProps={{
-                            "aria-labelledby": "basic-button",
-                          }}
+            {data
+              .map((row, i) => (
+                <TableRow
+                  key={i}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  className={`${i % 2 === 0 && "bg-slate-100"}`}
+                >
+                  <TableCell>{row.si_no}</TableCell>
+                  <TableCell>{row.name}</TableCell>
+                  <TableCell>
+                    <img
+                      src={row.Image}
+                      className="h-10 rounded-full w-10"
+                      alt="product image"
+                    />
+                  </TableCell>
+                  <TableCell>{row.manufacturer}</TableCell>
+                  <TableCell>{row.productId}</TableCell>
+                  <TableCell>{row.price}</TableCell>
+                  <TableCell>{row.category}</TableCell>
+                  <TableCell>{row.stock}</TableCell>
+                  <TableCell>{row.released}</TableCell>
+                  <TableCell>{row.date}</TableCell>
+                  <TableCell>{`${row.status ? "True" : "False"}`}</TableCell>
+                  <TableCell className="px-0">
+                    <div className="flex flex-row items-center justify-center gap-2">
+                      <Tooltip title="Edit" arrow>
+                        <IconButton>
+                          <MdOutlineEdit size={20} />
+                        </IconButton>
+                      </Tooltip>
+                      <Menu
+                        id="basic-menu"
+                        anchorEl={anchorEl}
+                        open={open}
+                        onClose={handleClose}
+                        PaperProps={{ elevation: 1 }}
+                        MenuListProps={{
+                          "aria-labelledby": "basic-button",
+                        }}
+                      >
+                        <MenuItem
+                          onClick={handleClose}
+                          style={{ fontSize: "small" }}
                         >
-                            <MenuItem onClick={handleClose} style={{ fontSize: "small" }}>Preview</MenuItem>
-                            <MenuItem onClick={handleClose} style={{ fontSize: "small" }}>Delete</MenuItem>
-                        </Menu>
-                        <Tooltip title="Options" arrow>
-                          <IconButton onClick={handleClick}>
-                            <SlOptionsVertical
-                              size={15}
-                              className="cursor-pointer"
-                            />
-                          </IconButton>
-                        </Tooltip>
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                ))
-            ) : (
-              <div className="w-full h-20 bg-red-400">
-                <img src={Nodata} alt="" />
-              </div>
-            )}
+                          Preview
+                        </MenuItem>
+                        <MenuItem
+                          onClick={handleClose}
+                          style={{ fontSize: "small" }}
+                        >
+                          Delete
+                        </MenuItem>
+                      </Menu>
+                      <Tooltip title="Options" arrow>
+                        <IconButton onClick={handleClick}>
+                          <SlOptionsVertical
+                            size={15}
+                            className="cursor-pointer"
+                          />
+                        </IconButton>
+                      </Tooltip>
+                    </div>
+                  </TableCell>
+                </TableRow>
+              ))}
           </TableBody>
         </Table>
       </TableContainer>
       <TablePagination
-        rowsPerPageOptions={[5, 10, 25, 50]}
-        component="div"
-        count={data.length}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onPageChange={handleChangePage}
-        onRowsPerPageChange={handleChangeRowsPerPage}
+         rowsPerPageOptions={[5, 10, 25, 50]}
+         component="div"
+         count={totalProduct}
+         rowsPerPage={rowsPerPage}
+         page={page}
+         onPageChange={handleChangePage}
+         onRowsPerPageChange={handleChangeRowsPerPage}
       />
     </>
   );

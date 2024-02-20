@@ -84,7 +84,7 @@ export default function SideLayout(Props) {
   return (
     <div
       className={` ${
-        !isOpen ? "md:w-20" : "md:w-[250px] md:max-[895px]:w-[230px]"
+        !isOpen ? "md:w-20 " : "md:w-[15%] md:min-w-[200px]"
       } w-full md:rounded-r-lg rounded-b-lg ${
         menuOpen ? "h-fit transition-color duration-300" : "h-14"
       }  md:h-[40.6rem] transition-all  z-10  md:duration-200 fixed md:top-20 left-0 bg-[#75CFC0]`}

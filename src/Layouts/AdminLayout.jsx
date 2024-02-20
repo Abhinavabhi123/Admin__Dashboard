@@ -13,12 +13,12 @@ export default function AdminLayout() {
       </div>
       <div className="w-full h-[40.5rem] bg-transparent flex  flex-col md:flex-row">
         <div
-          className={`w-full ${!isOpen?"md:w-[80px]":"md:w-[250px]"} transition-all duration-300 bg-transparent h-24 md:h-full`}
+          className={`w-full ${!isOpen?"md:w-[80px] md:min-w-20":"md:w-[15%] md:min-w-[200px]"} transition-all duration-300 bg-transparent h-24 md:h-full`}
         >
           <SideLayout setIsOpen={setIsOpen} isOpen={isOpen} />
         </div>
         <div
-          className={`w-full ${isOpen?"md:w-5/6":"md:w-[95%]"}  transition-all duration-300 md:ps-4 mt-2 md:mt-0 h-full`}
+          className={`w-full ${isOpen?"md:w-[85%]":"md:w-[95%]"}  transition-all duration-300 md:ps-4 mt-2 md:mt-0 h-full`}
         >
           {/* md:w-[94.7%] */}
           <Outlet />

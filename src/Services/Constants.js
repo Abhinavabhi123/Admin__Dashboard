@@ -2,63 +2,6 @@ export const AdminLoginData={
   email:"admin@gmail.com",
   password:"123456"
 }
-export const columns = [
-  {
-      header:"Si.No",
-      accessorKey:"si_no",
-      footer:"Si.No"
-  },
-  {
-      header:"Name",
-      accessorKey:"name",
-      footer:"Name"
-  },
-  {
-      header:"Image",
-      accessorKey:"Image",
-      footer:"Image"
-  },
-  {
-      header:"Manufacturer",
-      accessorKey:"manufacturer",
-      footer:"Manufacturer"
-  },
-  {
-      header:"Product Id",
-      accessorKey:"productId",
-      footer:"Product Id"
-  },
-  {
-      header:"Category",
-      accessorKey:"category",
-      footer:"Category"
-  },
-  {
-      header:"Price",
-      accessorKey:"price",
-      footer:"Price"
-  },
-  {
-      header:"Stock",
-      accessorKey:"stock",
-      footer:"Stock"
-  },
-  {
-      header:"Released",
-      accessorKey:"released",
-      footer:"Released"
-  },
-  {
-      header:"Date",
-      accessorKey:"date",
-      footer:"Date"
-  },
-  {
-      header:"Status",
-      accessorKey:"status",
-      footer:"Status"
-  },
-];
 
 export const productData=[
   {

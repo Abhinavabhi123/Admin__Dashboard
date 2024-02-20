@@ -15,7 +15,7 @@ import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import Nodata from "../../../../assets/No data-pana.png"
+import Nodata from "../../../../assets/No data-pana.png";
 
 export default function ProductListTable() {
   const [data, setData] = useState(productData);
@@ -60,12 +60,13 @@ export default function ProductListTable() {
   };
 
   const handleSearch = (event) => {
-    setSearch(event.target.value);
+    const trimmedValue = event.target.value.trim();
+    setSearch(trimmedValue);
     const filteredData = productData.filter((item) =>
       Object.values(item).some(
         (value) =>
           typeof value === "string" &&
-          value.toLowerCase().includes(event.target.value.toLowerCase())
+          value.toLowerCase().includes(trimmedValue.toLowerCase())
       )
     );
     setData(filteredData);
@@ -84,10 +85,10 @@ export default function ProductListTable() {
       </div>
       <TableContainer
         component={Paper}
-        className="max-h-[500px] overscroll-y-auto  px-4 rounded-lg border border-primary"
+        className="max-h-[500px] overscroll-y-auto rounded-lg border border-primary"
       >
         <Table aria-label="Product table">
-          <TableHead className="h-20">
+          <TableHead className="h-20 sticky top-0 bg-primary px-4 z-10">
             <TableRow>
               <TableCell align="center">
                 <TableSortLabel
@@ -195,74 +196,69 @@ export default function ProductListTable() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {data ?( data
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row, i) => (
-                <TableRow
-                  key={i}
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  className="border-primary"
-                >
-                  <TableCell>{row.si_no}</TableCell>
-                  <TableCell>{row.name}</TableCell>
-                  <TableCell>
-                    <img
-                      src={row.Image}
-                      className="h-10 rounded-full w-10"
-                      alt="product image"
-                    />
-                  </TableCell>
-                  <TableCell>{row.manufacturer}</TableCell>
-                  <TableCell>{row.productId}</TableCell>
-                  <TableCell>{row.price}</TableCell>
-                  <TableCell>{row.category}</TableCell>
-                  <TableCell>{row.stock}</TableCell>
-                  <TableCell>{row.released}</TableCell>
-                  <TableCell>{row.date}</TableCell>
-                  <TableCell>{`${row.status ? "True" : "False"}`}</TableCell>
-                  <TableCell className="px-0">
-                    <div className="flex flex-row items-center justify-center gap-2">
-                      <Tooltip title="Edit" arrow>
-                        <IconButton>
-                          <MdOutlineEdit size={20} />
-                        </IconButton>
-                      </Tooltip>
-                      <Menu
-                        id="basic-menu"
-                        anchorEl={anchorEl}
-                        open={open}
-                        onClose={handleClose}
-                        PaperProps={{ elevation: 1 }}
-                        MenuListProps={{
-                          "aria-labelledby": "basic-button",
-                        }}
-                      >
-                        <MenuItem onClick={handleClose} className="text-xs">
-                          Preview
-                        </MenuItem>
-                        <MenuItem
-                          onClick={handleClose}
-                          style={{ fontSize: "10x" }}
+            {data ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, i) => (
+                  <TableRow
+                    key={i}
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                    className={`${i % 2 === 0 && "bg-slate-200"}`}
+                  >
+                    <TableCell>{row.si_no}</TableCell>
+                    <TableCell>{row.name}</TableCell>
+                    <TableCell>
+                      <img
+                        src={row.Image}
+                        className="h-10 rounded-full w-10"
+                        alt="product image"
+                      />
+                    </TableCell>
+                    <TableCell>{row.manufacturer}</TableCell>
+                    <TableCell>{row.productId}</TableCell>
+                    <TableCell>{row.price}</TableCell>
+                    <TableCell>{row.category}</TableCell>
+                    <TableCell>{row.stock}</TableCell>
+                    <TableCell>{row.released}</TableCell>
+                    <TableCell>{row.date}</TableCell>
+                    <TableCell>{`${row.status ? "True" : "False"}`}</TableCell>
+                    <TableCell className="px-0">
+                      <div className="flex flex-row items-center justify-center gap-2">
+                        <Tooltip title="Edit" arrow>
+                          <IconButton>
+                            <MdOutlineEdit size={20} />
+                          </IconButton>
+                        </Tooltip>
+                        <Menu
+                          id="basic-menu"
+                          anchorEl={anchorEl}
+                          open={open}
+                          onClose={handleClose}
+                          PaperProps={{ elevation: 1 }}
+                          MenuListProps={{
+                            "aria-labelledby": "basic-button",
+                          }}
                         >
-                          Delete
-                        </MenuItem>
-                      </Menu>
-                      <Tooltip title="Options" arrow>
-                        <IconButton onClick={handleClick}>
-                          <SlOptionsVertical
-                            size={15}
-                            className="cursor-pointer"
-                          />
-                        </IconButton>
-                      </Tooltip>
-                    </div>
-                  </TableCell>
-                </TableRow>
-              ))):(
-                <div className="w-full h-20 bg-red-400">
-                    <img src={Nodata} alt="" />
-                </div>
-              )}
+                            <MenuItem onClick={handleClose} style={{ fontSize: "small" }}>Preview</MenuItem>
+                            <MenuItem onClick={handleClose} style={{ fontSize: "small" }}>Delete</MenuItem>
+                        </Menu>
+                        <Tooltip title="Options" arrow>
+                          <IconButton onClick={handleClick}>
+                            <SlOptionsVertical
+                              size={15}
+                              className="cursor-pointer"
+                            />
+                          </IconButton>
+                        </Tooltip>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                ))
+            ) : (
+              <div className="w-full h-20 bg-red-400">
+                <img src={Nodata} alt="" />
+              </div>
+            )}
           </TableBody>
         </Table>
       </TableContainer>

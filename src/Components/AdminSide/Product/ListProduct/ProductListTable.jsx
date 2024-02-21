@@ -164,14 +164,14 @@ export default function ProductListTable() {
       <div className="w-full h-36 md:h-20  flex flex-col items-end justify-center  md:flex-row md:justify-end md:items-center pe-4 gap-4">
         <div className="flex gap-3">
           <div
-            className="flex items-center gap-3 bg-slate-200 py-2 px-3 border border-primary rounded-md"
+            className="flex items-center gap-3 bg-slate-200 cursor-pointer py-2 px-3 border border-primary rounded-md"
             onClick={handleDownloadExcel}
           >
             <button className="text-sm">Export</button>
             <SiMicrosoftexcel size={18} color="green" />
           </div>
           <div
-            className="flex items-center gap-3 bg-slate-200 py-2 px-3 border border-primary rounded-md"
+            className="flex items-center gap-3 cursor-pointer bg-slate-200 py-2 px-3 border border-primary rounded-md"
             onClick={generatePdf}
           >
             <button className="text-sm">Export</button>
@@ -341,7 +341,7 @@ export default function ProductListTable() {
                     <div
                       className={`${
                         open.id === row.Si_no && open.state ? "block" : "hidden"
-                      } absolute w-28 z-[1] h-fit top-9 right-4 bg-white border border-gray-300 flex flex-col items-center justify-center  rounded-md
+                      } absolute w-28 z-[1] h-20 top-9 right-4 bg-white border border-gray-300 flex flex-col items-center justify-center  rounded-md
                       `}
                     >
                       <div className="flex w-full justify-center hover:bg-slate-200 cursor-pointer" onClick={()=>{setShowDetails(row), setOpen({

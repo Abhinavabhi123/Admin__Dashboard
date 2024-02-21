@@ -87,8 +87,9 @@ export default function SideLayout(Props) {
         !isOpen ? "md:w-20 " : "md:w-[15%] md:min-w-[200px]"
       } w-full md:rounded-r-lg rounded-b-lg ${
         menuOpen ? "h-fit transition-color duration-300" : "h-14"
-      }  md:h-[40.6rem] transition-all  z-10  md:duration-200 fixed md:top-20 left-0 bg-[#75CFC0]`}
+      }  md:h-[100%] transition-all  z-10  md:duration-200 fixed md:top-20 left-0 bg-[#75CFC0]`}
     >
+      {/* :h-[40.6rem] */}
       {/* Toggle setup laptop*/}
       <div
         className="w-6  h-6 hidden md:flex rotate-90 md:rotate-0 absolute top-11 transition-all duration-300 right-4 md:-right-3 md:top-2 bg-white bg-opacity-40 hover:bg-opacity-100 rounded-full  justify-center items-center cursor-pointer"

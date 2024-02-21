@@ -134,7 +134,7 @@ export default function CreateProduct() {
   });
 
   return (
-    <div className="w-full h-full bg-transparent mt-14 md:mt-0 pt-2 flex flex-col justify-center">
+    <div className="w-full h-full bg-transparent   mt-14 md:mt-0 pt-2 flex flex-col justify-center">
       <div className="w-full h-full">
         <form
           className="w-full h-fit bg-transparent flex flex-col pe-4 ps-4 md:ps-0"

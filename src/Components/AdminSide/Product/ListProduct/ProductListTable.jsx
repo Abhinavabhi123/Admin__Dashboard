@@ -13,8 +13,6 @@ import { MdOutlineEdit } from "react-icons/md";
 import { SlOptionsVertical } from "react-icons/sl";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
 import { IoMdClose } from "react-icons/io";
 import { fetchProductData } from "../../../../Services/Api/ProductApi";
 // Excel module
@@ -24,7 +22,7 @@ import { SiMicrosoftexcel } from "react-icons/si";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import { FaRegFilePdf } from "react-icons/fa";
-// import ProductPreview from "./ProductPreview";
+import ProductPreview from "./ProductPreview";
 
 export default function ProductListTable() {
   const [data, setData] = useState([]);
@@ -34,17 +32,10 @@ export default function ProductListTable() {
   const [orderBy, setOrderBy] = useState("");
   const [order, setOrder] = useState("asc");
   const [search, setSearch] = useState("");
+  const [showDetails, setShowDetails] = useState(null);
 
-  const [showDetails, setShowDetails] = useState({
-    id: null,
-    status: false,
-  });
-
-  console.log(showDetails, "id");
-
-  const [anchorEl, setAnchorEl] = useState(null);
   const inputRef = useRef(null);
-  const open = Boolean(anchorEl);
+  const [open, setOpen] = useState({ id: null, state: false });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -55,13 +46,6 @@ export default function ProductListTable() {
 
     fetchData();
   }, [page, rowsPerPage]);
-
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -107,14 +91,6 @@ export default function ProductListTable() {
     handleSearch({ target: { value: "" } });
   }
 
-  const handlePreviewClick = (index) => {
-    handleClose();
-    setShowDetails((prevState) => ({
-      ...prevState,
-      id: index,
-      status: true,
-    }));
-  };
   // Export to excel
   const header = [
     "Si",
@@ -165,8 +141,22 @@ export default function ProductListTable() {
     autoTable(doc, {
       head: [header],
       body: toArray(),
+      theme: "grid",
     });
     doc.save("product-table.pdf");
+  }
+
+  if(showDetails){
+    document.body.classList.add('active-overflow-hidden');
+    return(
+      <ProductPreview
+      data={showDetails}
+      setShowDetails={setShowDetails}
+      />
+      )
+    }else{
+    document.body.classList.remove('active-overflow-hidden');
+
   }
 
   return (
@@ -208,7 +198,7 @@ export default function ProductListTable() {
         className="max-h-[500px] overscroll-y-auto rounded-lg border border-primary"
       >
         <Table aria-label="Product table" id="Product_table">
-          <TableHead className="h-20 sticky top-0 bg-primary px-4 z-[1]">
+          <TableHead className="h-20 sticky top-0 bg-primary px-4 z-[2]">
             <TableRow>
               <TableCell align="center">
                 <TableSortLabel
@@ -322,8 +312,9 @@ export default function ProductListTable() {
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 className={`${i % 2 === 0 && "bg-slate-100"}`}
               >
-                <TableCell>{row.si_no}</TableCell>
-                <TableCell>{row.name}</TableCell>
+                <TableCell>{row.Si_no}</TableCell>
+
+                <TableCell>{row.Name}</TableCell>
                 <TableCell>
                   <img
                     src={row.Image}
@@ -332,49 +323,48 @@ export default function ProductListTable() {
                     style={{ width: "50px", height: "50px" }}
                   />
                 </TableCell>
-                <TableCell>{row.manufacturer}</TableCell>
-                <TableCell>{row.productId}</TableCell>
-                <TableCell>{row.price}</TableCell>
-                <TableCell>{row.category}</TableCell>
-                <TableCell>{row.stock}</TableCell>
-                <TableCell>{row.released}</TableCell>
-                <TableCell>{row.date}</TableCell>
-                <TableCell>{`${row.status ? "True" : "False"}`}</TableCell>
-                <TableCell className="px-0">
-                  <div className="flex flex-row items-center justify-center gap-2">
+                <TableCell>{row.Manufacturer}</TableCell>
+                <TableCell>{row.ProductId}</TableCell>
+                <TableCell>{row.Price}</TableCell>
+                <TableCell>{row.Category}</TableCell>
+                <TableCell>{row.Stock}</TableCell>
+                <TableCell>{row.Released}</TableCell>
+                <TableCell>{row.Date}</TableCell>
+                <TableCell>{`${row.Status ? "True" : "False"}`}</TableCell>
+                <TableCell className="px-0 ">
+                  <div className="flex relative  flex-row items-center justify-center gap-2">
                     <Tooltip title="Edit" arrow>
                       <IconButton>
                         <MdOutlineEdit size={20} />
                       </IconButton>
                     </Tooltip>
-                    <Menu
-                      id="basic-menu"
-                      anchorEl={anchorEl}
-                      open={open}
-                      onClose={handleClose}
-                      PaperProps={{ elevation: 1 }}
-                      MenuListProps={{
-                        "aria-labelledby": "basic-button",
-                      }}
+                    <div
+                      className={`${
+                        open.id === row.Si_no && open.state ? "block" : "hidden"
+                      } absolute w-28 z-[1] h-fit top-9 right-4 bg-white border border-gray-300 flex flex-col items-center justify-center  rounded-md
+                      `}
                     >
-                      <MenuItem
-                        onClick={() => {
-                          console.log(i), handlePreviewClick(i);
-                        }}
-                        style={{ fontSize: "small" }}
-                      >
-                        Preview
-                      </MenuItem>
-
-                      <MenuItem
-                        onClick={handleClose}
-                        style={{ fontSize: "small" }}
-                      >
-                        Delete
-                      </MenuItem>
-                    </Menu>
+                      <div className="flex w-full justify-center hover:bg-slate-200 cursor-pointer" onClick={()=>{setShowDetails(row), setOpen({
+                            ...open,
+                            id: null,
+                            state: false,
+                          })}}>
+                        <h4 className="py-1 px-3">Preview</h4>
+                      </div>
+                      <div className="flex w-full justify-center hover:bg-slate-200 cursor-pointer ">
+                        <h4 className="py-1 px-3">Delete</h4>
+                      </div>
+                    </div>
                     <Tooltip title="Options" arrow>
-                      <IconButton onClick={handleClick}>
+                      <IconButton
+                        onClick={() =>
+                          setOpen({
+                            ...open,
+                            id: row.Si_no,
+                            state: !open.state,
+                          })
+                        }
+                      >
                         <SlOptionsVertical
                           size={15}
                           className="cursor-pointer"

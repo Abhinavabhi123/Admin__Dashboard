@@ -1,5 +1,6 @@
 import {
   DashboardCard,
+  DashboardOrderTable,
   DashboardSalesChart,
   OrderChart,
 } from "../../Components";
@@ -10,6 +11,9 @@ import { FaRegUser } from "react-icons/fa";
 import { DownOutlined } from "@ant-design/icons";
 import { Button, Dropdown, Space } from "antd";
 import { useState } from "react";
+import { SlOptionsVertical } from "react-icons/sl";
+import { purchased } from "../../Services/Constants";
+import { BsCurrencyDollar } from "react-icons/bs";
 
 export default function AdminDashboard() {
   const items = [
@@ -65,9 +69,11 @@ export default function AdminDashboard() {
   };
 
   return (
-    <div className="w-full h-full text-black py-6 space-y-5 mt-10 md:mt-0">
-      <div className="ps-4 md:ps-0">
-        <h2 className="text-xl font-medium">Welcome Admin</h2>
+    <div className="w-full h-full text-black py-6 space-y-5 mt-10 md:mt-0 ">
+      <div className="w-full px-3 md:pe-4">
+        <div className="w-full h-20  bg-primary flex items-center justify-between px-3 md:px-10 rounded-md shadow-xl">
+          <h1 className="md:text-xl text-base font-medium">Welcome Admin</h1>
+        </div>
       </div>
       {/* Dashboard card  */}
       <div className="w-full p-5 bg-transparent">
@@ -80,9 +86,11 @@ export default function AdminDashboard() {
         </div>
       </div>
       {/* Dashboard middle section */}
-      <div className="w-full h-fit  bg-transparent flex flex-col md:flex-row md:pe-3 md:gap-4">
-        <div className="w-full relative py-5  md:w-[58%] h-full  box_shadow  bg-transparent flex flex-col gap-8 justify-center items-center">
-          <div className="flex justify-center"><h2 className="font-semibold">Sales Overview</h2></div>
+      <div className="w-full h-fit  bg-transparent flex flex-col md:flex-row px-4 md:pe-3 gap-4">
+        <div className="w-full relative py-5  md:w-[60%] h-full  box_shadow  rounded-md bg-transparent flex flex-col gap-8 justify-center items-center">
+          <div className="flex justify-center">
+            <h2 className="font-semibold">Sales Overview</h2>
+          </div>
           <DashboardSalesChart />
           <Dropdown menu={menuProps} className="absolute right-8 top-12  ">
             <Button>
@@ -92,8 +100,54 @@ export default function AdminDashboard() {
             </Button>
           </Dropdown>
         </div>
-        <div className="w-full md:w-[40%] h-full bg-transparent box_shadow rounded-md flex justify-center items-center" >
+        <div className="w-full md:w-[40%] h-full bg-transparent box_shadow rounded-md flex justify-center items-center">
           <OrderChart />
+        </div>
+      </div>
+      {/* Dashboard bottom section */}
+      <div className="w-full h-[32rem] bg-transparent flex flex-col md:flex-row gap-4 md:pe-5 p-4">
+        <div className="w-full md:w-[60%] md:h-full bg-transparent rounded-md box_shadow p-4 space-y-3">
+          <div>
+            <h3 className="font-medium text-lg">Recent Orders</h3>
+          </div>
+          <div>
+            <p className="text-sm">Total 2450 Orders </p>
+          </div>
+          <div className="w-full  overscroll-x-auto">
+            <DashboardOrderTable />
+          </div>
+        </div>
+        <div className="w-full md:w-[40%] md:h-full bg-transparent rounded-md box_shadow p-4">
+          <div className="flex items-center justify-between">
+            <h3 className="font-medium text-lg">Most Selling</h3>
+            <SlOptionsVertical className="cursor-pointer" />
+          </div>
+          <div className="w-full h-full space-y-3 flex flex-col justify-center items-center">
+            {purchased.map((item, i) => (
+              <div
+                key={i}
+                className="w-full h-16 box_shadow rounded-md flex items-center justify-between px-2"
+              >
+                <div className="flex w-[33%] items-center gap-2">
+                  <img
+                    src={item.ProductImage}
+                    alt="product image"
+                    className="w-12 h-12 rounded-md"
+                  />
+                  <h2 className="text-xs md:text-sm">{item.Name}</h2>
+                </div>
+
+                <p className="text-center w-[33%] text-xs md:text-sm">
+                  {item.Price}
+                </p>
+
+                <div className="w-[33%] text-center flex items-center justify-center">
+                  <BsCurrencyDollar />
+                  <p className="text-xs md:text-sm font-medium">{item.Earnings}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

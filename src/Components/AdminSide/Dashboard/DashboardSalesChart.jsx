@@ -4,11 +4,16 @@ export default function DashboardSalesChart() {
   const series = [
     {
       name: "Total Sales",
-      data: [3001, 4000, 2800, 5100, 4200, 10500, 10000, 3100, 4000, 2800, 5100, 4200],
+      data: [
+        3001, 4000, 2800, 5100, 4200, 10500, 10000, 3100, 4000, 2800, 5100,
+        4200,
+      ],
     },
     {
       name: "Total Profit",
-      data: [1100, 3200, 4500, 3200, 3400, 5100, 4100, 1100, 3200, 4500, 3200, 3400],
+      data: [
+        1100, 3200, 4500, 3200, 3400, 5100, 4100, 1100, 3200, 4500, 3200, 3400,
+      ],
     },
   ];
   const options = {
@@ -16,7 +21,7 @@ export default function DashboardSalesChart() {
       height: 350,
       type: "area",
       zoom: {
-        enabled: false, 
+        enabled: false,
       },
       toolbar: {
         show: false,
@@ -28,7 +33,7 @@ export default function DashboardSalesChart() {
     stroke: {
       curve: "smooth",
       width: 2,
-      colors: ['#ff0000', '#00ff00'], 
+      colors: ["#ff0000", "#00ff00"],
     },
     xaxis: {
       tickAmount: 12,
@@ -69,16 +74,19 @@ export default function DashboardSalesChart() {
       onItemHover: {
         highlightDataSeries: true,
       },
+      markers: {
+        fillColors: ["#ff0000", "#00ff00"],
+      },
     },
     fill: {
-        colors: ["#fff"],
-        opacity: 0,
-        type: "solid",
-      },
+      colors: ["#fff"],
+      opacity: 0,
+      type: "solid",
+    },
   };
 
   return (
-    <div id="chart" className="w-full relative md:px-20">
+    <div id="chart" className="w-full relative md:px-20 rounded-md">
       <ReactApexChart
         options={options}
         series={series}

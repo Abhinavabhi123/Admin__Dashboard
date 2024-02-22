@@ -70,7 +70,7 @@ export default function DashboardCard(Props) {
   };
 
   return (
-    <div className="w-full md:w-60 h-36 rounded-md bg-gradient-to-r from-[#75CFC0] to-blue-200 border">
+    <div className="w-full md:w-60 h-36 rounded-md  box_shadow  border border-gray-400">
       <div className="flex py-3 px-5 justify-between items-center">
         <h1 className="font-medium">{data.name}</h1>
         {data.icon}

@@ -10,3 +10,4 @@ export {default as ProductListTable} from "./AdminSide/Product/ListProduct/Produ
 export {default as DashboardCard} from "./AdminSide/Dashboard/DashboardCard";
 export {default as DashboardSalesChart} from "./AdminSide/Dashboard/DashboardSalesChart";
 export {default as OrderChart} from "./AdminSide/Dashboard/OrderChart";
+export {default as DashboardOrderTable} from "./AdminSide/Dashboard/DashboardOrderTable";

@@ -8,10 +8,13 @@ export default function ProductPreview(Props) {
   function changeImage(i){
     setShowImage(i)
   }
+  function handleModalClick(e) {
+    e.stopPropagation();
+  }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center transition-all overflow-hidden duration-1000 justify-center bg-black bg-opacity-15 backdrop-blur-sm">
-      <div className="bg-white p-3 md:p-5 rounded-lg overflow-hidden w-[90%] md:w-[75%] h-[85%] md:h-[38rem] lg:h-[35rem]">
+    <div className="fixed inset-0 z-50 flex items-center transition-all overflow-hidden duration-1000 justify-center bg-black bg-opacity-15 backdrop-blur-sm" onClick={() => setShowDetails(false)}>
+      <div className="bg-white p-3 md:p-5 rounded-lg overflow-hidden w-[90%] md:w-[75%] h-[85%] md:h-[38rem] lg:h-[35rem]" onClick={handleModalClick}>
         <div className="flex justify-between p-2">
           <h2 className="md:text-xl font-medium italic text-base">
             Product Preview
@@ -37,7 +40,7 @@ export default function ProductPreview(Props) {
           </button>
         </div>
         <div className="w-full h-[92%] overflow-y-auto md:overflow-hidden flex flex-col md:flex-row bg-transparent gap-5 border border-primary rounded-md">
-          <div className=" w-full h-2/3 md:w-1/2 md:h-full bg-transparent flex flex-col md:flex-row">
+          <div className=" w-full h-2/3 md:w-1/2 md:h-full bg-transparent flex flex-col items-center ">
             <div className="w-full h-full md:w-[80%] md:h-full bg-transparent flex justify-center items-center">
               <div className="w-36 md:w-1/2 md:min-w-36 aspect-square rounded-md bg-transparent flex justify-center drop-shadow-xl   items-center">
                 <img
@@ -47,9 +50,9 @@ export default function ProductPreview(Props) {
                 />
               </div>
             </div>
-            <div className="md:w-[20%]  h-36 md:h-full bg-transparent px-3 md:px-0 flex md:flex-col justify-center items-center gap-1">
+            <div className="h-36 md:h-full bg-transparent px-3 md:px-0 flex justify-center items-center gap-1">
               {[1, 2, 3, 4, 5].map((item, i) => (
-                <div key={i} className={`w-full md:w-[70%] aspect-square ${showImage===i&&"md:border-[5px] border-2"}  border-primary m-1`} onClick={()=>changeImage(i)}>
+                <div key={i} className={`w-full md:w-20 aspect-square ${showImage===i&&"md:border-[5px] border-2"}  border-primary m-1`} onClick={()=>changeImage(i)}>
                   <img src={data.Image} alt="product image" />
                 </div>
               ))}

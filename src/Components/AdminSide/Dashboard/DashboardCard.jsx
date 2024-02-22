@@ -71,9 +71,9 @@ export default function DashboardCard(Props) {
 
   return (
     <div className="w-full md:w-60 h-36 rounded-md  box_shadow  border border-gray-400">
-      <div className="flex py-3 px-5 justify-between items-center">
+      <div className="flex py-2 px-5 justify-between items-center">
         <h1 className="font-medium">{data.name}</h1>
-        {data.icon}
+        <div className={`w-10 h-10 rounded-full bg-primary flex justify-center items-center bg-opacity-35`}>{data.icon}</div>
       </div>
       <div className="flex w-full  items-center px-4 justify-between">
         <div className="font-medium flex items-center">

@@ -105,7 +105,7 @@ export default function AdminDashboard() {
         </div>
       </div>
       {/* Dashboard bottom section */}
-      <div className="w-full h-[32rem] bg-transparent flex flex-col md:flex-row gap-4 md:pe-5 p-4">
+      <div className="w-full h-[32rem] bg-transparent flex flex-col md:flex-row gap-4 md:pe-4 p-4">
         <div className="w-full md:w-[60%] md:h-full bg-transparent rounded-md box_shadow p-4 space-y-3">
           <div>
             <h3 className="font-medium text-lg">Recent Orders</h3>

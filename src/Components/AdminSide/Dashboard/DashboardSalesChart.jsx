@@ -27,6 +27,8 @@ export default function DashboardSalesChart() {
     },
     stroke: {
       curve: "smooth",
+      width: 2,
+      colors: ['#ff0000', '#00ff00'], 
     },
     xaxis: {
       tickAmount: 12,
@@ -68,6 +70,11 @@ export default function DashboardSalesChart() {
         highlightDataSeries: true,
       },
     },
+    fill: {
+        colors: ["#fff"],
+        opacity: 0,
+        type: "solid",
+      },
   };
 
   return (

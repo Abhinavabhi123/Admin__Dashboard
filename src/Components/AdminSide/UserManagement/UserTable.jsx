@@ -89,6 +89,26 @@ export default function UserTable() {
     }
   }
 
+  function handleBlock(si){
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You want to block this User",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, Block!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: "Deleted!",
+            text: "User has been blocked.",
+            icon: "success",
+          });
+        }
+      });
+  }
+
   return (
     <>
       <div className="w-full h-20 bg-transparent flex justify-end items-center pe-4">
@@ -210,7 +230,7 @@ export default function UserTable() {
                       Active
                     </button>
                   ) : (
-                    <button className="bg-red-400 px-3 py-1 rounded-md">
+                    <button className="bg-red-400 px-3 py-1 rounded-md" onClick={()=>handleBlock(row.Si_no)}>
                       Active
                     </button>
                   )}

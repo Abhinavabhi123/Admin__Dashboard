@@ -97,8 +97,8 @@ export default function ProductListTable() {
     "Name",
     "Manufacturer",
     "Product Id",
-    "Category",
     "Price",
+    "Category",
     "Stock",
     "Released",
     "Date",
@@ -113,7 +113,7 @@ export default function ProductListTable() {
   });
   function handleDownloadExcel() {
     downloadExcel({
-      fileName: "react-export-table-to-excel -> downloadExcel method",
+      fileName: "Product list",
       sheet: "react-export-table-to-excel",
       tablePayload: {
         header,

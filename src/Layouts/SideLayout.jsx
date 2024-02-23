@@ -32,7 +32,6 @@ export default function SideLayout(Props) {
   }
   useEffect(() => {
     if (window.innerWidth <= 768) {
-      console.log("ooo");
       setIsOpen(true);
     }
   }, [setIsOpen]);

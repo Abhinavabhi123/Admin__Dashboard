@@ -9,6 +9,11 @@ import Paper from "@mui/material/Paper";
 import { orderDatas } from "../../../Services/Constants";
 import { TablePagination, TableSortLabel } from "@mui/material";
 import { IoMdClose } from "react-icons/io";
+import { SiMicrosoftexcel } from "react-icons/si";
+import { FaRegFilePdf } from "react-icons/fa";
+import jsPDF from "jspdf";
+import { downloadExcel } from "react-export-table-to-excel";
+import autoTable from "jspdf-autotable";
 
 export default function OrderTable() {
   const inputRef = useRef(null);
@@ -67,16 +72,83 @@ export default function OrderTable() {
     handleSearch({ target: { value: "" } });
   }
 
+  const header = [
+    "Si",
+    "Order Id",
+    "Customer Name",
+    "Total",
+    "Address",
+    "Status",
+  ];
+
+  const filteredData = data.map((item) => {
+    const clone = { ...item };
+    delete clone.Image;
+    clone.Status = "" + clone.Status;
+    return clone;
+  });
+
+  function handleDownloadExcel() {
+    downloadExcel({
+      fileName: "Orders",
+      sheet: "react-export-table-to-excel",
+      tablePayload: {
+        header,
+        body: filteredData,
+        className: "font-medium",
+      },
+    });
+  }
+
+  function generatePdf() {
+    const doc = new jsPDF();
+
+    function toArray() {
+      const array = [];
+      filteredData.map((item) => {
+        let values = [];
+        for (const value in item) {
+          values.push(item[value]);
+        }
+        array.push(values);
+        values = [];
+      });
+      return array;
+    }
+    autoTable(doc, {
+      head: [header],
+      body: toArray(),
+      theme: "grid",
+    });
+    doc.save("Orders.pdf");
+  }
+
   return (
-    <div>
-      <div className="w-full h-20 bg-transparent flex justify-end items-center md:pe-4">
+    <>
+      <div className="w-full h-28 bg-transparent flex flex-col md:flex-row gap-4 md:justify-end items-end md:items-center md:pe-4">
+        <div className="flex gap-3">
+          <div
+            className="flex items-center gap-3 bg-slate-200 cursor-pointer py-2 px-3 border border-primary rounded-md"
+            onClick={handleDownloadExcel}
+          >
+            <button className="text-sm">Export</button>
+            <SiMicrosoftexcel size={18} color="green" />
+          </div>
+          <div
+            className="flex items-center gap-3 cursor-pointer bg-slate-200 py-2 px-3 border border-primary rounded-md"
+            onClick={generatePdf}
+          >
+            <button className="text-sm">Export</button>
+            <FaRegFilePdf size={18} color="red" />
+          </div>
+        </div>
         <div className="flex bg-white justify-center items-center rounded-md px-2 border border-primary">
           <input
             type="text"
             placeholder="Search..."
             onChange={handleSearch}
             ref={inputRef}
-            className="focus:outline-none  text-sm py-1"
+            className="focus:outline-none h-9 text-sm py-1"
           />
           {searchValue && (
             <IoMdClose
@@ -156,7 +228,10 @@ export default function OrderTable() {
             {data.map((row, i) => (
               <TableRow
                 key={i}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 },height:"10px" }}
+                sx={{
+                  "&:last-child td, &:last-child th": { border: 0 },
+                  height: "10px",
+                }}
               >
                 <TableCell align="center">{row.Si_no}</TableCell>
                 <TableCell align="center">{row.Order_Id}</TableCell>
@@ -197,6 +272,6 @@ export default function OrderTable() {
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
       />
-    </div>
+    </>
   );
 }

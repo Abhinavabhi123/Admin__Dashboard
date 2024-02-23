@@ -10,7 +10,7 @@ export default function Admin() {
         <Route path="/" element={<AdminLogin />} />
         <Route element={<AdminLayout />}>
           <Route path="/dashboard" element={<AdminDashboard />} />
-          <Route path="/users" element={<UserManagement />} />
+          <Route path="/customer" element={<UserManagement />} />
           <Route path="/product/*" element={<ProductRoute/>} />
         </Route>
       </Routes>

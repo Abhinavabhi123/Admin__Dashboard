@@ -1175,38 +1175,253 @@ export const orderData = [
     Image: "http://dummyimage.com/192x100.png/dddddd/000000",
     Price: "29",
     Details: "Room 1572",
-  }
+  },
 ];
 
+// todo most purchased product
 
-
-// todo most purchased product 
-
-export const purchased=[
+export const purchased = [
   {
-    "ProductImage": "http://dummyimage.com/100x100.png/cc0000/ffffff",
-    "Name": "Coffee Cup ",
-    "Price": "63",
-    "Earnings": "5"
-  }, {
-    "ProductImage": "http://dummyimage.com/100x100.png/cc0000/ffffff",
-    "Name": "Muffin Mix ",
-    "Price": "76666",
-    "Earnings": "46466"
-  }, {
-    "ProductImage": "http://dummyimage.com/100x100.png/dddddd/000000",
-    "Name": "Beef ",
-    "Price": "5",
-    "Earnings": "2535"
-  }, {
-    "ProductImage": "http://dummyimage.com/100x100.png/ff4444/ffffff",
-    "Name": "Arizona ",
-    "Price": "9",
-    "Earnings": "3"
-  }, {
-    "ProductImage": "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
-    "Name": "Puree ",
-    "Price": "49879",
-    "Earnings": "671"
-  }
-]
+    ProductImage: "http://dummyimage.com/100x100.png/cc0000/ffffff",
+    Name: "Coffee Cup ",
+    Price: "63",
+    Earnings: "5",
+  },
+  {
+    ProductImage: "http://dummyimage.com/100x100.png/cc0000/ffffff",
+    Name: "Muffin Mix ",
+    Price: "76666",
+    Earnings: "46466",
+  },
+  {
+    ProductImage: "http://dummyimage.com/100x100.png/dddddd/000000",
+    Name: "Beef ",
+    Price: "5",
+    Earnings: "2535",
+  },
+  {
+    ProductImage: "http://dummyimage.com/100x100.png/ff4444/ffffff",
+    Name: "Arizona ",
+    Price: "9",
+    Earnings: "3",
+  },
+  {
+    ProductImage: "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    Name: "Puree ",
+    Price: "49879",
+    Earnings: "671",
+  },
+];
+
+export const userData = [
+  {
+    Si_no: 1,
+    Image: "http://dummyimage.com/211x100.png/cc0000/ffffff",
+    Name: "Jeramey",
+    Total: 893,
+    Status: false,
+  },
+  {
+    Si_no: 2,
+    Image: "http://dummyimage.com/107x100.png/ff4444/ffffff",
+    Name: "Francene",
+    Total: 19780,
+    Status: false,
+  },
+  {
+    Si_no: 3,
+    Image: "http://dummyimage.com/194x100.png/cc0000/ffffff",
+    Name: "Elmer",
+    Total: 5,
+    Status: true,
+  },
+  {
+    Si_no: 4,
+    Image: "http://dummyimage.com/205x100.png/cc0000/ffffff",
+    Name: "Felicle",
+    Total: 274,
+    Status: false,
+  },
+  {
+    Si_no: 5,
+    Image: "http://dummyimage.com/145x100.png/5fa2dd/ffffff",
+    Name: "Jinny",
+    Total: 30,
+    Status: false,
+  },
+  {
+    Si_no: 6,
+    Image: "http://dummyimage.com/146x100.png/cc0000/ffffff",
+    Name: "Haily",
+    Total: 132,
+    Status: true,
+  },
+  {
+    Si_no: 7,
+    Image: "http://dummyimage.com/161x100.png/ff4444/ffffff",
+    Name: "Humbert",
+    Total: 357,
+    Status: false,
+  },
+  {
+    Si_no: 8,
+    Image: "http://dummyimage.com/126x100.png/ff4444/ffffff",
+    Name: "Ericka",
+    Total: 3837,
+    Status: false,
+  },
+  {
+    Si_no: 9,
+    Image: "http://dummyimage.com/178x100.png/ff4444/ffffff",
+    Name: "Julee",
+    Total: 85545,
+    Status: false,
+  },
+  {
+    Si_no: 10,
+    Image: "http://dummyimage.com/250x100.png/5fa2dd/ffffff",
+    Name: "Sibley",
+    Total: 35,
+    Status: false,
+  },
+  {
+    Si_no: 11,
+    Image: "http://dummyimage.com/155x100.png/5fa2dd/ffffff",
+    Name: "Gussie",
+    Total: 52,
+    Status: true,
+  },
+  {
+    Si_no: 12,
+    Image: "http://dummyimage.com/215x100.png/5fa2dd/ffffff",
+    Name: "Harlin",
+    Total: 77,
+    Status: false,
+  },
+  {
+    Si_no: 13,
+    Image: "http://dummyimage.com/105x100.png/dddddd/000000",
+    Name: "Bibbye",
+    Total: 9009,
+    Status: false,
+  },
+  {
+    Si_no: 14,
+    Image: "http://dummyimage.com/118x100.png/5fa2dd/ffffff",
+    Name: "Madelina",
+    Total: 4,
+    Status: false,
+  },
+  {
+    Si_no: 15,
+    Image: "http://dummyimage.com/141x100.png/ff4444/ffffff",
+    Name: "Scarlett",
+    Total: 4,
+    Status: false,
+  },
+  {
+    Si_no: 16,
+    Image: "http://dummyimage.com/226x100.png/ff4444/ffffff",
+    Name: "Lilias",
+    Total: 25603,
+    Status: true,
+  },
+  {
+    Si_no: 17,
+    Image: "http://dummyimage.com/203x100.png/cc0000/ffffff",
+    Name: "Midge",
+    Total: 23211,
+    Status: true,
+  },
+  {
+    Si_no: 18,
+    Image: "http://dummyimage.com/150x100.png/dddddd/000000",
+    Name: "Flore",
+    Total: 26760,
+    Status: true,
+  },
+  {
+    Si_no: 19,
+    Image: "http://dummyimage.com/141x100.png/dddddd/000000",
+    Name: "Derk",
+    Total: 7,
+    Status: false,
+  },
+  {
+    Si_no: 20,
+    Image: "http://dummyimage.com/150x100.png/5fa2dd/ffffff",
+    Name: "Jerrine",
+    Total: 6261,
+    Status: false,
+  },
+  {
+    Si_no: 21,
+    Image: "http://dummyimage.com/136x100.png/dddddd/000000",
+    Name: "Loretta",
+    Total: 6248,
+    Status: true,
+  },
+  {
+    Si_no: 22,
+    Image: "http://dummyimage.com/211x100.png/cc0000/ffffff",
+    Name: "Felicle",
+    Total: 732,
+    Status: true,
+  },
+  {
+    Si_no: 23,
+    Image: "http://dummyimage.com/106x100.png/ff4444/ffffff",
+    Name: "Emelina",
+    Total: 875,
+    Status: true,
+  },
+  {
+    Si_no: 24,
+    Image: "http://dummyimage.com/204x100.png/dddddd/000000",
+    Name: "Curran",
+    Total: 5127,
+    Status: true,
+  },
+  {
+    Si_no: 25,
+    Image: "http://dummyimage.com/227x100.png/ff4444/ffffff",
+    Name: "Nikolia",
+    Total: 95,
+    Status: true,
+  },
+  {
+    Si_no: 26,
+    Image: "http://dummyimage.com/222x100.png/5fa2dd/ffffff",
+    Name: "Clara",
+    Total: 7,
+    Status: true,
+  },
+  {
+    Si_no: 27,
+    Image: "http://dummyimage.com/178x100.png/ff4444/ffffff",
+    Name: "Danell",
+    Total: 8,
+    Status: true,
+  },
+  {
+    Si_no: 28,
+    Image: "http://dummyimage.com/185x100.png/5fa2dd/ffffff",
+    Name: "Lou",
+    Total: 9,
+    Status: true,
+  },
+  {
+    Si_no: 29,
+    Image: "http://dummyimage.com/147x100.png/cc0000/ffffff",
+    Name: "Chryste",
+    Total: 5007,
+    Status: true,
+  },
+  {
+    Si_no: 30,
+    Image: "http://dummyimage.com/192x100.png/cc0000/ffffff",
+    Name: "Moyna",
+    Total: 55543,
+    Status: true,
+  },
+];

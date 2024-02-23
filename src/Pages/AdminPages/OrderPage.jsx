@@ -18,10 +18,10 @@ export default function OrderPage() {
           </div>
         </div>
       </div>
-      <div className="w-full h-[30rem] px-2">
+      <div className="w-full h-[30rem] px-2 mb-20">
         <div className="w-full h-full rounded-md">
           <div className="flex justify-center py-3">
-            <h2 className="text-sm md:text-xl md:font-medium">Order Details</h2>
+            <h2 className="text-xl md:font-medium">Order Details</h2>
           </div>
           <OrderTable/>
         </div>

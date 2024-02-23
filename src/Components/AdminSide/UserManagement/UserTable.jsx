@@ -234,12 +234,12 @@ export default function UserTable() {
                 </TableCell>
                 <TableCell align="center">
                   {row.Status ? (
-                    <button className="bg-green-400 px-3 py-1 rounded-md">
+                    <button className="bg-green-400/90 px-2 py-1 rounded-full">
                       Active
                     </button>
                   ) : (
-                    <button className="bg-red-400 px-3 py-1 rounded-md" onClick={()=>handleBlock(row.Si_no)}>
-                      Active
+                    <button className="bg-red-400/80 px-3 py-1 rounded-full" onClick={()=>handleBlock(row.Si_no)}>
+                      Blocked
                     </button>
                   )}
                 </TableCell>

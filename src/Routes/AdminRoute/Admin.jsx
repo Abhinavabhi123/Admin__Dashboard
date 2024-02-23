@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { AdminDashboard, AdminLogin, UserManagement } from "../../Pages";
+import { AdminDashboard, AdminLogin, OrderPage, UserManagement } from "../../Pages";
 import AdminLayout from "../../Layouts/AdminLayout";
 import ProductRoute from "./ProductRoute";
 
@@ -12,6 +12,7 @@ export default function Admin() {
           <Route path="/dashboard" element={<AdminDashboard />} />
           <Route path="/customer" element={<UserManagement />} />
           <Route path="/product/*" element={<ProductRoute/>} />
+          <Route path="/orders" element={<OrderPage />} />
         </Route>
       </Routes>
     </div>

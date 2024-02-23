@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -17,6 +17,7 @@ import { IoMdClose } from "react-icons/io";
 import Swal from "sweetalert2";
 
 export default function UserTable() {
+    const inputRef = useRef(null)
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [data, setData] = useState([]);
   const [page, setPage] = useState(0);
@@ -54,8 +55,7 @@ export default function UserTable() {
     setData(sortedData);
   }
 
-  function handleDelete(id) {
-    console.log(id);
+  function handleDelete() {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -76,20 +76,27 @@ export default function UserTable() {
   }
 
   function handleSearch(e) {
-    if (e.target.value !== " ") {
-      setSearchValue(e.target.value);
-      let filteredData = userData.filter((row) => {
-        return Object.values(row).some((field) =>
-          String(field).toLowerCase().includes(e.target.value.toLowerCase())
-        );
-      });
-      setData(filteredData);
-    } else {
-      setPage(0);
-    }
+    const trimmedValue = e.target.value.trim();
+    setSearchValue(trimmedValue);
+    const filteredData = userData.filter((item) =>
+      Object.values(item).some(
+        (value) =>
+          typeof value === "string" &&
+          value.toLowerCase().includes(trimmedValue.toLowerCase())
+      )
+
+    );
+    setData(filteredData);
   }
 
-  function handleBlock(si){
+  function resetSearch() {
+    setSearchValue("");
+    inputRef.current.value = "";
+    handleSearch({ target: { value: "" } });
+  }
+
+  function handleBlock(){
+
     Swal.fire({
         title: "Are you sure?",
         text: "You want to block this User",
@@ -117,10 +124,11 @@ export default function UserTable() {
             type="text"
             placeholder="Search..."
             onChange={handleSearch}
+            ref={inputRef}
             className="focus:outline-none  text-sm py-1"
-            value={searchValue}
+            // defaultValue={searchValue}
           />
-          {searchValue && <IoMdClose size={20} className="cursor-pointer transition-all duration-700" />}
+          {searchValue && <IoMdClose size={20} className="cursor-pointer transition-all duration-700"  onClick={resetSearch} />}
         </div>
       </div>
       <TableContainer
@@ -220,7 +228,7 @@ export default function UserTable() {
                 <TableCell align="center">{row.orders}</TableCell>
                 <TableCell align="center">
                   <div className="flex justify-center items-center">
-                    <BsCurrencyDollar size={20} />
+                    <BsCurrencyDollar size={15} />
                     <p>{row.Total}</p>
                   </div>
                 </TableCell>

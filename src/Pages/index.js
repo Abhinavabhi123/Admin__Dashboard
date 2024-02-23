@@ -10,4 +10,5 @@ export {default as AdminLogin} from "./AdminPages/AdminLogin";
 export {default as AdminDashboard} from "./AdminPages/AdminDashboard";
 export {default as UserManagement} from "./AdminPages/UserManagement";
 export {default as CreateProduct} from "./AdminPages/Product/CreateProduct";
-export {default as ProductList} from "./AdminPages/Product/ProductList"
+export {default as ProductList} from "./AdminPages/Product/ProductList";
+export {default as OrderPage} from "./AdminPages/OrderPage"

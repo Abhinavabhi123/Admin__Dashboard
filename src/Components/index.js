@@ -12,3 +12,8 @@ export {default as DashboardSalesChart} from "./AdminSide/Dashboard/DashboardSal
 export {default as OrderChart} from "./AdminSide/Dashboard/OrderChart";
 export {default as DashboardOrderTable} from "./AdminSide/Dashboard/DashboardOrderTable";
 export {default as UserTable} from "./AdminSide/UserManagement/UserTable"
+
+// todo Order components
+export {default as OrderBarChart} from "./AdminSide/Orders/OrderBarChart"
+export {default as OrderDonutChart} from "./AdminSide/Orders/OrderDonutChart"
+export {default as OrderTable} from "./AdminSide/Orders/OrderTable"

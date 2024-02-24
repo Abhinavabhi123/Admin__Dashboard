@@ -16,9 +16,9 @@ export default function DashboardOrderTable() {
           </tr>
         </thead>
         <tbody className="w-full text-xs md:text-sm ">
-          {orderData.map((row) => (
+          {orderData.map((row,i) => (
             <tr
-              key={row}
+              key={i}
               className="h-12"
             >
               <td align="center">{row.Date}</td>

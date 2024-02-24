@@ -249,11 +249,11 @@ export default function OrderTable() {
                 <TableCell align="center">{row.Address}</TableCell>
                 <TableCell align="center">
                   {row.Status ? (
-                    <p className="w-fit px-2 text-sm rounded-md bg-green-400">
+                    <p className="w-fit px-2 text-xs rounded-md bg-green-400">
                       Delivered
                     </p>
                   ) : (
-                    <p className="w-fit text-sm px-2 rounded-md bg-orange-300">
+                    <p className="w-fit text-xs px-2 rounded-md bg-orange-300">
                       Pending
                     </p>
                   )}

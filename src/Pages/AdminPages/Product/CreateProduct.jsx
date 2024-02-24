@@ -129,6 +129,7 @@ export default function CreateProduct() {
       console.log(values);
       alert("Form submitted Successfully");
       resetForm();
+      localStorage.removeItem("Product Image");
       setSubmitting(true);
     },
   });

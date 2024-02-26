@@ -7,7 +7,7 @@ export const productData = [
   {
     Si_no: 1,
     Name: "Leone",
-    Image: "http://dummyimage.com/100x100.png/cc0000/ffffff",
+    Image: "https://dummyimage.com/100x100.png/cc0000/ffffff",
     Manufacturer: "Vernor",
     ProductId: "8583304718",
     Category: "Drilled Shafts",
@@ -29,7 +29,7 @@ export const productData = [
   {
     Si_no: 2,
     Name: "Ewen",
-    Image: "http://dummyimage.com/100x100.png/dddddd/000000",
+    Image: "https://dummyimage.com/100x100.png/dddddd/000000",
     Manufacturer: "Harcourt",
     ProductId: "8832954397",
     Category: "Masonry",
@@ -51,7 +51,7 @@ export const productData = [
   {
     Si_no: 3,
     Name: "Jeromy",
-    Image: "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    Image: "https://dummyimage.com/100x100.png/5fa2dd/ffffff",
     Manufacturer: "Blisse",
     ProductId: "6751486626",
     Category: "Framing (Steel)",
@@ -73,7 +73,7 @@ export const productData = [
   {
     Si_no: 4,
     Name: "Annmarie",
-    Image: "http://dummyimage.com/100x100.png/cc0000/ffffff",
+    Image: "https://dummyimage.com/100x100.png/cc0000/ffffff",
     Manufacturer: "Saleem",
     ProductId: "1402680570",
     Category: "Casework",
@@ -96,7 +96,7 @@ export const productData = [
   {
     Si_no: 5,
     Name: "Owen",
-    Image: "http://dummyimage.com/100x100.png/ff4444/ffffff",
+    Image: "https://dummyimage.com/100x100.png/ff4444/ffffff",
     Manufacturer: "Ralf",
     ProductId: "3475061015",
     Category: "Landscaping & Irrigation",
@@ -118,7 +118,7 @@ export const productData = [
   {
     Si_no: 6,
     Name: "Sallee",
-    Image: "http://dummyimage.com/100x100.png/dddddd/000000",
+    Image: "https://dummyimage.com/100x100.png/dddddd/000000",
     Manufacturer: "Crysta",
     ProductId: "3319617141",
     Category: "Framing (Wood)",
@@ -140,7 +140,7 @@ export const productData = [
   {
     Si_no: 7,
     Name: "Vittoria",
-    Image: "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    Image: "https://dummyimage.com/100x100.png/5fa2dd/ffffff",
     Manufacturer: "Nollie",
     ProductId: "2704049939",
     Category: "Electrical",
@@ -162,7 +162,7 @@ export const productData = [
   {
     Si_no: 8,
     Name: "Othilie",
-    Image: "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    Image: "https://dummyimage.com/100x100.png/5fa2dd/ffffff",
     Manufacturer: "Simona",
     ProductId: "3972325479",
     Category: "Soft Flooring and Base",
@@ -185,7 +185,7 @@ export const productData = [
   {
     Si_no: 9,
     Name: "Malynda",
-    Image: "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    Image: "https://dummyimage.com/100x100.png/5fa2dd/ffffff",
     Manufacturer: "Pavia",
     ProductId: "3172712435",
     Category: "Masonry & Precast",
@@ -207,7 +207,7 @@ export const productData = [
   {
     Si_no: 10,
     Name: "Barbey",
-    Image: "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    Image: "https://dummyimage.com/100x100.png/5fa2dd/ffffff",
     Manufacturer: "Worden",
     ProductId: "4772209069",
     Category: "Doors, Frames & Hardware",
@@ -229,7 +229,7 @@ export const productData = [
   {
     Si_no: 11,
     Name: "Ripley",
-    Image: "http://dummyimage.com/100x100.png/ff4444/ffffff",
+    Image: "https://dummyimage.com/100x100.png/ff4444/ffffff",
     Manufacturer: "Aguste",
     ProductId: "5276633045",
     Category: "Elevator",
@@ -251,7 +251,7 @@ export const productData = [
   {
     Si_no: 12,
     Name: "Izzy",
-    Image: "http://dummyimage.com/100x100.png/dddddd/000000",
+    Image: "https://dummyimage.com/100x100.png/dddddd/000000",
     Manufacturer: "Kathryne",
     ProductId: "6307142685",
     Category: "Overhead Doors",
@@ -273,7 +273,7 @@ export const productData = [
   {
     Si_no: 13,
     Name: "Hedwiga",
-    Image: "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    Image: "https://dummyimage.com/100x100.png/5fa2dd/ffffff",
     Manufacturer: "Micheil",
     ProductId: "1604711884",
     Category: "Fire Sprinkler System",
@@ -295,7 +295,7 @@ export const productData = [
   {
     Si_no: 14,
     Name: "Clemente",
-    Image: "http://dummyimage.com/100x100.png/dddddd/000000",
+    Image: "https://dummyimage.com/100x100.png/dddddd/000000",
     Manufacturer: "Gherardo",
     ProductId: "1094514721",
     Category: "Structural & Misc Steel Erection",
@@ -317,7 +317,7 @@ export const productData = [
   {
     Si_no: 15,
     Name: "Casie",
-    Image: "http://dummyimage.com/100x100.png/dddddd/000000",
+    Image: "https://dummyimage.com/100x100.png/dddddd/000000",
     Manufacturer: "Dinah",
     ProductId: "6089946575",
     Category: "Roofing (Asphalt)",
@@ -339,7 +339,7 @@ export const productData = [
   {
     Si_no: 16,
     Name: "Alis",
-    Image: "http://dummyimage.com/100x100.png/ff4444/ffffff",
+    Image: "https://dummyimage.com/100x100.png/ff4444/ffffff",
     Manufacturer: "Jewell",
     ProductId: "0379232057",
     Category: "Epoxy Flooring",
@@ -362,7 +362,7 @@ export const productData = [
   {
     Si_no: 17,
     Name: "Hodge",
-    Image: "http://dummyimage.com/100x100.png/ff4444/ffffff",
+    Image: "https://dummyimage.com/100x100.png/ff4444/ffffff",
     Manufacturer: "Cherish",
     ProductId: "0508844711",
     Category: "Framing (Steel)",
@@ -384,7 +384,7 @@ export const productData = [
   {
     Si_no: 18,
     Name: "Dorian",
-    Image: "http://dummyimage.com/100x100.png/ff4444/ffffff",
+    Image: "https://dummyimage.com/100x100.png/ff4444/ffffff",
     Manufacturer: "Paolina",
     ProductId: "6529029672",
     Category: "Drilled Shafts",
@@ -406,7 +406,7 @@ export const productData = [
   {
     Si_no: 19,
     Name: "Betteann",
-    Image: "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    Image: "https://dummyimage.com/100x100.png/5fa2dd/ffffff",
     Manufacturer: "Ashlee",
     ProductId: "3396961846",
     Category: "Temp Fencing, Decorative Fencing and Gates",
@@ -428,7 +428,7 @@ export const productData = [
   {
     Si_no: 20,
     Name: "Brena",
-    Image: "http://dummyimage.com/100x100.png/ff4444/ffffff",
+    Image: "https://dummyimage.com/100x100.png/ff4444/ffffff",
     Manufacturer: "Jacquette",
     ProductId: "3687126943",
     Category: "Rebar & Wire Mesh Install",
@@ -450,7 +450,7 @@ export const productData = [
   {
     Si_no: 21,
     Name: "Eloisa",
-    Image: "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    Image: "https://dummyimage.com/100x100.png/5fa2dd/ffffff",
     Manufacturer: "Wyatan",
     ProductId: "3466407435",
     Category: "Termite Control",
@@ -472,7 +472,7 @@ export const productData = [
   {
     Si_no: 22,
     Name: "Marie",
-    Image: "http://dummyimage.com/100x100.png/ff4444/ffffff",
+    Image: "https://dummyimage.com/100x100.png/ff4444/ffffff",
     Manufacturer: "Dareen",
     ProductId: "0964370611",
     Category: "Wall Protection",
@@ -494,7 +494,7 @@ export const productData = [
   {
     Si_no: 23,
     Name: "Licha",
-    Image: "http://dummyimage.com/100x100.png/ff4444/ffffff",
+    Image: "https://dummyimage.com/100x100.png/ff4444/ffffff",
     Manufacturer: "Justinn",
     ProductId: "2873078588",
     Category: "Granite Surfaces",
@@ -516,7 +516,7 @@ export const productData = [
   {
     Si_no: 24,
     Name: "Bonnie",
-    Image: "http://dummyimage.com/100x100.png/ff4444/ffffff",
+    Image: "https://dummyimage.com/100x100.png/ff4444/ffffff",
     Manufacturer: "Fran",
     ProductId: "5548779907",
     Category: "HVAC",
@@ -538,7 +538,7 @@ export const productData = [
   {
     Si_no: 25,
     Name: "Dawn",
-    Image: "http://dummyimage.com/100x100.png/ff4444/ffffff",
+    Image: "https://dummyimage.com/100x100.png/ff4444/ffffff",
     Manufacturer: "Atalanta",
     ProductId: "8855781316",
     Category: "Hard Tile & Stone",
@@ -560,7 +560,7 @@ export const productData = [
   {
     Si_no: 26,
     Name: "Neils",
-    Image: "http://dummyimage.com/100x100.png/cc0000/ffffff",
+    Image: "https://dummyimage.com/100x100.png/cc0000/ffffff",
     Manufacturer: "Leonelle",
     ProductId: "9882653782",
     Category: "Sitework & Site Utilities",
@@ -582,7 +582,7 @@ export const productData = [
   {
     Si_no: 27,
     Name: "Marcos",
-    Image: "http://dummyimage.com/100x100.png/cc0000/ffffff",
+    Image: "https://dummyimage.com/100x100.png/cc0000/ffffff",
     Manufacturer: "Winifred",
     ProductId: "0164442030",
     Category: "Roofing (Metal)",
@@ -604,7 +604,7 @@ export const productData = [
   {
     Si_no: 28,
     Name: "Gerty",
-    Image: "http://dummyimage.com/100x100.png/dddddd/000000",
+    Image: "https://dummyimage.com/100x100.png/dddddd/000000",
     Manufacturer: "Anabelle",
     ProductId: "3641516374",
     Category: "EIFS",
@@ -627,7 +627,7 @@ export const productData = [
   {
     Si_no: 29,
     Name: "Gaby",
-    Image: "http://dummyimage.com/100x100.png/cc0000/ffffff",
+    Image: "https://dummyimage.com/100x100.png/cc0000/ffffff",
     Manufacturer: "Filip",
     ProductId: "7438362426",
     Category: "Glass & Glazing",
@@ -649,7 +649,7 @@ export const productData = [
   {
     Si_no: 30,
     Name: "Jolene",
-    Image: "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    Image: "https://dummyimage.com/100x100.png/5fa2dd/ffffff",
     Manufacturer: "Ania",
     ProductId: "0814870767",
     Category: "Doors, Frames & Hardware",
@@ -671,7 +671,7 @@ export const productData = [
   {
     Si_no: 31,
     Name: "Andre",
-    Image: "http://dummyimage.com/100x100.png/dddddd/000000",
+    Image: "https://dummyimage.com/100x100.png/dddddd/000000",
     Manufacturer: "Aila",
     ProductId: "6776742499",
     Category: "Electrical and Fire Alarm",
@@ -693,7 +693,7 @@ export const productData = [
   {
     Si_no: 32,
     Name: "Frank",
-    Image: "http://dummyimage.com/100x100.png/cc0000/ffffff",
+    Image: "https://dummyimage.com/100x100.png/cc0000/ffffff",
     Manufacturer: "Pennie",
     ProductId: "5678094998",
     Category: "Asphalt Paving",
@@ -715,7 +715,7 @@ export const productData = [
   {
     Si_no: 33,
     Name: "Bondie",
-    Image: "http://dummyimage.com/100x100.png/cc0000/ffffff",
+    Image: "https://dummyimage.com/100x100.png/cc0000/ffffff",
     Manufacturer: "Sukey",
     ProductId: "5229628553",
     Category: "Construction Clean and Final Clean",
@@ -737,7 +737,7 @@ export const productData = [
   {
     Si_no: 34,
     Name: "Chelsey",
-    Image: "http://dummyimage.com/100x100.png/cc0000/ffffff",
+    Image: "https://dummyimage.com/100x100.png/cc0000/ffffff",
     Manufacturer: "Emmalynne",
     ProductId: "6541698317",
     Category: "Prefabricated Aluminum Metal Canopies",
@@ -759,7 +759,7 @@ export const productData = [
   {
     Si_no: 35,
     Name: "Jacinda",
-    Image: "http://dummyimage.com/100x100.png/dddddd/000000",
+    Image: "https://dummyimage.com/100x100.png/dddddd/000000",
     Manufacturer: "Hanson",
     ProductId: "9736820467",
     Category: "Structural and Misc Steel (Fabrication)",
@@ -781,7 +781,7 @@ export const productData = [
   {
     Si_no: 36,
     Name: "Bentlee",
-    Image: "http://dummyimage.com/100x100.png/cc0000/ffffff",
+    Image: "https://dummyimage.com/100x100.png/cc0000/ffffff",
     Manufacturer: "Nikolaus",
     ProductId: "4431712631",
     Category: "Structural & Misc Steel Erection",
@@ -803,7 +803,7 @@ export const productData = [
   {
     Si_no: 37,
     Name: "Fredia",
-    Image: "http://dummyimage.com/100x100.png/dddddd/000000",
+    Image: "https://dummyimage.com/100x100.png/dddddd/000000",
     Manufacturer: "Colan",
     ProductId: "5117184157",
     Category: "Soft Flooring and Base",
@@ -825,7 +825,7 @@ export const productData = [
   {
     Si_no: 38,
     Name: "Lynnell",
-    Image: "http://dummyimage.com/100x100.png/dddddd/000000",
+    Image: "https://dummyimage.com/100x100.png/dddddd/000000",
     Manufacturer: "Alvie",
     ProductId: "8594651562",
     Category: "Site Furnishings",
@@ -847,7 +847,7 @@ export const productData = [
   {
     Si_no: 39,
     Name: "Rebekkah",
-    Image: "http://dummyimage.com/100x100.png/dddddd/000000",
+    Image: "https://dummyimage.com/100x100.png/dddddd/000000",
     Manufacturer: "Karissa",
     ProductId: "9715319378",
     Category: "Painting & Vinyl Wall Covering",
@@ -869,7 +869,7 @@ export const productData = [
   {
     Si_no: 40,
     Name: "Georgia",
-    Image: "http://dummyimage.com/100x100.png/ff4444/ffffff",
+    Image: "https://dummyimage.com/100x100.png/ff4444/ffffff",
     Manufacturer: "Giusto",
     ProductId: "0260562491",
     Category: "EIFS",
@@ -891,7 +891,7 @@ export const productData = [
   {
     Si_no: 41,
     Name: "Merv",
-    Image: "http://dummyimage.com/100x100.png/ff4444/ffffff",
+    Image: "https://dummyimage.com/100x100.png/ff4444/ffffff",
     Manufacturer: "Alan",
     ProductId: "8182149983",
     Category: "Waterproofing & Caulking",
@@ -913,7 +913,7 @@ export const productData = [
   {
     Si_no: 42,
     Name: "Walker",
-    Image: "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    Image: "https://dummyimage.com/100x100.png/5fa2dd/ffffff",
     Manufacturer: "Chevalier",
     ProductId: "4382437040",
     Category: "Masonry",
@@ -935,7 +935,7 @@ export const productData = [
   {
     Si_no: 43,
     Name: "Pasquale",
-    Image: "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    Image: "https://dummyimage.com/100x100.png/5fa2dd/ffffff",
     Manufacturer: "Cale",
     ProductId: "7712031851",
     Category: "Sitework & Site Utilities",
@@ -957,7 +957,7 @@ export const productData = [
   {
     Si_no: 44,
     Name: "Carny",
-    Image: "http://dummyimage.com/100x100.png/ff4444/ffffff",
+    Image: "https://dummyimage.com/100x100.png/ff4444/ffffff",
     Manufacturer: "Kirsteni",
     ProductId: "8834533909",
     Category: "Rebar & Wire Mesh Install",
@@ -979,7 +979,7 @@ export const productData = [
   {
     Si_no: 45,
     Name: "Lynda",
-    Image: "http://dummyimage.com/100x100.png/cc0000/ffffff",
+    Image: "https://dummyimage.com/100x100.png/cc0000/ffffff",
     Manufacturer: "Celka",
     ProductId: "1760200506",
     Category: "Roofing (Asphalt)",
@@ -1001,7 +1001,7 @@ export const productData = [
   {
     Si_no: 46,
     Name: "Aubert",
-    Image: "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    Image: "https://dummyimage.com/100x100.png/5fa2dd/ffffff",
     Manufacturer: "Ninon",
     ProductId: "0842353291",
     Category: "Casework",
@@ -1023,7 +1023,7 @@ export const productData = [
   {
     Si_no: 47,
     Name: "Evered",
-    Image: "http://dummyimage.com/100x100.png/ff4444/ffffff",
+    Image: "https://dummyimage.com/100x100.png/ff4444/ffffff",
     Manufacturer: "Adelheid",
     ProductId: "6759000196",
     Category: "Roofing (Metal)",
@@ -1045,7 +1045,7 @@ export const productData = [
   {
     Si_no: 48,
     Name: "Fin",
-    Image: "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    Image: "https://dummyimage.com/100x100.png/5fa2dd/ffffff",
     Manufacturer: "Vergil",
     ProductId: "6255823601",
     Category: "Retaining Wall and Brick Pavers",
@@ -1068,7 +1068,7 @@ export const productData = [
   {
     Si_no: 49,
     Name: "Trip",
-    Image: "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    Image: "https://dummyimage.com/100x100.png/5fa2dd/ffffff",
     Manufacturer: "Chrisy",
     ProductId: "9973823826",
     Category: "Glass & Glazing",
@@ -1090,7 +1090,7 @@ export const productData = [
   {
     Si_no: 50,
     Name: "Judith",
-    Image: "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    Image: "https://dummyimage.com/100x100.png/5fa2dd/ffffff",
     Manufacturer: "Rriocard",
     ProductId: "9312262203",
     Category: "Exterior Signage",
@@ -1115,64 +1115,64 @@ export const productData = [
 export const orderData = [
   {
     Date: "2/15/2024",
-    ProductImage: "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    ProductImage: "https://dummyimage.com/100x100.png/5fa2dd/ffffff",
     Product: "Garlic ",
     Name: "Amos",
-    Image: "http://dummyimage.com/232x100.png/ff4444/ffffff",
+    Image: "https://dummyimage.com/232x100.png/ff4444/ffffff",
     Price: "9",
     Details: "PO Box 10251",
   },
   {
     Date: "12/6/2023",
-    ProductImage: "http://dummyimage.com/100x100.png/cc0000/ffffff",
+    ProductImage: "https://dummyimage.com/100x100.png/cc0000/ffffff",
     Product: "Beef ",
     Name: "Daune",
-    Image: "http://dummyimage.com/118x100.png/dddddd/000000",
+    Image: "https://dummyimage.com/118x100.png/dddddd/000000",
     Price: "4",
     Details: "20th Floor",
   },
   {
     Date: "7/23/2023",
-    ProductImage: "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    ProductImage: "https://dummyimage.com/100x100.png/5fa2dd/ffffff",
     Product: "Chicken ",
     Name: "Stanislaus",
-    Image: "http://dummyimage.com/215x100.png/dddddd/000000",
+    Image: "https://dummyimage.com/215x100.png/dddddd/000000",
     Price: "75",
     Details: "Apt 1228",
   },
   {
     Date: "7/5/2023",
-    ProductImage: "http://dummyimage.com/100x100.png/ff4444/ffffff",
+    ProductImage: "https://dummyimage.com/100x100.png/ff4444/ffffff",
     Product: "Cucumber",
     Name: "Stanislas",
-    Image: "http://dummyimage.com/156x100.png/ff4444/ffffff",
+    Image: "https://dummyimage.com/156x100.png/ff4444/ffffff",
     Price: "80",
     Details: "Room 1886",
   },
   {
     Date: "6/1/2023",
-    ProductImage: "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    ProductImage: "https://dummyimage.com/100x100.png/5fa2dd/ffffff",
     Product: "Leeks",
     Name: "Katrine",
-    Image: "http://dummyimage.com/198x100.png/cc0000/ffffff",
+    Image: "https://dummyimage.com/198x100.png/cc0000/ffffff",
     Price: "271",
     Details: "Apt 25",
   },
   {
     Date: "11/21/2023",
-    ProductImage: "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    ProductImage: "https://dummyimage.com/100x100.png/5fa2dd/ffffff",
     Product: "Rice Paper",
     Name: "Siana",
-    Image: "http://dummyimage.com/115x100.png/ff4444/ffffff",
+    Image: "https://dummyimage.com/115x100.png/ff4444/ffffff",
     Price: "794",
     Details: "Room 1570",
   },
   {
     Date: "7/24/2023",
-    ProductImage: "http://dummyimage.com/100x100.png/ff4444/ffffff",
+    ProductImage: "https://dummyimage.com/100x100.png/ff4444/ffffff",
     Product: "Wine ",
     Name: "Chico",
-    Image: "http://dummyimage.com/192x100.png/dddddd/000000",
+    Image: "https://dummyimage.com/192x100.png/dddddd/000000",
     Price: "29",
     Details: "Room 1572",
   },
@@ -1182,31 +1182,31 @@ export const orderData = [
 
 export const purchased = [
   {
-    ProductImage: "http://dummyimage.com/100x100.png/cc0000/ffffff",
+    ProductImage: "https://dummyimage.com/100x100.png/cc0000/ffffff",
     Name: "Coffee Cup ",
     Price: "63",
     Earnings: "5",
   },
   {
-    ProductImage: "http://dummyimage.com/100x100.png/cc0000/ffffff",
+    ProductImage: "https://dummyimage.com/100x100.png/cc0000/ffffff",
     Name: "Muffin Mix ",
     Price: "76666",
     Earnings: "46466",
   },
   {
-    ProductImage: "http://dummyimage.com/100x100.png/dddddd/000000",
+    ProductImage: "https://dummyimage.com/100x100.png/dddddd/000000",
     Name: "Beef ",
     Price: "5",
     Earnings: "2535",
   },
   {
-    ProductImage: "http://dummyimage.com/100x100.png/ff4444/ffffff",
+    ProductImage: "https://dummyimage.com/100x100.png/ff4444/ffffff",
     Name: "Arizona ",
     Price: "9",
     Earnings: "3",
   },
   {
-    ProductImage: "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    ProductImage: "https://dummyimage.com/100x100.png/5fa2dd/ffffff",
     Name: "Puree ",
     Price: "49879",
     Earnings: "671",
@@ -1216,7 +1216,7 @@ export const purchased = [
 export const userData = [
   {
     Si_no: 1,
-    Image: "http://dummyimage.com/211x100.png/cc0000/ffffff",
+    Image: "https://dummyimage.com/211x100.png/cc0000/ffffff",
     Name: "Jeramey",
     Total: 893,
     Status: false,
@@ -1224,7 +1224,7 @@ export const userData = [
   },
   {
     Si_no: 2,
-    Image: "http://dummyimage.com/107x100.png/ff4444/ffffff",
+    Image: "https://dummyimage.com/107x100.png/ff4444/ffffff",
     Name: "Francene",
     Total: 19780,
     Status: false,
@@ -1232,7 +1232,7 @@ export const userData = [
   },
   {
     Si_no: 3,
-    Image: "http://dummyimage.com/194x100.png/cc0000/ffffff",
+    Image: "https://dummyimage.com/194x100.png/cc0000/ffffff",
     Name: "Elmer",
     Total: 5,
     Status: true,
@@ -1240,7 +1240,7 @@ export const userData = [
   },
   {
     Si_no: 4,
-    Image: "http://dummyimage.com/205x100.png/cc0000/ffffff",
+    Image: "https://dummyimage.com/205x100.png/cc0000/ffffff",
     Name: "Felicle",
     Total: 274,
     Status: false,
@@ -1248,7 +1248,7 @@ export const userData = [
   },
   {
     Si_no: 5,
-    Image: "http://dummyimage.com/145x100.png/5fa2dd/ffffff",
+    Image: "https://dummyimage.com/145x100.png/5fa2dd/ffffff",
     Name: "Jinny",
     Total: 30,
     Status: false,
@@ -1256,7 +1256,7 @@ export const userData = [
   },
   {
     Si_no: 6,
-    Image: "http://dummyimage.com/146x100.png/cc0000/ffffff",
+    Image: "https://dummyimage.com/146x100.png/cc0000/ffffff",
     Name: "Haily",
     Total: 132,
     Status: true,
@@ -1264,7 +1264,7 @@ export const userData = [
   },
   {
     Si_no: 7,
-    Image: "http://dummyimage.com/161x100.png/ff4444/ffffff",
+    Image: "https://dummyimage.com/161x100.png/ff4444/ffffff",
     Name: "Humbert",
     Total: 357,
     Status: false,
@@ -1272,7 +1272,7 @@ export const userData = [
   },
   {
     Si_no: 8,
-    Image: "http://dummyimage.com/126x100.png/ff4444/ffffff",
+    Image: "https://dummyimage.com/126x100.png/ff4444/ffffff",
     Name: "Ericka",
     Total: 3837,
     Status: false,
@@ -1280,7 +1280,7 @@ export const userData = [
   },
   {
     Si_no: 9,
-    Image: "http://dummyimage.com/178x100.png/ff4444/ffffff",
+    Image: "https://dummyimage.com/178x100.png/ff4444/ffffff",
     Name: "Julee",
     Total: 85545,
     Status: false,
@@ -1288,7 +1288,7 @@ export const userData = [
   },
   {
     Si_no: 10,
-    Image: "http://dummyimage.com/250x100.png/5fa2dd/ffffff",
+    Image: "https://dummyimage.com/250x100.png/5fa2dd/ffffff",
     Name: "Sibley",
     Total: 35,
     Status: false,
@@ -1296,7 +1296,7 @@ export const userData = [
   },
   {
     Si_no: 11,
-    Image: "http://dummyimage.com/155x100.png/5fa2dd/ffffff",
+    Image: "https://dummyimage.com/155x100.png/5fa2dd/ffffff",
     Name: "Gussie",
     Total: 52,
     Status: true,
@@ -1304,7 +1304,7 @@ export const userData = [
   },
   {
     Si_no: 12,
-    Image: "http://dummyimage.com/215x100.png/5fa2dd/ffffff",
+    Image: "https://dummyimage.com/215x100.png/5fa2dd/ffffff",
     Name: "Harlin",
     Total: 77,
     Status: false,
@@ -1312,7 +1312,7 @@ export const userData = [
   },
   {
     Si_no: 13,
-    Image: "http://dummyimage.com/105x100.png/dddddd/000000",
+    Image: "https://dummyimage.com/105x100.png/dddddd/000000",
     Name: "Bibbye",
     Total: 9009,
     Status: false,
@@ -1320,7 +1320,7 @@ export const userData = [
   },
   {
     Si_no: 14,
-    Image: "http://dummyimage.com/118x100.png/5fa2dd/ffffff",
+    Image: "https://dummyimage.com/118x100.png/5fa2dd/ffffff",
     Name: "Madelina",
     Total: 4,
     Status: false,
@@ -1328,7 +1328,7 @@ export const userData = [
   },
   {
     Si_no: 15,
-    Image: "http://dummyimage.com/141x100.png/ff4444/ffffff",
+    Image: "https://dummyimage.com/141x100.png/ff4444/ffffff",
     Name: "Scarlett",
     Total: 4,
     Status: false,
@@ -1336,7 +1336,7 @@ export const userData = [
   },
   {
     Si_no: 16,
-    Image: "http://dummyimage.com/226x100.png/ff4444/ffffff",
+    Image: "https://dummyimage.com/226x100.png/ff4444/ffffff",
     Name: "Lilias",
     Total: 25603,
     Status: true,
@@ -1344,7 +1344,7 @@ export const userData = [
   },
   {
     Si_no: 17,
-    Image: "http://dummyimage.com/203x100.png/cc0000/ffffff",
+    Image: "https://dummyimage.com/203x100.png/cc0000/ffffff",
     Name: "Midge",
     Total: 23211,
     Status: true,
@@ -1352,7 +1352,7 @@ export const userData = [
   },
   {
     Si_no: 18,
-    Image: "http://dummyimage.com/150x100.png/dddddd/000000",
+    Image: "https://dummyimage.com/150x100.png/dddddd/000000",
     Name: "Flore",
     Total: 26760,
     Status: true,
@@ -1360,7 +1360,7 @@ export const userData = [
   },
   {
     Si_no: 19,
-    Image: "http://dummyimage.com/141x100.png/dddddd/000000",
+    Image: "https://dummyimage.com/141x100.png/dddddd/000000",
     Name: "Derk",
     Total: 7,
     Status: false,
@@ -1368,7 +1368,7 @@ export const userData = [
   },
   {
     Si_no: 20,
-    Image: "http://dummyimage.com/150x100.png/5fa2dd/ffffff",
+    Image: "https://dummyimage.com/150x100.png/5fa2dd/ffffff",
     Name: "Jerrine",
     Total: 6261,
     Status: false,
@@ -1376,7 +1376,7 @@ export const userData = [
   },
   {
     Si_no: 21,
-    Image: "http://dummyimage.com/136x100.png/dddddd/000000",
+    Image: "https://dummyimage.com/136x100.png/dddddd/000000",
     Name: "Loretta",
     Total: 6248,
     Status: true,
@@ -1384,7 +1384,7 @@ export const userData = [
   },
   {
     Si_no: 22,
-    Image: "http://dummyimage.com/211x100.png/cc0000/ffffff",
+    Image: "https://dummyimage.com/211x100.png/cc0000/ffffff",
     Name: "Felicle",
     Total: 732,
     Status: true,
@@ -1392,7 +1392,7 @@ export const userData = [
   },
   {
     Si_no: 23,
-    Image: "http://dummyimage.com/106x100.png/ff4444/ffffff",
+    Image: "https://dummyimage.com/106x100.png/ff4444/ffffff",
     Name: "Emelina",
     Total: 875,
     Status: true,
@@ -1400,7 +1400,7 @@ export const userData = [
   },
   {
     Si_no: 24,
-    Image: "http://dummyimage.com/204x100.png/dddddd/000000",
+    Image: "https://dummyimage.com/204x100.png/dddddd/000000",
     Name: "Curran",
     Total: 5127,
     Status: true,
@@ -1408,7 +1408,7 @@ export const userData = [
   },
   {
     Si_no: 25,
-    Image: "http://dummyimage.com/227x100.png/ff4444/ffffff",
+    Image: "https://dummyimage.com/227x100.png/ff4444/ffffff",
     Name: "Nikolia",
     Total: 95,
     Status: true,
@@ -1416,7 +1416,7 @@ export const userData = [
   },
   {
     Si_no: 26,
-    Image: "http://dummyimage.com/222x100.png/5fa2dd/ffffff",
+    Image: "https://dummyimage.com/222x100.png/5fa2dd/ffffff",
     Name: "Clara",
     Total: 7,
     Status: true,
@@ -1424,7 +1424,7 @@ export const userData = [
   },
   {
     Si_no: 27,
-    Image: "http://dummyimage.com/178x100.png/ff4444/ffffff",
+    Image: "https://dummyimage.com/178x100.png/ff4444/ffffff",
     Name: "Danell",
     Total: 8,
     Status: true,
@@ -1432,7 +1432,7 @@ export const userData = [
   },
   {
     Si_no: 28,
-    Image: "http://dummyimage.com/185x100.png/5fa2dd/ffffff",
+    Image: "https://dummyimage.com/185x100.png/5fa2dd/ffffff",
     Name: "Lou",
     Total: 9,
     Status: true,
@@ -1440,7 +1440,7 @@ export const userData = [
   },
   {
     Si_no: 29,
-    Image: "http://dummyimage.com/147x100.png/cc0000/ffffff",
+    Image: "https://dummyimage.com/147x100.png/cc0000/ffffff",
     Name: "Chryste",
     Total: 5007,
     Status: true,
@@ -1448,7 +1448,7 @@ export const userData = [
   },
   {
     Si_no: 30,
-    Image: "http://dummyimage.com/192x100.png/cc0000/ffffff",
+    Image: "https://dummyimage.com/192x100.png/cc0000/ffffff",
     Name: "Moyna",
     Total: 55543,
     Status: true,
@@ -1461,7 +1461,7 @@ export const orderDatas=[{
   "Si_no": 1,
   "Order_Id": "9739",
   "Customer_Name": "Misti",
-  "Image": "http://dummyimage.com/151x100.png/dddddd/000000",
+  "Image": "https://dummyimage.com/151x100.png/dddddd/000000",
   "Total": "16",
   "Address": "53531 Saint Paul Road",
   "Status": true
@@ -1469,7 +1469,7 @@ export const orderDatas=[{
   "Si_no": 2,
   "Order_Id": "3",
   "Customer_Name": "Barbaraanne",
-  "Image": "http://dummyimage.com/188x100.png/dddddd/000000",
+  "Image": "https://dummyimage.com/188x100.png/dddddd/000000",
   "Total": "8462",
   "Address": "319 Monument Junction",
   "Status": false
@@ -1477,7 +1477,7 @@ export const orderDatas=[{
   "Si_no": 3,
   "Order_Id": "507",
   "Customer_Name": "Tann",
-  "Image": "http://dummyimage.com/104x100.png/cc0000/ffffff",
+  "Image": "https://dummyimage.com/104x100.png/cc0000/ffffff",
   "Total": "04",
   "Address": "29094 Butterfield Park",
   "Status": false
@@ -1485,7 +1485,7 @@ export const orderDatas=[{
   "Si_no": 4,
   "Order_Id": "03528",
   "Customer_Name": "Berk",
-  "Image": "http://dummyimage.com/231x100.png/5fa2dd/ffffff",
+  "Image": "https://dummyimage.com/231x100.png/5fa2dd/ffffff",
   "Total": "66293",
   "Address": "02731 Pond Road",
   "Status": false
@@ -1493,7 +1493,7 @@ export const orderDatas=[{
   "Si_no": 5,
   "Order_Id": "0366",
   "Customer_Name": "Petey",
-  "Image": "http://dummyimage.com/129x100.png/5fa2dd/ffffff",
+  "Image": "https://dummyimage.com/129x100.png/5fa2dd/ffffff",
   "Total": "604",
   "Address": "15451 Donald Plaza",
   "Status": true
@@ -1501,7 +1501,7 @@ export const orderDatas=[{
   "Si_no": 6,
   "Order_Id": "5",
   "Customer_Name": "Slade",
-  "Image": "http://dummyimage.com/110x100.png/5fa2dd/ffffff",
+  "Image": "https://dummyimage.com/110x100.png/5fa2dd/ffffff",
   "Total": "4728",
   "Address": "72 Stoughton Street",
   "Status": false
@@ -1509,7 +1509,7 @@ export const orderDatas=[{
   "Si_no": 7,
   "Order_Id": "11",
   "Customer_Name": "Cariotta",
-  "Image": "http://dummyimage.com/133x100.png/dddddd/000000",
+  "Image": "https://dummyimage.com/133x100.png/dddddd/000000",
   "Total": "9548",
   "Address": "744 Oak Valley Place",
   "Status": true
@@ -1517,7 +1517,7 @@ export const orderDatas=[{
   "Si_no": 8,
   "Order_Id": "67",
   "Customer_Name": "Isobel",
-  "Image": "http://dummyimage.com/234x100.png/dddddd/000000",
+  "Image": "https://dummyimage.com/234x100.png/dddddd/000000",
   "Total": "0",
   "Address": "80 Maple Court",
   "Status": true
@@ -1525,7 +1525,7 @@ export const orderDatas=[{
   "Si_no": 9,
   "Order_Id": "2",
   "Customer_Name": "Grissel",
-  "Image": "http://dummyimage.com/131x100.png/ff4444/ffffff",
+  "Image": "https://dummyimage.com/131x100.png/ff4444/ffffff",
   "Total": "14",
   "Address": "1218 Emmet Pass",
   "Status": true
@@ -1533,7 +1533,7 @@ export const orderDatas=[{
   "Si_no": 10,
   "Order_Id": "90",
   "Customer_Name": "Nev",
-  "Image": "http://dummyimage.com/123x100.png/5fa2dd/ffffff",
+  "Image": "https://dummyimage.com/123x100.png/5fa2dd/ffffff",
   "Total": "36113",
   "Address": "0628 Fair Oaks Plaza",
   "Status": true
@@ -1541,7 +1541,7 @@ export const orderDatas=[{
   "Si_no": 11,
   "Order_Id": "03435",
   "Customer_Name": "Prisca",
-  "Image": "http://dummyimage.com/138x100.png/ff4444/ffffff",
+  "Image": "https://dummyimage.com/138x100.png/ff4444/ffffff",
   "Total": "0",
   "Address": "30900 Ruskin Pass",
   "Status": true
@@ -1549,7 +1549,7 @@ export const orderDatas=[{
   "Si_no": 12,
   "Order_Id": "3257",
   "Customer_Name": "Hayley",
-  "Image": "http://dummyimage.com/170x100.png/dddddd/000000",
+  "Image": "https://dummyimage.com/170x100.png/dddddd/000000",
   "Total": "5",
   "Address": "1 Clyde Gallagher Center",
   "Status": false
@@ -1557,7 +1557,7 @@ export const orderDatas=[{
   "Si_no": 13,
   "Order_Id": "86",
   "Customer_Name": "Eula",
-  "Image": "http://dummyimage.com/143x100.png/ff4444/ffffff",
+  "Image": "https://dummyimage.com/143x100.png/ff4444/ffffff",
   "Total": "21",
   "Address": "1 Emmet Drive",
   "Status": false
@@ -1565,7 +1565,7 @@ export const orderDatas=[{
   "Si_no": 14,
   "Order_Id": "37",
   "Customer_Name": "Patric",
-  "Image": "http://dummyimage.com/245x100.png/cc0000/ffffff",
+  "Image": "https://dummyimage.com/245x100.png/cc0000/ffffff",
   "Total": "1",
   "Address": "7144 Melody Junction",
   "Status": false
@@ -1573,7 +1573,7 @@ export const orderDatas=[{
   "Si_no": 15,
   "Order_Id": "34164",
   "Customer_Name": "Rosabella",
-  "Image": "http://dummyimage.com/172x100.png/5fa2dd/ffffff",
+  "Image": "https://dummyimage.com/172x100.png/5fa2dd/ffffff",
   "Total": "1179",
   "Address": "0942 Orin Terrace",
   "Status": false
@@ -1581,7 +1581,7 @@ export const orderDatas=[{
   "Si_no": 16,
   "Order_Id": "3438",
   "Customer_Name": "Ode",
-  "Image": "http://dummyimage.com/125x100.png/dddddd/000000",
+  "Image": "https://dummyimage.com/125x100.png/dddddd/000000",
   "Total": "240",
   "Address": "4 Sloan Avenue",
   "Status": false
@@ -1589,7 +1589,7 @@ export const orderDatas=[{
   "Si_no": 17,
   "Order_Id": "43020",
   "Customer_Name": "Cyndy",
-  "Image": "http://dummyimage.com/163x100.png/dddddd/000000",
+  "Image": "https://dummyimage.com/163x100.png/dddddd/000000",
   "Total": "63",
   "Address": "1295 Brickson Park Park",
   "Status": true
@@ -1597,7 +1597,7 @@ export const orderDatas=[{
   "Si_no": 18,
   "Order_Id": "1475",
   "Customer_Name": "Margarita",
-  "Image": "http://dummyimage.com/182x100.png/dddddd/000000",
+  "Image": "https://dummyimage.com/182x100.png/dddddd/000000",
   "Total": "9684",
   "Address": "16070 Eastwood Road",
   "Status": false
@@ -1605,7 +1605,7 @@ export const orderDatas=[{
   "Si_no": 19,
   "Order_Id": "1221",
   "Customer_Name": "Martie",
-  "Image": "http://dummyimage.com/237x100.png/5fa2dd/ffffff",
+  "Image": "https://dummyimage.com/237x100.png/5fa2dd/ffffff",
   "Total": "93",
   "Address": "53806 Steensland Place",
   "Status": false
@@ -1613,7 +1613,7 @@ export const orderDatas=[{
   "Si_no": 20,
   "Order_Id": "110",
   "Customer_Name": "Nickolai",
-  "Image": "http://dummyimage.com/173x100.png/ff4444/ffffff",
+  "Image": "https://dummyimage.com/173x100.png/ff4444/ffffff",
   "Total": "931",
   "Address": "83 6th Way",
   "Status": true
@@ -1621,7 +1621,7 @@ export const orderDatas=[{
   "Si_no": 21,
   "Order_Id": "1647",
   "Customer_Name": "Marve",
-  "Image": "http://dummyimage.com/203x100.png/ff4444/ffffff",
+  "Image": "https://dummyimage.com/203x100.png/ff4444/ffffff",
   "Total": "928",
   "Address": "356 Cambridge Center",
   "Status": false
@@ -1629,7 +1629,7 @@ export const orderDatas=[{
   "Si_no": 22,
   "Order_Id": "30",
   "Customer_Name": "Tove",
-  "Image": "http://dummyimage.com/204x100.png/cc0000/ffffff",
+  "Image": "https://dummyimage.com/204x100.png/cc0000/ffffff",
   "Total": "37",
   "Address": "5148 Darwin Drive",
   "Status": false
@@ -1637,7 +1637,7 @@ export const orderDatas=[{
   "Si_no": 23,
   "Order_Id": "9",
   "Customer_Name": "Shina",
-  "Image": "http://dummyimage.com/233x100.png/dddddd/000000",
+  "Image": "https://dummyimage.com/233x100.png/dddddd/000000",
   "Total": "91",
   "Address": "0943 Caliangt Alley",
   "Status": false
@@ -1645,7 +1645,7 @@ export const orderDatas=[{
   "Si_no": 24,
   "Order_Id": "3",
   "Customer_Name": "Sidney",
-  "Image": "http://dummyimage.com/116x100.png/ff4444/ffffff",
+  "Image": "https://dummyimage.com/116x100.png/ff4444/ffffff",
   "Total": "5443",
   "Address": "1 Claremont Pass",
   "Status": true
@@ -1653,7 +1653,7 @@ export const orderDatas=[{
   "Si_no": 25,
   "Order_Id": "53",
   "Customer_Name": "Corenda",
-  "Image": "http://dummyimage.com/211x100.png/cc0000/ffffff",
+  "Image": "https://dummyimage.com/211x100.png/cc0000/ffffff",
   "Total": "431",
   "Address": "2433 Vahlen Circle",
   "Status": false
@@ -1661,7 +1661,7 @@ export const orderDatas=[{
   "Si_no": 26,
   "Order_Id": "6549",
   "Customer_Name": "Cassy",
-  "Image": "http://dummyimage.com/201x100.png/ff4444/ffffff",
+  "Image": "https://dummyimage.com/201x100.png/ff4444/ffffff",
   "Total": "8",
   "Address": "76 Pankratz Court",
   "Status": false
@@ -1669,7 +1669,7 @@ export const orderDatas=[{
   "Si_no": 27,
   "Order_Id": "43",
   "Customer_Name": "Allix",
-  "Image": "http://dummyimage.com/247x100.png/dddddd/000000",
+  "Image": "https://dummyimage.com/247x100.png/dddddd/000000",
   "Total": "59",
   "Address": "565 Loeprich Place",
   "Status": false
@@ -1677,7 +1677,7 @@ export const orderDatas=[{
   "Si_no": 28,
   "Order_Id": "4727",
   "Customer_Name": "Bertina",
-  "Image": "http://dummyimage.com/156x100.png/5fa2dd/ffffff",
+  "Image": "https://dummyimage.com/156x100.png/5fa2dd/ffffff",
   "Total": "8503",
   "Address": "44565 East Terrace",
   "Status": false
@@ -1685,7 +1685,7 @@ export const orderDatas=[{
   "Si_no": 29,
   "Order_Id": "83",
   "Customer_Name": "Chen",
-  "Image": "http://dummyimage.com/149x100.png/cc0000/ffffff",
+  "Image": "https://dummyimage.com/149x100.png/cc0000/ffffff",
   "Total": "709",
   "Address": "07 Saint Paul Hill",
   "Status": true
@@ -1693,7 +1693,7 @@ export const orderDatas=[{
   "Si_no": 30,
   "Order_Id": "7088",
   "Customer_Name": "Dagmar",
-  "Image": "http://dummyimage.com/137x100.png/5fa2dd/ffffff",
+  "Image": "https://dummyimage.com/137x100.png/5fa2dd/ffffff",
   "Total": "8947",
   "Address": "297 Carberry Center",
   "Status": false

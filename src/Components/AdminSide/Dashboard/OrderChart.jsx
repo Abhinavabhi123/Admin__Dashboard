@@ -47,17 +47,11 @@ export default function OrderChart() {
       ],
     };
     chart.setOption(option);
-  }, []);
-  useEffect(() => {
-    const chart = echarts.init(document.getElementById("myChart"));
-    const option = {
-      /* chart options */
-    };
-    chart.setOption(option);
     return () => {
       chart.dispose(); // Clean up chart instance
     };
   }, []);
+
 
   return (
     <div className="w-full h-full flex flex-col justify-center items-center">

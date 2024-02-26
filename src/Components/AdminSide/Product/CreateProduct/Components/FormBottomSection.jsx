@@ -42,12 +42,13 @@ export default function FormBottomSection() {
     "blockquote",
     "list",
     "bullet",
-    "indent",
+    // "indent",
+    "ordered",
     "link",
     "image",
-    "video",
-    "code-block",
-    "undo",
+    // "video",
+    // "code-block",
+    // "undo",
   ];
   
   const status=[
@@ -60,7 +61,6 @@ export default function FormBottomSection() {
       label: "Inactive",
     },
   ];
-
   return (
     <div className="w-fill  md:min-h-[30rem]  bg-transparent flex flex-col md:flex-row gap-4">
       {/* Left section */}

@@ -20,6 +20,7 @@ export default function CreateProductImage() {
   const [localStorageImage, setLocalStorageImage] = useState([]);
   const [error, setError] = useState("");
   const [uploading, setUploading] = useState(false);
+  const [isTabVisible, setIsTabVisible] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
@@ -42,6 +43,20 @@ export default function CreateProductImage() {
     }
   }, [error, files, setFieldValue]);
 
+ 
+
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      setIsTabVisible(!document.hidden);
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, []);
+
   useEffect(() => {
     const localData = localStorage.getItem("Product Image");
     if (localData) {
@@ -51,9 +66,10 @@ export default function CreateProductImage() {
           await deleteUploadedImage({ fileNames: [item] });
         })
       );
+      setFiles([])
       localStorage.removeItem("Product Image");
     }
-  }, []);
+  }, [isTabVisible]);
 
   const { getRootProps, getInputProps } = useDropzone({
     // accept: "image/*",

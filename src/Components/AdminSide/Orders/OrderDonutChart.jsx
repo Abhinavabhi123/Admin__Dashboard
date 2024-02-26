@@ -47,13 +47,6 @@ export default function OrderDonutChart() {
       ],
     };
     chart.setOption(option);
-  }, []);
-  useEffect(() => {
-    const chart = echarts.init(document.getElementById("myChart"));
-    const option = {
-      /* chart options */
-    };
-    chart.setOption(option);
     return () => {
       chart.dispose(); // Clean up chart instance
     };

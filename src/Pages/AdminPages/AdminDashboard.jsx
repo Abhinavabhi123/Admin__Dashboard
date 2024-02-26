@@ -60,7 +60,6 @@ export default function AdminDashboard() {
   ];
 
   const handleMenuClick = (e) => {
-    console.log(items[parseInt(e.key)], "eeee");
     setClickValue(items[e.key].label);
   };
   const menuProps = {
@@ -113,7 +112,7 @@ export default function AdminDashboard() {
           <div>
             <p className="text-sm">Total 2450 Orders </p>
           </div>
-          <div className="w-full">
+          <div className="w-full  overscroll-x-auto">
             <DashboardOrderTable />
           </div>
         </div>

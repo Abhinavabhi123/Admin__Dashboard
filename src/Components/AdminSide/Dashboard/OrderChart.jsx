@@ -2,8 +2,10 @@ import * as echarts from "echarts";
 import { useEffect } from "react";
 
 export default function OrderChart() {
+
   useEffect(() => {
     const chart = echarts.init(document.getElementById("myChart"));
+    
     const option = {
       tooltip: {
         trigger: "item",
@@ -47,8 +49,9 @@ export default function OrderChart() {
       ],
     };
     chart.setOption(option);
+   
     return () => {
-      chart.dispose(); // Clean up chart instance
+      chart.dispose(); 
     };
   }, []);
 

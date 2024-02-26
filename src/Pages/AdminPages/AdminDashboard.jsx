@@ -113,7 +113,7 @@ export default function AdminDashboard() {
           <div>
             <p className="text-sm">Total 2450 Orders </p>
           </div>
-          <div className="w-full  overscroll-x-auto">
+          <div className="w-full">
             <DashboardOrderTable />
           </div>
         </div>

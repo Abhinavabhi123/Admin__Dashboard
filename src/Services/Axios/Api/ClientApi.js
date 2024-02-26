@@ -10,7 +10,6 @@ export const productImageUpload = (data) => {
 };
 
 export const deleteUploadedImage=(data)=>{
-  console.log(data,"data");
   return axiosInstance.delete("/DeleteImages",{
     headers:{
       Token: import.meta.env.VITE_TOKEN,

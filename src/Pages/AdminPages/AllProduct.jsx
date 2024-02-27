@@ -53,7 +53,7 @@ export default function AllProduct() {
           next={fetchData}
           hasMore={true}
           loader={
-            <div className="w-full flex justify-center bg-red-300">
+            <div className="w-screen flex justify-center">
               Loading...
             </div>
           }

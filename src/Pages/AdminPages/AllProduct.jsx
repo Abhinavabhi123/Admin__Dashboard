@@ -53,9 +53,9 @@ export default function AllProduct() {
           next={fetchData}
           hasMore={true}
           loader={
-            <div className="w-screen flex justify-center">
+            <p>
               Loading...
-            </div>
+            </p>
           }
           className="w-full h-full bg-transparent grid grid-cols-5 gap-4"
         >

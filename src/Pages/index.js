@@ -12,3 +12,4 @@ export {default as UserManagement} from "./AdminPages/UserManagement";
 export {default as CreateProduct} from "./AdminPages/Product/CreateProduct";
 export {default as ProductList} from "./AdminPages/Product/ProductList";
 export {default as OrderPage} from "./AdminPages/OrderPage"
+export {default as AllProduct} from "./AdminPages/AllProduct"

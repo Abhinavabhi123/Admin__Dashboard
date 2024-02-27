@@ -11,6 +11,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
 import { IoClose, IoList } from "react-icons/io5";
 import { IoMdAdd } from "react-icons/io";
+import { AiFillTags } from "react-icons/ai";
 
 export default function SideLayout(Props) {
   const location =
@@ -179,6 +180,12 @@ export default function SideLayout(Props) {
             icon={<FaRegChartBar size={20} className="list_icon" />}
             title="Sales"
             path="sales"
+          />
+          <List
+            url={"e-cart"}
+            icon={<AiFillTags size={25} className="list_icon" color="yellow" />}
+            title="All Products"
+            path="e-cart"
           />
         <div
           className="w-full flex items-center  gap-2 p-5  cursor-pointer"
